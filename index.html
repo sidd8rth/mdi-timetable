@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDI PGDM Term-IV · My Timetable</title>
+<style>
+  :root{
+    --bg:#f4f6fb; --panel:#ffffff; --panel2:#eef1f7; --line:#e1e6ef;
+    --txt:#1b2030; --muted:#697086; --accent:#3b6fe0; --accent2:#7c4dff;
+    --good:#16a34a; --bad:#e11d48; --warn:#d97706;
+    --radius:14px; --shadow:0 8px 28px rgba(40,55,90,.10);
+  }
+  [data-theme="dark"]{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1d212b; --line:#2a2f3a;
+    --txt:#e7eaf0; --muted:#9aa3b2; --accent:#6ea8fe; --accent2:#8b5cf6;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:radial-gradient(1100px 560px at 85% -10%,rgba(124,77,255,.10) 0,var(--bg) 55%);
+    color:var(--txt); min-height:100vh; line-height:1.45;
+  }
+  [data-theme="dark"] body{background:radial-gradient(1200px 600px at 80% -10%,#1b2030 0,var(--bg) 55%)}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px 18px 90px}
+  a{color:var(--accent)}
+
+  header.top{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+  header.top .htext{display:flex;flex-direction:column;gap:5px}
+  .kicker{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:clamp(1.4rem,3vw,2rem);margin:0;font-weight:800;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:.9rem}
+  .theme-btn{margin-left:auto;flex:none;background:var(--panel);border:1px solid var(--line);color:var(--txt);
+    width:40px;height:40px;border-radius:11px;cursor:pointer;font-size:1.1rem;box-shadow:var(--shadow)}
+
+  /* top nav tabs */
+  .nav{display:flex;gap:6px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:5px;margin-bottom:22px}
+  .nav button{flex:1;background:none;border:none;color:var(--muted);padding:11px 8px;font-size:.9rem;font-weight:700;cursor:pointer;border-radius:9px;display:flex;align-items:center;justify-content:center;gap:7px}
+  .nav button.on{background:var(--panel);color:var(--txt);box-shadow:var(--shadow)}
+  .nav .dot{display:inline-block;min-width:18px;height:18px;line-height:18px;border-radius:9px;background:var(--accent);color:#fff;font-size:.7rem;font-weight:800}
+
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .panel + .panel{margin-top:16px}
+  label.fld{display:block;font-size:.8rem;color:var(--muted);margin-bottom:8px;font-weight:600}
+
+  .search-box{position:relative}
+  input[type=text],input[type=email],input[type=password]{
+    width:100%;padding:13px 15px;font-size:1.02rem;border-radius:11px;
+    border:1px solid var(--line);background:var(--bg);color:var(--txt);outline:none;
+  }
+  input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,111,224,.16)}
+  .results{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--panel);
+    border:1px solid var(--line);border-radius:11px;max-height:320px;overflow:auto;box-shadow:var(--shadow);display:none;z-index:30}
+  .results.open{display:block}
+  .result{padding:11px 15px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}
+  .result:last-child{border-bottom:none}
+  .result:hover,.result.active{background:rgba(59,111,224,.12)}
+  .result .roll{color:var(--muted);font-size:.82rem;font-variant-numeric:tabular-nums}
+  .result em{font-style:normal;color:var(--accent);font-weight:800}
+  .empty-res{padding:14px 15px;color:var(--muted);font-size:.9rem}
+
+  .student-bar{display:none;align-items:center;flex-wrap:wrap;gap:12px;margin:20px 0 6px}
+  .student-bar.show{display:flex}
+  .avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;flex:none;
+    background:linear-gradient(135deg,var(--accent),var(--accent2))}
+  .student-name{font-size:1.22rem;font-weight:800}
+  .student-meta{color:var(--muted);font-size:.85rem}
+  .count-pill{margin-left:auto;background:var(--panel2);border:1px solid var(--line);padding:7px 13px;border-radius:999px;font-size:.82rem;color:var(--muted)}
+
+  .toggle{display:inline-flex;background:var(--panel2);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0}
+  .toggle button{background:none;border:none;color:var(--muted);padding:9px 16px;font-size:.85rem;font-weight:700;cursor:pointer}
+  .toggle button.on{background:var(--accent);color:#fff}
+
+  .gridwrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow)}
+  table.tt{border-collapse:collapse;width:100%;min-width:760px}
+  table.tt th,table.tt td{border:1px solid var(--line);padding:0;vertical-align:top}
+  table.tt thead th{background:var(--panel2);padding:11px 10px;font-size:.82rem;font-weight:700}
+  table.tt .timecol{background:var(--panel2);width:96px;padding:10px;font-size:.74rem;color:var(--muted);font-weight:600;white-space:nowrap}
+  table.tt .slotnum{display:block;color:var(--txt);font-size:.95rem;font-weight:800;margin-bottom:2px}
+  td.cell{height:70px;padding:6px}
+  td.cell.free{background:repeating-linear-gradient(45deg,transparent,transparent 7px,rgba(120,130,160,.06) 7px,rgba(120,130,160,.06) 14px)}
+  .cls{border-radius:9px;padding:7px 9px;height:100%;display:flex;flex-direction:column;gap:2px;border-left:4px solid var(--c)}
+  .cls .ab{font-weight:800;font-size:.9rem}
+  .cls .rm{font-size:.74rem;color:var(--muted)}
+  .cls.mini{padding:5px 7px}
+  .cls.mini .ab{font-size:.78rem}
+  .allfree{display:flex;align-items:center;justify-content:center;height:100%;color:var(--good);font-weight:700;font-size:.78rem;gap:5px}
+
+  .agenda{display:none;flex-direction:column;gap:16px}
+  .day-block{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .day-head{padding:11px 16px;background:var(--panel2);font-weight:800;font-size:.95rem;display:flex;justify-content:space-between}
+  .day-head .n{color:var(--muted);font-weight:600;font-size:.82rem}
+  .ag-item{display:flex;gap:14px;padding:13px 16px;border-top:1px solid var(--line);align-items:center}
+  .ag-time{width:78px;flex:none;font-size:.78rem;color:var(--muted);font-weight:600}
+  .ag-bar{width:4px;align-self:stretch;border-radius:3px;background:var(--c)}
+  .ag-main .t{font-weight:700}
+  .ag-main .s{font-size:.8rem;color:var(--muted)}
+  .ag-room{margin-left:auto;font-size:.8rem;color:var(--muted);text-align:right}
+  .day-empty{padding:16px;color:var(--muted);font-size:.86rem}
+
+  .legend{margin-top:24px}
+  .legend h3,.section-h{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 12px}
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+  .lg{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:11px 13px;box-shadow:var(--shadow)}
+  .swatch{width:14px;height:14px;border-radius:4px;flex:none;margin-top:3px;background:var(--c)}
+  .lg .ab{font-weight:800;font-size:.84rem}
+  .lg .nm{font-size:.82rem}
+  .lg .fac{font-size:.76rem;color:var(--muted)}
+
+  /* friends */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 12px;font-size:.86rem;font-weight:600}
+  .chip .pdot{width:11px;height:11px;border-radius:50%;background:var(--c)}
+  .chip button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.05rem;line-height:1;padding:2px 4px;border-radius:6px}
+  .chip button:hover{color:var(--bad)}
+  .hint{color:var(--muted);font-size:.85rem;margin-top:10px}
+  .people-key{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+  .pk{display:inline-flex;align-items:center;gap:7px;font-size:.84rem;font-weight:600}
+  .pk .pdot{width:12px;height:12px;border-radius:50%;background:var(--c)}
+  .who{font-size:.72rem;font-weight:700;color:var(--c);display:flex;justify-content:space-between;gap:6px}
+  .who .rm2{color:var(--muted);font-weight:500}
+
+  /* attendance */
+  .att-course{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+  .att-head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
+  .att-head .ab{font-weight:800}
+  .att-head .nm{font-size:.82rem;color:var(--muted)}
+  .att-pct{margin-left:auto;text-align:right;font-weight:800}
+  .att-pct small{display:block;font-weight:600;color:var(--muted);font-size:.72rem}
+  .bar{height:7px;border-radius:5px;background:var(--panel2);overflow:hidden;margin:0 16px}
+  .bar > i{display:block;height:100%;background:var(--good)}
+  .att-sessions{display:none;padding:6px 16px 14px;flex-direction:column;gap:6px}
+  .att-sessions.open{display:flex}
+  .sess{display:flex;align-items:center;gap:10px;font-size:.85rem;padding:6px 0;border-top:1px solid var(--line)}
+  .sess .dt{width:120px;color:var(--muted)}
+  .sess .sp{flex:1;color:var(--muted);font-size:.78rem}
+  .sess .marks{display:flex;gap:5px}
+  .mk{border:1px solid var(--line);background:var(--panel2);color:var(--muted);border-radius:7px;padding:4px 9px;cursor:pointer;font-size:.76rem;font-weight:700}
+  .mk.p.on{background:var(--good);color:#fff;border-color:transparent}
+  .mk.a.on{background:var(--bad);color:#fff;border-color:transparent}
+  .mk.c.on{background:var(--muted);color:#fff;border-color:transparent}
+
+  .auth-box{display:flex;flex-direction:column;gap:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:11px;padding:12px 16px;font-size:.95rem;font-weight:700;cursor:pointer}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-google{background:#fff;color:#202124;border:1px solid #dadce0}
+  .btn-ghost{background:var(--panel2);color:var(--txt);border:1px solid var(--line)}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .divider{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.78rem;margin:4px 0}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+  .banner{background:rgba(217,119,6,.12);border:1px solid rgba(217,119,6,.35);color:var(--warn);border-radius:11px;padding:11px 14px;font-size:.84rem;margin-bottom:16px}
+  .err{color:var(--bad);font-size:.84rem;min-height:1em}
+
+  .placeholder{margin-top:36px;text-align:center;color:var(--muted)}
+  .placeholder svg{opacity:.5;margin-bottom:10px}
+  footer{margin-top:46px;color:var(--muted);font-size:.78rem;text-align:center;line-height:1.7}
+  .hidden{display:none !important}
+  @media(max-width:560px){.wrap{padding:18px 12px 70px}td.cell{height:60px}.sess .dt{width:96px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="htext">
+      <span class="kicker">MDI Gurgaon · PGDM 2025-27</span>
+      <h1>My Timetable — Term IV</h1>
+      <span class="sub">June 15 – September 6, 2026 · personal schedule, friends &amp; attendance.</span>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Toggle light/dark">🌙</button>
+  </header>
+
+  <nav class="nav" id="nav">
+    <button data-tab="timetable" class="on">📅 Timetable</button>
+    <button data-tab="friends">👥 Friends <span class="dot hidden" id="friendCount">0</span></button>
+    <button data-tab="attendance">✅ Attendance</button>
+  </nav>
+
+  <!-- ============ TIMETABLE TAB ============ -->
+  <section id="tab-timetable">
+    <div class="panel">
+      <label class="fld" for="q">Find your name or roll number</label>
+      <div class="search-box">
+        <input id="q" type="text" autocomplete="off" placeholder="e.g. Abhinandan or 25P001…" />
+        <div id="results" class="results"></div>
+      </div>
+    </div>
+
+    <div id="studentBar" class="student-bar">
+      <div class="avatar" id="avatar">?</div>
+      <div>
+        <div class="student-name" id="sName">—</div>
+        <div class="student-meta" id="sMeta"></div>
+      </div>
+      <div class="count-pill" id="countPill"></div>
+    </div>
+
+    <div id="viewToggle" class="toggle" style="display:none">
+      <button data-v="grid" class="on">Weekly grid</button>
+      <button data-v="agenda">Day by day</button>
+    </div>
+
+    <div id="gridView" class="gridwrap" style="display:none">
+      <table class="tt"><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+    </div>
+    <div id="agendaView" class="agenda"></div>
+
+    <div id="legend" class="legend" style="display:none">
+      <h3>Your courses</h3>
+      <div class="legend-grid" id="legendGrid"></div>
+    </div>
+
+    <div id="placeholder" class="placeholder">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+      <div>Search above to load your timetable.</div>
+    </div>
+  </section>
+
+  <!-- ============ FRIENDS TAB ============ -->
+  <section id="tab-friends" class="hidden">
+    <div class="panel">
+      <label class="fld" for="qf">Add a friend (up to 5) — by name or roll</label>
+      <div class="search-box">
+        <input id="qf" type="text" autocomplete="off" placeholder="Type a classmate's name…" />
+        <div id="resultsF" class="results"></div>
+      </div>
+      <div class="chips" id="friendChips"></div>
+      <div class="hint" id="friendsHint"></div>
+    </div>
+    <div id="compareWrap" style="margin-top:18px"></div>
+  </section>
+
+  <!-- ============ ATTENDANCE TAB ============ -->
+  <section id="tab-attendance" class="hidden">
+    <div id="att-banner"></div>
+    <div id="att-auth"></div>
+    <div id="att-body"></div>
+  </section>
+
+  <footer>
+    Built from the official Term-IV time table &amp; course-wise student lists ·
+    sections, rooms &amp; faculty shown as scheduled.<br>
+    Always verify against official notices.
+  </footer>
+</div>
+
+<script src="data.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

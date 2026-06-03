@@ -1,0 +1,7 @@
+# local preview / tooling
+.claude/
+.DS_Store
+
+# python
+__pycache__/
+*.pyc
