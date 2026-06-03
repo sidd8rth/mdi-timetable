@@ -78,6 +78,9 @@ Spark plan, which is plenty for a class. One-time setup (~10 min):
          return request.auth != null
            && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
        }
+       function myRoll() {
+         return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roll;
+       }
        match /users/{uid} {
          // a student reads only their own doc; an admin can read any
          allow get:  if request.auth != null && (request.auth.uid == uid || isAdmin());
@@ -89,6 +92,23 @@ Spark plan, which is plenty for a class. One-time setup (~10 min):
            && request.resource.data.get('role', '') == '';
          allow update: if request.auth != null && request.auth.uid == uid && emailOk()
            && request.resource.data.get('role', '') == resource.data.get('role', '');
+       }
+       // shared squads: members tracked by roll; you can only see one you're in
+       match /squads/{squadId} {
+         allow read:   if request.auth != null && myRoll() in resource.data.participants;
+         allow create: if request.auth != null
+           && request.resource.data.ownerUid == request.auth.uid
+           && request.resource.data.ownerRoll == myRoll()
+           && request.resource.data.participants.hasAll([myRoll()])
+           && request.resource.data.status[myRoll()] == 'member';
+         allow delete: if request.auth != null && resource.data.ownerUid == request.auth.uid;
+         // owner may edit freely; a member may only change THEIR OWN status (accept/decline/leave)
+         allow update: if request.auth != null && (
+             resource.data.ownerUid == request.auth.uid
+             || ( myRoll() in resource.data.participants
+                  && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status'])
+                  && request.resource.data.status.diff(resource.data.status).affectedKeys().hasOnly([myRoll()]) )
+         );
        }
      }
    }

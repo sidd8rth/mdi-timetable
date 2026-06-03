@@ -275,34 +275,107 @@ function renderFriends(){
   renderCompare();
 }
 
-// ---- squads: save / load named friend groups ----
+// ---- squads (shared & DB-backed when signed in; device-local otherwise) ----
+let cloudSquads=[], cloudSquadErr=null;
+const squadHint = t => { const h=$("squadHint"); if(h) h.textContent=t||""; };
 function saveSquads(){ localStorage.setItem("tt_squads", JSON.stringify(squads)); }
+
+async function fetchCloudSquads(){
+  cloudSquadErr=null;
+  if(!(ATT.cloud && ATT.user && ATT.meRoll)){ cloudSquads=[]; return; }
+  try{
+    const {collection,query,where,getDocs}=ATT.fb;
+    const snap=await withTimeout(getDocs(query(collection(ATT.db,"squads"), where("participants","array-contains",ATT.meRoll))),12000);
+    cloudSquads=snap.docs.map(d=>({id:d.id,...d.data()}));
+  }catch(e){ cloudSquadErr=e.message; console.error("[squads] fetch failed:",e.code||"",e.message); cloudSquads=[]; }
+}
+
 function renderSquads(){
   const el=$("squadChips"); if(!el) return;
+  const lbl=$("squadPanel").querySelector("label.fld");
+
+  // ----- signed-in: shared squads -----
+  if(ATT.cloud && ATT.user && ATT.meRoll){
+    lbl.textContent="Squads — shared groups; invite classmates and they'll see it once they accept";
+    const mine=cloudSquads.filter(s=>s.status && s.status[ATT.meRoll]==="member");
+    const invites=cloudSquads.filter(s=>s.status && s.status[ATT.meRoll]==="invited");
+    let html="";
+    if(cloudSquadErr) html+=`<div class="err" style="margin-bottom:8px">Couldn't load squads: ${esc(cloudSquadErr)} — publish the squad rules (README).</div>`;
+    if(mine.length){
+      html+=`<div class="row" style="margin-bottom:8px">
+        <select id="squadSelect" class="squadsel"><option value="">Load a squad…</option>
+        ${mine.map(s=>`<option value="${s.id}">${esc(s.name)} · ${s.participants.length} people</option>`).join("")}</select>
+        <button class="btn btn-ghost btn-sm" id="squadLeave">Leave / Delete</button></div>`;
+    } else if(!cloudSquadErr){
+      html+=`<div class="hint" style="margin:0 0 8px">No squads yet. Add friends above, name it, then “Save squad” to invite them.</div>`;
+    }
+    if(invites.length){
+      html+=`<div class="section-h" style="margin:10px 0 8px">Pending invites</div>`+
+        invites.map(s=>`<div class="row" style="margin-bottom:6px;justify-content:space-between">
+          <span>👥 <b>${esc(s.name)}</b> · from ${esc((D.students[s.ownerRoll]||{}).name||s.ownerRoll)} · ${s.participants.length} people</span>
+          <span class="row"><button class="btn btn-primary btn-sm sq-accept" data-id="${s.id}">Accept</button>
+          <button class="btn btn-ghost btn-sm sq-decline" data-id="${s.id}">Decline</button></span></div>`).join("");
+    }
+    el.innerHTML=html;
+    squadHint(mine.length?"Pick a squad to load everyone into the compare view below.":"");
+    if($("squadSelect")) $("squadSelect").onchange=()=>{ const s=cloudSquads.find(x=>x.id===$("squadSelect").value); if(s) loadSquadMembers(s); };
+    if($("squadLeave")) $("squadLeave").onclick=()=>{ const sel=$("squadSelect"); const s=sel&&cloudSquads.find(x=>x.id===sel.value); if(!s){squadHint("Pick a squad first.");return;} (s.ownerUid===ATT.user.uid?deleteCloudSquad(s.id):leaveCloudSquad(s.id)); };
+    el.querySelectorAll(".sq-accept").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"member"));
+    el.querySelectorAll(".sq-decline").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"declined"));
+    return;
+  }
+
+  // ----- signed-out: device-local squads -----
+  lbl.textContent="Squads — save your current friends as a group (this device). Sign in to share squads.";
   el.innerHTML = squads.map((s,i)=>
     `<span class="chip"><button class="sq-load" data-i="${i}" style="background:none;border:none;cursor:pointer;font:inherit;font-weight:700;color:inherit;display:inline-flex;align-items:center;gap:6px">👥 ${esc(s.name)} · ${s.members.length}</button><button class="sq-del" data-i="${i}" title="Delete squad">×</button></span>`
   ).join("");
-  $("squadHint").textContent = squads.length
-    ? "Tap a squad to load it into your friends list."
-    : "No saved squads yet. Add friends above, then save them as a squad.";
+  squadHint(squads.length?"Tap a squad to load it into your friends list.":"No saved squads yet. Add friends above, then save them as a squad.");
   el.querySelectorAll(".sq-load").forEach(b=>b.onclick=()=>loadSquad(+b.dataset.i));
   el.querySelectorAll(".sq-del").forEach(b=>b.onclick=()=>deleteSquad(+b.dataset.i));
 }
-function saveSquad(){
+
+function loadSquadMembers(s){
+  friends = s.participants.filter(r=>r!==ATT.meRoll).slice(0,5).map(r=>({roll:r,name:(D.students[r]||{}).name||r}));
+  saveFriends(); renderFriends();
+}
+
+async function saveSquad(){
+  if(ATT.cloud && ATT.user && ATT.meRoll) return createCloudSquad();
   const name=$("squadName").value.trim();
-  if(!name){ $("squadHint").textContent="Enter a squad name first."; return; }
-  if(!friends.length){ $("squadHint").textContent="Add at least one friend before saving a squad."; return; }
+  if(!name){ squadHint("Enter a squad name first."); return; }
+  if(!friends.length){ squadHint("Add at least one friend before saving a squad."); return; }
   const squad={ name, members:friends.map(f=>({roll:f.roll,name:f.name})) };
   const i=squads.findIndex(s=>s.name.toLowerCase()===name.toLowerCase());
   if(i>=0) squads[i]=squad; else squads.push(squad);
   saveSquads(); $("squadName").value=""; renderSquads();
 }
-function loadSquad(i){
-  const s=squads[i]; if(!s) return;
-  friends = s.members.slice(0,5).map(m=>({roll:m.roll,name:m.name}));
-  saveFriends(); renderFriends();
-}
+function loadSquad(i){ const s=squads[i]; if(!s) return; friends=s.members.slice(0,5).map(m=>({roll:m.roll,name:m.name})); saveFriends(); renderFriends(); }
 function deleteSquad(i){ squads.splice(i,1); saveSquads(); renderSquads(); }
+
+async function createCloudSquad(){
+  const name=$("squadName").value.trim();
+  if(!name){ squadHint("Enter a squad name first."); return; }
+  if(!friends.length){ squadHint("Add friends above first — they'll be invited to the squad."); return; }
+  try{
+    const {addDoc,collection,serverTimestamp}=ATT.fb;
+    const others=friends.map(f=>f.roll).filter(r=>r!==ATT.meRoll);
+    const participants=[ATT.meRoll,...others];
+    const status={[ATT.meRoll]:"member"}; others.forEach(r=>status[r]="invited");
+    await withTimeout(addDoc(collection(ATT.db,"squads"),{name,ownerUid:ATT.user.uid,ownerRoll:ATT.meRoll,participants,status,createdAt:serverTimestamp()}));
+    $("squadName").value=""; await fetchCloudSquads(); renderSquads();
+    squadHint(`Squad “${name}” created — ${others.length} invite(s) sent.`);
+  }catch(e){ console.error("[squads] create",e.code,e.message); squadHint("Couldn't create squad: "+e.message+" (publish squad rules — see README)."); }
+}
+async function setMyStatus(id,st){
+  try{ const {doc,updateDoc}=ATT.fb; await withTimeout(updateDoc(doc(ATT.db,"squads",id),{["status."+ATT.meRoll]:st})); await fetchCloudSquads(); renderSquads(); }
+  catch(e){ console.error("[squads] status",e.code,e.message); squadHint("Couldn't update: "+e.message); }
+}
+function leaveCloudSquad(id){ return setMyStatus(id,"left"); }
+async function deleteCloudSquad(id){
+  try{ const {doc,deleteDoc}=ATT.fb; await withTimeout(deleteDoc(doc(ATT.db,"squads",id))); await fetchCloudSquads(); renderSquads(); }
+  catch(e){ console.error("[squads] delete",e.code,e.message); squadHint("Couldn't delete: "+e.message); }
+}
 
 function renderCompare(){
   const wrap=$("compareWrap");
@@ -429,6 +502,7 @@ async function initFirebase(){
       if(ATT.user) closeAuthModal();
       renderAcct();
       renderAttendance();
+      fetchCloudSquads().then(renderSquads);
       // reflect login on the timetable grid (marking controls / own schedule)
       if(u && ATT.meRoll && !currentRoll) selectStudent(ATT.meRoll);
       else refreshTimetable();
@@ -880,7 +954,7 @@ function showTab(name){
   document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===name));
   ["timetable","friends","attendance"].forEach(t=> $("tab-"+t).classList.toggle("hidden", t!==name));
   if(name==="timetable" && currentRoll) refreshTimetable();
-  if(name==="friends") renderFriends();
+  if(name==="friends"){ renderFriends(); if(ATT.cloud && ATT.user) fetchCloudSquads().then(renderSquads); }
   if(name==="attendance") renderAttendance();
 }
 document.querySelectorAll("#nav button").forEach(b=> b.addEventListener("click", ()=>showTab(b.dataset.tab)));
