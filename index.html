@@ -215,6 +215,14 @@
   .adm-detail td{background:var(--panel2);font-size:.82rem;color:var(--muted)}
   .adm-detail .cc{display:inline-block;margin:3px 8px 3px 0}
 
+  /* unsaved attendance bar */
+  .savebar{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:90;display:flex;align-items:center;gap:12px;
+    background:var(--panel-solid);border:1px solid var(--line);border-radius:14px;padding:10px 12px 10px 16px;box-shadow:var(--shadow-lg);animation:rise .25s ease both}
+  .savebar.hidden{display:none}
+  .savebar .sb-dot{width:9px;height:9px;border-radius:50%;background:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn) 22%,transparent)}
+  .savebar .sb-txt{font-size:.86rem;font-weight:700}
+  @media(max-width:520px){.savebar{left:12px;right:12px;transform:none;bottom:12px;justify-content:flex-end}.savebar .sb-txt{margin-right:auto}}
+
   /* sign-in modal */
   .modal-overlay{position:fixed;inset:0;background:rgba(15,20,30,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:100;padding:18px;animation:fade .2s ease}
   .modal-overlay.hidden{display:none}
@@ -351,6 +359,14 @@
     Built from the official Term-IV time table &amp; course-wise student lists.<br>
     Sections, rooms &amp; faculty shown as scheduled · always verify against official notices.
   </footer>
+</div>
+
+<!-- unsaved attendance bar -->
+<div id="saveBar" class="savebar hidden">
+  <span class="sb-dot"></span>
+  <span class="sb-txt">Unsaved attendance changes</span>
+  <button class="btn btn-ghost btn-sm" id="sbDiscard">Discard</button>
+  <button class="btn btn-primary btn-sm" id="sbSave">Save</button>
 </div>
 
 <!-- class-changes popup (on login) -->

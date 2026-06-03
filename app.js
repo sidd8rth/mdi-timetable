@@ -148,11 +148,11 @@ function renderGrid(ms){
 }
 
 // toggle one attendance mark and keep grid + agenda views in sync
-async function toggleMark(key, v){
+function toggleMark(key, v){
   ATT.data[key] = (ATT.data[key]===v) ? undefined : v;
   if(ATT.data[key]===undefined) delete ATT.data[key];
   if(currentRoll){ const ms=meetingsFor(currentRoll); renderGrid(ms); renderAgenda(ms); }
-  await saveAttendance();
+  setAttDirty();   // held until the user confirms save (on leave or via Save bar)
 }
 
 // ---- in-grid attendance marking helpers ----
@@ -555,6 +555,25 @@ async function saveAttendance(){
 }
 function loadLocalAttendance(){
   ATT.data = JSON.parse(localStorage.getItem("tt_att_"+(ATT.meRoll||"local"))||"{}");
+  markSnapshot();
+}
+
+// ---- pending attendance changes: save/discard with confirm-on-leave ----
+let attDirty=false, attSaved="{}";
+function markSnapshot(){ attSaved=JSON.stringify(ATT.data||{}); attDirty=false; updateSaveBar(); }
+function setAttDirty(){ attDirty=true; updateSaveBar(); }
+function updateSaveBar(){ const b=$("saveBar"); if(b) b.classList.toggle("hidden", !attDirty); }
+async function commitAttendance(){ await saveAttendance(); markSnapshot(); }
+function discardAttendance(){ ATT.data = JSON.parse(attSaved||"{}"); attDirty=false; updateSaveBar(); rerenderMarkingSurfaces(); }
+function rerenderMarkingSurfaces(){
+  if(currentRoll) refreshTimetable();
+  const at=$("tab-attendance"); if(at && !at.classList.contains("hidden")) renderAttendance();
+}
+// if there are unsaved marks, ask to save before leaving a marking page
+function confirmLeaveIfDirty(){
+  if(!attDirty) return;
+  if(window.confirm("You have unsaved attendance changes. Save them?")) commitAttendance();
+  else discardAttendance();
 }
 
 // ---- Firebase init (graceful) ----
@@ -597,6 +616,7 @@ async function initFirebase(){
           if(ATT.meRoll){ try{ await withTimeout(fs.setDoc(ATT.userRef,{enrolled:ckeysFor(ATT.meRoll)},{merge:true})); }catch(e){} }
         }catch(e){ ATT.cloudError = e.message; console.error("[firestore] read failed:", e.code||"", e.message); }
       } else { ATT.userRef=null; }
+      markSnapshot();
       if(ATT.user) closeAuthModal();
       renderAcct();
       renderAttendance();
@@ -821,7 +841,7 @@ function renderAttendanceBody(body){
 
   body.querySelectorAll(".att-head").forEach(h=> h.onclick = () =>
     h.parentElement.querySelector(".att-sessions").classList.toggle("open"));
-  body.querySelectorAll(".marks .mk").forEach(btn => btn.onclick = async e => {
+  body.querySelectorAll(".marks .mk").forEach(btn => btn.onclick = e => {
     e.stopPropagation();
     const marks=btn.parentElement, key=marks.dataset.key, v=btn.dataset.v;
     ATT.data[key] = (ATT.data[key]===v) ? undefined : v;
@@ -829,7 +849,7 @@ function renderAttendanceBody(body){
     // update only the affected buttons + this course's summary (keeps list open)
     marks.querySelectorAll(".mk").forEach(b=> b.classList.toggle("on", b.dataset.v===ATT.data[key]));
     updateCourseSummary(marks.closest(".att-course"));
-    await saveAttendance();
+    setAttDirty();   // held until the user confirms save (on leave or via Save bar)
   });
 }
 
@@ -1200,6 +1220,9 @@ async function persistLastSeen(){
 //  TABS + THEME + BOOT
 // ===========================================================================
 function showTab(name){
+  // leaving a marking page (timetable / attendance) with unsaved marks → ask to save
+  const active = ["timetable","friends","attendance"].find(t=>!$("tab-"+t).classList.contains("hidden"));
+  if(attDirty && active!==name && (active==="timetable" || active==="attendance")) confirmLeaveIfDirty();
   document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===name));
   ["timetable","friends","attendance","updates"].forEach(t=> $("tab-"+t).classList.toggle("hidden", t!==name));
   if(name==="timetable" && currentRoll) refreshTimetable();
@@ -1230,6 +1253,13 @@ document.addEventListener("keydown", e => { if(e.key==="Escape" && !$("authModal
 // squad controls
 $("saveSquad").onclick = saveSquad;
 $("squadName").addEventListener("keydown", e => { if(e.key==="Enter") saveSquad(); });
+
+// unsaved-attendance bar + leave-the-site guard
+$("sbSave").onclick = commitAttendance;
+$("sbDiscard").onclick = discardAttendance;
+window.addEventListener("beforeunload", e => {
+  if(attDirty){ saveAttendance(); e.preventDefault(); e.returnValue=""; }
+});
 
 // boot
 updateFriendBadge();
