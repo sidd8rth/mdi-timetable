@@ -77,6 +77,7 @@ function makeSearch(input, resultsEl, onPick, exclude=()=>false){
 //  TIMETABLE TAB
 // ===========================================================================
 let currentRoll = null;
+let markEnabled = false, markWeeks = [], markWeekIdx = 0;   // in-grid attendance marking
 
 makeSearch($("q"), $("results"), roll => selectStudent(roll));
 
@@ -96,7 +97,7 @@ function selectStudent(roll){
   $("sMeta").textContent = "Roll " + roll;
   const nc = new Set(s.courses.map(c=>c.course)).size;
   $("countPill").textContent = `${nc} courses · ${ms.length} sessions/week`;
-  renderGrid(ms); renderAgenda(ms); renderLegend(s.courses); setView(currentView);
+  renderMarkBar(); renderGrid(ms); renderAgenda(ms); renderLegend(s.courses); setView(currentView);
   if(compareInited) renderCompare();
 }
 
@@ -106,31 +107,115 @@ function renderGrid(ms){
     D.slots.map((slot,i)=>`<th><span class='slotnum'>Slot ${i+1}</span>${slot}</th>`).join("")+"</tr>";
   const idx={}; ms.forEach(m=>{(idx[m.day+"|"+m.slot] ??= []).push(m);});
   let rows="";
-  D.days.forEach(day=>{
+  D.days.forEach((day,di)=>{
     rows+=`<tr><td class='daycol'>${day}</td>`;
     D.slots.forEach((slot,si)=>{
       const here=idx[day+"|"+si];
       rows += here
-        ? "<td class='cell'>"+here.map(m=>{const col=colorFor(m.course);
-            return `<div class='cls' style='--c:${col};background:${col}1f'><span class='ab'>${clsLabel(m.course,m.section)}</span><span class='rm'>${esc(m.details)}</span></div>`;
+        ? "<td class='cell'>"+here.map(m=>{
+            const col=colorFor(m.course);
+            let markCls="", controls="";
+            if(markEnabled){
+              const key=attKey(m.course,m.section,fmtDate(dateForCell(di)),m.slot);
+              const st=ATT.data[key]||"";
+              markCls = st==="p"?" marked-p":st==="a"?" marked-a":"";
+              controls=`<span class='mkrow' data-key='${key}'>`+
+                `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
+                `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
+            }
+            return `<div class='cls${markCls}' style='--c:${col};background:${col}1f'><span class='ab'>${clsLabel(m.course,m.section)}</span><span class='rm'>${esc(m.details)}</span>${controls}</div>`;
           }).join("")+"</td>"
         : "<td class='cell free'></td>";
     });
     rows+="</tr>";
   });
   $("tbody").innerHTML = rows;
+
+  if(markEnabled){
+    $("tbody").querySelectorAll(".mkmini").forEach(btn => btn.onclick = e => {
+      e.stopPropagation(); toggleMark(btn.parentElement.dataset.key, btn.dataset.v);
+    });
+  }
+}
+
+// toggle one attendance mark and keep grid + agenda views in sync
+async function toggleMark(key, v){
+  ATT.data[key] = (ATT.data[key]===v) ? undefined : v;
+  if(ATT.data[key]===undefined) delete ATT.data[key];
+  if(currentRoll){ const ms=meetingsFor(currentRoll); renderGrid(ms); renderAgenda(ms); }
+  await saveAttendance();
+}
+
+// ---- in-grid attendance marking helpers ----
+function initMarkWeeks(){
+  if(markWeeks.length) return;
+  const d=new Date(TERM_START);
+  while(d.getDay()!==1) d.setDate(d.getDate()+1);   // first Monday
+  while(d<=TERM_END){ markWeeks.push(new Date(d)); d.setDate(d.getDate()+7); }
+  const now=new Date();
+  const i=markWeeks.findIndex(m=>{ const e=new Date(m); e.setDate(e.getDate()+7); return now>=m && now<e; });
+  markWeekIdx = i>=0 ? i : 0;
+}
+function dateForCell(dayIdx){ const d=new Date(markWeeks[markWeekIdx]); d.setDate(d.getDate()+dayIdx); return d; }
+function refreshTimetable(){ if(currentRoll){ const ms=meetingsFor(currentRoll); renderMarkBar(); renderGrid(ms); renderAgenda(ms); } }
+
+function renderMarkBar(){
+  const el=$("ttMarkBar"); if(!el) return;
+  markEnabled=false;
+  if(!ATT.cloud || !currentRoll){ el.innerHTML=""; return; }
+  if(!ATT.user){
+    el.innerHTML=`<div class="markbar signin"><span>🔐 Sign in to mark attendance right from your timetable.</span><button class="btn btn-primary btn-sm" id="ttSignin">Sign in</button></div>`;
+    $("ttSignin").onclick=openAuthModal;
+    return;
+  }
+  if(ATT.role==="admin"){ el.innerHTML=`<div class="markbar"><span class="mhint">Admin account — open the Attendance tab for the dashboard.</span></div>`; return; }
+  if(currentRoll!==ATT.meRoll){
+    el.innerHTML=`<div class="markbar signin"><span>You're viewing someone else's timetable.</span><button class="btn btn-ghost btn-sm" id="ttMine">Open my timetable to mark</button></div>`;
+    if(ATT.meRoll) $("ttMine").onclick=()=>selectStudent(ATT.meRoll);
+    else $("ttMine").remove();
+    return;
+  }
+  // marking enabled for own timetable
+  initMarkWeeks(); markEnabled=true;
+  const m=markWeeks[markWeekIdx], end=new Date(m); end.setDate(end.getDate()+4);
+  const fmt=d=>d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+  el.innerHTML=`<div class="markbar">
+    <div class="wknav">
+      <button class="wkbtn" id="wkPrev" ${markWeekIdx<=0?"disabled":""}>‹</button>
+      <span class="wklabel">Week of ${fmt(m)} – ${fmt(end)}</span>
+      <button class="wkbtn" id="wkNext" ${markWeekIdx>=markWeeks.length-1?"disabled":""}>›</button>
+    </div>
+    <span class="mhint">Tap ✓ / ✗ on a class to mark that day · synced to your account</span>
+  </div>`;
+  $("wkPrev").onclick=()=>{ if(markWeekIdx>0){ markWeekIdx--; refreshTimetable(); } };
+  $("wkNext").onclick=()=>{ if(markWeekIdx<markWeeks.length-1){ markWeekIdx++; refreshTimetable(); } };
 }
 
 function renderAgenda(ms){
   const byDay={}; ms.forEach(m=>{(byDay[m.day] ??= []).push(m);});
-  $("agendaView").innerHTML = D.days.map(day=>{
+  $("agendaView").innerHTML = D.days.map((day,di)=>{
     const items=(byDay[day]||[]).sort((a,b)=>a.slot-b.slot);
     const body = items.length ? items.map(m=>{
       const col=colorFor(m.course), cm=D.courses[m.course]||{};
-      return `<div class='ag-item'><div class='ag-time'>${D.slots[m.slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${clsLabel(m.course,m.section)}</div><div class='s'>${esc(cm.name)}</div></div><div class='ag-room'>${esc(m.details)}</div></div>`;
+      let stCls="", marks="";
+      if(markEnabled){
+        const key=attKey(m.course,m.section,fmtDate(dateForCell(di)),m.slot);
+        const st=ATT.data[key]||"";
+        stCls = st==="p"?" ag-p":st==="a"?" ag-a":"";
+        marks=`<span class='ag-marks' data-key='${key}'>`+
+          `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
+          `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
+      }
+      return `<div class='ag-item${stCls}'><div class='ag-time'>${D.slots[m.slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${clsLabel(m.course,m.section)}</div><div class='s'>${esc(cm.name)}</div></div><div class='ag-room'>${esc(m.details)}</div>${marks}</div>`;
     }).join("") : "<div class='day-empty'>No classes 🎉</div>";
     return `<div class='day-block'><div class='day-head'>${day}<span class='n'>${items.length} class${items.length===1?"":"es"}</span></div>${body}</div>`;
   }).join("");
+
+  if(markEnabled){
+    $("agendaView").querySelectorAll(".ag-marks .mkmini").forEach(btn => btn.onclick = e => {
+      e.stopPropagation(); toggleMark(btn.parentElement.dataset.key, btn.dataset.v);
+    });
+  }
 }
 
 function renderLegend(courses){
@@ -155,6 +240,7 @@ document.querySelectorAll("#viewToggle button").forEach(b=>b.addEventListener("c
 //  FRIENDS TAB
 // ===========================================================================
 let friends = JSON.parse(localStorage.getItem("tt_friends")||"[]");
+let squads = JSON.parse(localStorage.getItem("tt_squads")||"[]");
 let compareInited=false;
 const personColor = roll => {
   const all=[currentRoll,...friends.map(f=>f.roll)].filter(Boolean);
@@ -185,7 +271,110 @@ function renderFriends(){
     ? `${friends.length}/5 friends added. ${currentRoll? "Comparing with your schedule below." : "Pick yourself on the Timetable tab to compare."}`
     : "No friends yet. Add classmates to see when everyone is free.";
   $("friendChips").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>removeFriend(b.dataset.roll)));
+  renderSquads();
   renderCompare();
+}
+
+// ---- squads (shared & DB-backed when signed in; device-local otherwise) ----
+let cloudSquads=[], cloudSquadErr=null;
+const squadHint = t => { const h=$("squadHint"); if(h) h.textContent=t||""; };
+function saveSquads(){ localStorage.setItem("tt_squads", JSON.stringify(squads)); }
+
+async function fetchCloudSquads(){
+  cloudSquadErr=null;
+  if(!(ATT.cloud && ATT.user && ATT.meRoll)){ cloudSquads=[]; return; }
+  try{
+    const {collection,query,where,getDocs}=ATT.fb;
+    const snap=await withTimeout(getDocs(query(collection(ATT.db,"squads"), where("participants","array-contains",ATT.meRoll))),12000);
+    cloudSquads=snap.docs.map(d=>({id:d.id,...d.data()}));
+  }catch(e){ cloudSquadErr=e.message; console.error("[squads] fetch failed:",e.code||"",e.message); cloudSquads=[]; }
+}
+
+function renderSquads(){
+  const el=$("squadChips"); if(!el) return;
+  const lbl=$("squadPanel").querySelector("label.fld");
+
+  // ----- signed-in: shared squads -----
+  if(ATT.cloud && ATT.user && ATT.meRoll){
+    lbl.textContent="Squads — shared groups; invite classmates and they'll see it once they accept";
+    const mine=cloudSquads.filter(s=>s.status && s.status[ATT.meRoll]==="member");
+    const invites=cloudSquads.filter(s=>s.status && s.status[ATT.meRoll]==="invited");
+    let html="";
+    if(cloudSquadErr) html+=`<div class="err" style="margin-bottom:8px">Couldn't load squads: ${esc(cloudSquadErr)} — publish the squad rules (README).</div>`;
+    if(mine.length){
+      html+=`<div class="row" style="margin-bottom:8px">
+        <select id="squadSelect" class="squadsel"><option value="">Load a squad…</option>
+        ${mine.map(s=>`<option value="${s.id}">${esc(s.name)} · ${s.participants.length} people</option>`).join("")}</select>
+        <button class="btn btn-ghost btn-sm" id="squadLeave">Leave / Delete</button></div>`;
+    } else if(!cloudSquadErr){
+      html+=`<div class="hint" style="margin:0 0 8px">No squads yet. Add friends above, name it, then “Save squad” to invite them.</div>`;
+    }
+    if(invites.length){
+      html+=`<div class="section-h" style="margin:10px 0 8px">Pending invites</div>`+
+        invites.map(s=>`<div class="row" style="margin-bottom:6px;justify-content:space-between">
+          <span>👥 <b>${esc(s.name)}</b> · from ${esc((D.students[s.ownerRoll]||{}).name||s.ownerRoll)} · ${s.participants.length} people</span>
+          <span class="row"><button class="btn btn-primary btn-sm sq-accept" data-id="${s.id}">Accept</button>
+          <button class="btn btn-ghost btn-sm sq-decline" data-id="${s.id}">Decline</button></span></div>`).join("");
+    }
+    el.innerHTML=html;
+    squadHint(mine.length?"Pick a squad to load everyone into the compare view below.":"");
+    if($("squadSelect")) $("squadSelect").onchange=()=>{ const s=cloudSquads.find(x=>x.id===$("squadSelect").value); if(s) loadSquadMembers(s); };
+    if($("squadLeave")) $("squadLeave").onclick=()=>{ const sel=$("squadSelect"); const s=sel&&cloudSquads.find(x=>x.id===sel.value); if(!s){squadHint("Pick a squad first.");return;} (s.ownerUid===ATT.user.uid?deleteCloudSquad(s.id):leaveCloudSquad(s.id)); };
+    el.querySelectorAll(".sq-accept").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"member"));
+    el.querySelectorAll(".sq-decline").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"declined"));
+    return;
+  }
+
+  // ----- signed-out: device-local squads -----
+  lbl.textContent="Squads — save your current friends as a group (this device). Sign in to share squads.";
+  el.innerHTML = squads.map((s,i)=>
+    `<span class="chip"><button class="sq-load" data-i="${i}" style="background:none;border:none;cursor:pointer;font:inherit;font-weight:700;color:inherit;display:inline-flex;align-items:center;gap:6px">👥 ${esc(s.name)} · ${s.members.length}</button><button class="sq-del" data-i="${i}" title="Delete squad">×</button></span>`
+  ).join("");
+  squadHint(squads.length?"Tap a squad to load it into your friends list.":"No saved squads yet. Add friends above, then save them as a squad.");
+  el.querySelectorAll(".sq-load").forEach(b=>b.onclick=()=>loadSquad(+b.dataset.i));
+  el.querySelectorAll(".sq-del").forEach(b=>b.onclick=()=>deleteSquad(+b.dataset.i));
+}
+
+function loadSquadMembers(s){
+  friends = s.participants.filter(r=>r!==ATT.meRoll).slice(0,5).map(r=>({roll:r,name:(D.students[r]||{}).name||r}));
+  saveFriends(); renderFriends();
+}
+
+async function saveSquad(){
+  if(ATT.cloud && ATT.user && ATT.meRoll) return createCloudSquad();
+  const name=$("squadName").value.trim();
+  if(!name){ squadHint("Enter a squad name first."); return; }
+  if(!friends.length){ squadHint("Add at least one friend before saving a squad."); return; }
+  const squad={ name, members:friends.map(f=>({roll:f.roll,name:f.name})) };
+  const i=squads.findIndex(s=>s.name.toLowerCase()===name.toLowerCase());
+  if(i>=0) squads[i]=squad; else squads.push(squad);
+  saveSquads(); $("squadName").value=""; renderSquads();
+}
+function loadSquad(i){ const s=squads[i]; if(!s) return; friends=s.members.slice(0,5).map(m=>({roll:m.roll,name:m.name})); saveFriends(); renderFriends(); }
+function deleteSquad(i){ squads.splice(i,1); saveSquads(); renderSquads(); }
+
+async function createCloudSquad(){
+  const name=$("squadName").value.trim();
+  if(!name){ squadHint("Enter a squad name first."); return; }
+  if(!friends.length){ squadHint("Add friends above first — they'll be invited to the squad."); return; }
+  try{
+    const {addDoc,collection,serverTimestamp}=ATT.fb;
+    const others=friends.map(f=>f.roll).filter(r=>r!==ATT.meRoll);
+    const participants=[ATT.meRoll,...others];
+    const status={[ATT.meRoll]:"member"}; others.forEach(r=>status[r]="invited");
+    await withTimeout(addDoc(collection(ATT.db,"squads"),{name,ownerUid:ATT.user.uid,ownerRoll:ATT.meRoll,participants,status,createdAt:serverTimestamp()}));
+    $("squadName").value=""; await fetchCloudSquads(); renderSquads();
+    squadHint(`Squad “${name}” created — ${others.length} invite(s) sent.`);
+  }catch(e){ console.error("[squads] create",e.code,e.message); squadHint("Couldn't create squad: "+e.message+" (publish squad rules — see README)."); }
+}
+async function setMyStatus(id,st){
+  try{ const {doc,updateDoc}=ATT.fb; await withTimeout(updateDoc(doc(ATT.db,"squads",id),{["status."+ATT.meRoll]:st})); await fetchCloudSquads(); renderSquads(); }
+  catch(e){ console.error("[squads] status",e.code,e.message); squadHint("Couldn't update: "+e.message); }
+}
+function leaveCloudSquad(id){ return setMyStatus(id,"left"); }
+async function deleteCloudSquad(id){
+  try{ const {doc,deleteDoc}=ATT.fb; await withTimeout(deleteDoc(doc(ATT.db,"squads",id))); await fetchCloudSquads(); renderSquads(); }
+  catch(e){ console.error("[squads] delete",e.code,e.message); squadHint("Couldn't delete: "+e.message); }
 }
 
 function renderCompare(){
@@ -287,6 +476,7 @@ async function initFirebase(){
     ATT.db = fs.getFirestore(app);
     ATT.fb = { ...auth, ...fs };
     ATT.cloud = true;
+    renderAcct();
     auth.onAuthStateChanged(ATT.auth, async u => {
       console.log("[auth] state changed:", u ? u.email||u.uid : "signed out");
       // hard guard: only @mdi.ac.in accounts are allowed in
@@ -309,7 +499,13 @@ async function initFirebase(){
           ATT.pendingRoll=null;
         }catch(e){ ATT.cloudError = e.message; console.error("[firestore] read failed:", e.code||"", e.message); }
       } else { ATT.userRef=null; }
+      if(ATT.user) closeAuthModal();
+      renderAcct();
       renderAttendance();
+      fetchCloudSquads().then(renderSquads);
+      // reflect login on the timetable grid (marking controls / own schedule)
+      if(u && ATT.meRoll && !currentRoll) selectStudent(ATT.meRoll);
+      else refreshTimetable();
     });
   }catch(err){ console.error("Firebase init failed:",err); ATT.cloud=false; renderAttendance(); }
 }
@@ -328,8 +524,15 @@ function renderAttendance(){
     return;
   }
 
-  // Cloud mode — need login
-  if(!ATT.user){ renderAuth(authEl); return; }
+  // Cloud mode — need login (sign-in happens in a popup)
+  if(!ATT.user){
+    authEl.innerHTML=`<div class="panel auth-box">
+      <p class="section-h" style="margin:0">Track your attendance</p>
+      <p class="hint" style="margin:0">Sign in with your <b>${esc(ALLOWED_EMAIL_DOMAIN)}</b> account to mark and sync attendance across devices.</p>
+      <button class="btn btn-primary" id="attSignin">Sign in / Create account</button></div>`;
+    $("attSignin").onclick=openAuthModal;
+    return;
+  }
   if(ATT.cloudError){
     banner.innerHTML = `<div class="banner">⚠️ Signed in, but couldn't reach the database: ${esc(ATT.cloudError)}</div>`;
   }
@@ -342,6 +545,26 @@ function renderAttendance(){
 
 let authMode = "signin";        // or "signup"
 let signupRoll = null;          // roll chosen during create-account
+
+function openAuthModal(){ renderAuth($("modalAuth")); $("authModal").classList.remove("hidden"); }
+function closeAuthModal(){ $("authModal").classList.add("hidden"); $("modalAuth").innerHTML=""; }
+
+// header account chip + sign in/out, visible on every tab
+function renderAcct(){
+  const el=$("acct"); if(!el) return;
+  if(!ATT.cloud){ el.innerHTML=""; return; }
+  if(ATT.user){
+    const nm = ATT.role==="admin" ? "Admin"
+      : (ATT.meRoll && D.students[ATT.meRoll]) ? D.students[ATT.meRoll].name.split(" ")[0]
+      : (ATT.user.email||"Account").split("@")[0];
+    const ini=(nm[0]||"?").toUpperCase();
+    el.innerHTML=`<span class="who2"><span class="ai">${esc(ini)}</span>${esc(nm)}</span><button class="signout" id="hdrSignout">Sign out</button>`;
+    $("hdrSignout").onclick=()=>ATT.fb.signOut(ATT.auth);
+  } else {
+    el.innerHTML=`<button class="signin" id="hdrSignin">Sign in</button>`;
+    $("hdrSignin").onclick=openAuthModal;
+  }
+}
 
 function renderAuth(el){
   const notice = ATT.authNotice ? `<div class="banner">${esc(ATT.authNotice)}</div>` : "";
@@ -730,7 +953,8 @@ function exportAdminPDF(){
 function showTab(name){
   document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===name));
   ["timetable","friends","attendance"].forEach(t=> $("tab-"+t).classList.toggle("hidden", t!==name));
-  if(name==="friends") renderFriends();
+  if(name==="timetable" && currentRoll) refreshTimetable();
+  if(name==="friends"){ renderFriends(); if(ATT.cloud && ATT.user) fetchCloudSquads().then(renderSquads); }
   if(name==="attendance") renderAttendance();
 }
 document.querySelectorAll("#nav button").forEach(b=> b.addEventListener("click", ()=>showTab(b.dataset.tab)));
@@ -743,6 +967,15 @@ function applyTheme(t){
 }
 $("themeBtn").onclick = () => applyTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
 applyTheme(localStorage.getItem("tt_theme") || "light");
+
+// sign-in modal close controls
+$("authModalX").onclick = closeAuthModal;
+$("authModal").onclick = e => { if(e.target.id==="authModal") closeAuthModal(); };
+document.addEventListener("keydown", e => { if(e.key==="Escape" && !$("authModal").classList.contains("hidden")) closeAuthModal(); });
+
+// squad controls
+$("saveSquad").onclick = saveSquad;
+$("squadName").addEventListener("keydown", e => { if(e.key==="Enter") saveSquad(); });
 
 // boot
 updateFriendBadge();
