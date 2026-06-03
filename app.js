@@ -77,6 +77,7 @@ function makeSearch(input, resultsEl, onPick, exclude=()=>false){
 //  TIMETABLE TAB
 // ===========================================================================
 let currentRoll = null;
+let markEnabled = false, markWeeks = [], markWeekIdx = 0;   // in-grid attendance marking
 
 makeSearch($("q"), $("results"), roll => selectStudent(roll));
 
@@ -96,7 +97,7 @@ function selectStudent(roll){
   $("sMeta").textContent = "Roll " + roll;
   const nc = new Set(s.courses.map(c=>c.course)).size;
   $("countPill").textContent = `${nc} courses · ${ms.length} sessions/week`;
-  renderGrid(ms); renderAgenda(ms); renderLegend(s.courses); setView(currentView);
+  renderMarkBar(); renderGrid(ms); renderAgenda(ms); renderLegend(s.courses); setView(currentView);
   if(compareInited) renderCompare();
 }
 
@@ -106,19 +107,88 @@ function renderGrid(ms){
     D.slots.map((slot,i)=>`<th><span class='slotnum'>Slot ${i+1}</span>${slot}</th>`).join("")+"</tr>";
   const idx={}; ms.forEach(m=>{(idx[m.day+"|"+m.slot] ??= []).push(m);});
   let rows="";
-  D.days.forEach(day=>{
+  D.days.forEach((day,di)=>{
     rows+=`<tr><td class='daycol'>${day}</td>`;
     D.slots.forEach((slot,si)=>{
       const here=idx[day+"|"+si];
       rows += here
-        ? "<td class='cell'>"+here.map(m=>{const col=colorFor(m.course);
-            return `<div class='cls' style='--c:${col};background:${col}1f'><span class='ab'>${clsLabel(m.course,m.section)}</span><span class='rm'>${esc(m.details)}</span></div>`;
+        ? "<td class='cell'>"+here.map(m=>{
+            const col=colorFor(m.course);
+            let markCls="", controls="";
+            if(markEnabled){
+              const key=attKey(m.course,m.section,fmtDate(dateForCell(di)),m.slot);
+              const st=ATT.data[key]||"";
+              markCls = st==="p"?" marked-p":st==="a"?" marked-a":"";
+              controls=`<span class='mkrow' data-key='${key}'>`+
+                `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
+                `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
+            }
+            return `<div class='cls${markCls}' style='--c:${col};background:${col}1f'><span class='ab'>${clsLabel(m.course,m.section)}</span><span class='rm'>${esc(m.details)}</span>${controls}</div>`;
           }).join("")+"</td>"
         : "<td class='cell free'></td>";
     });
     rows+="</tr>";
   });
   $("tbody").innerHTML = rows;
+
+  if(markEnabled){
+    $("tbody").querySelectorAll(".mkmini").forEach(btn => btn.onclick = async e => {
+      e.stopPropagation();
+      const row=btn.parentElement, key=row.dataset.key, v=btn.dataset.v;
+      ATT.data[key] = (ATT.data[key]===v) ? undefined : v;
+      if(ATT.data[key]===undefined) delete ATT.data[key];
+      row.querySelectorAll(".mkmini").forEach(b=>b.classList.toggle("on", b.dataset.v===ATT.data[key]));
+      const cls=btn.closest(".cls");
+      cls.classList.toggle("marked-p", ATT.data[key]==="p");
+      cls.classList.toggle("marked-a", ATT.data[key]==="a");
+      await saveAttendance();
+    });
+  }
+}
+
+// ---- in-grid attendance marking helpers ----
+function initMarkWeeks(){
+  if(markWeeks.length) return;
+  const d=new Date(TERM_START);
+  while(d.getDay()!==1) d.setDate(d.getDate()+1);   // first Monday
+  while(d<=TERM_END){ markWeeks.push(new Date(d)); d.setDate(d.getDate()+7); }
+  const now=new Date();
+  const i=markWeeks.findIndex(m=>{ const e=new Date(m); e.setDate(e.getDate()+7); return now>=m && now<e; });
+  markWeekIdx = i>=0 ? i : 0;
+}
+function dateForCell(dayIdx){ const d=new Date(markWeeks[markWeekIdx]); d.setDate(d.getDate()+dayIdx); return d; }
+function refreshTimetable(){ if(currentRoll){ renderMarkBar(); renderGrid(meetingsFor(currentRoll)); } }
+
+function renderMarkBar(){
+  const el=$("ttMarkBar"); if(!el) return;
+  markEnabled=false;
+  if(!ATT.cloud || !currentRoll){ el.innerHTML=""; return; }
+  if(!ATT.user){
+    el.innerHTML=`<div class="markbar signin"><span>🔐 Sign in to mark attendance right from your timetable.</span><button class="btn btn-primary btn-sm" id="ttSignin">Sign in</button></div>`;
+    $("ttSignin").onclick=()=>showTab("attendance");
+    return;
+  }
+  if(ATT.role==="admin"){ el.innerHTML=`<div class="markbar"><span class="mhint">Admin account — open the Attendance tab for the dashboard.</span></div>`; return; }
+  if(currentRoll!==ATT.meRoll){
+    el.innerHTML=`<div class="markbar signin"><span>You're viewing someone else's timetable.</span><button class="btn btn-ghost btn-sm" id="ttMine">Open my timetable to mark</button></div>`;
+    if(ATT.meRoll) $("ttMine").onclick=()=>selectStudent(ATT.meRoll);
+    else $("ttMine").remove();
+    return;
+  }
+  // marking enabled for own timetable
+  initMarkWeeks(); markEnabled=true;
+  const m=markWeeks[markWeekIdx], end=new Date(m); end.setDate(end.getDate()+4);
+  const fmt=d=>d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+  el.innerHTML=`<div class="markbar">
+    <div class="wknav">
+      <button class="wkbtn" id="wkPrev" ${markWeekIdx<=0?"disabled":""}>‹</button>
+      <span class="wklabel">Week of ${fmt(m)} – ${fmt(end)}</span>
+      <button class="wkbtn" id="wkNext" ${markWeekIdx>=markWeeks.length-1?"disabled":""}>›</button>
+    </div>
+    <span class="mhint">Tap ✓ / ✗ on a class to mark that day · synced to your account</span>
+  </div>`;
+  $("wkPrev").onclick=()=>{ if(markWeekIdx>0){ markWeekIdx--; refreshTimetable(); } };
+  $("wkNext").onclick=()=>{ if(markWeekIdx<markWeeks.length-1){ markWeekIdx++; refreshTimetable(); } };
 }
 
 function renderAgenda(ms){
@@ -310,6 +380,9 @@ async function initFirebase(){
         }catch(e){ ATT.cloudError = e.message; console.error("[firestore] read failed:", e.code||"", e.message); }
       } else { ATT.userRef=null; }
       renderAttendance();
+      // reflect login on the timetable grid (marking controls / own schedule)
+      if(u && ATT.meRoll && !currentRoll) selectStudent(ATT.meRoll);
+      else refreshTimetable();
     });
   }catch(err){ console.error("Firebase init failed:",err); ATT.cloud=false; renderAttendance(); }
 }
@@ -730,6 +803,7 @@ function exportAdminPDF(){
 function showTab(name){
   document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===name));
   ["timetable","friends","attendance"].forEach(t=> $("tab-"+t).classList.toggle("hidden", t!==name));
+  if(name==="timetable" && currentRoll) refreshTimetable();
   if(name==="friends") renderFriends();
   if(name==="attendance") renderAttendance();
 }
