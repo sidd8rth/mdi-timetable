@@ -132,7 +132,16 @@ function renderGrid(ms){
       });
       addsHere.forEach(a=>{
         const [c,sec]=a.ck.split("|"); const col=colorFor(c);
-        cell += `<div class='cls added' style='--c:${col};background:${col}1f'><span class='ab'>${esc(clsLabel(c,sec))}</span><span class='rm'>${esc(a.room||"")}</span><span class='chgbadge' style='color:var(--good)'>Extra${a.note?" · "+esc(a.note):""}</span></div>`;
+        let markCls="", controls="";
+        if(markEnabled){
+          const key=attKey(c, sec, fmtDate(dateForCell(di)), si);
+          const st=ATT.data[key]||"";
+          markCls = st==="p"?" marked-p":st==="a"?" marked-a":"";
+          controls=`<span class='mkrow' data-key='${key}'>`+
+            `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
+            `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
+        }
+        cell += `<div class='cls added${markCls}' style='--c:${col};background:${col}1f'><span class='ab'>${esc(clsLabel(c,sec))}</span><span class='rm'>${esc(a.room||"")}</span><span class='chgbadge' style='color:var(--good)'>Extra${a.note?" · "+esc(a.note):""}</span>${controls}</div>`;
       });
       cell+="</td>"; rows+=cell;
     });
@@ -225,7 +234,15 @@ function renderAgenda(ms){
     }).join("");
     html += added.sort((x,y)=>x.slot-y.slot).map(({slot,a})=>{
       const [c,sec]=a.ck.split("|"); const col=colorFor(c), cm=D.courses[c]||{};
-      return `<div class='ag-item'><div class='ag-time'>${D.slots[slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${esc(clsLabel(c,sec))} · <span style='color:var(--good)'>Extra</span></div><div class='s'>${esc(cm.name)}${a.note?" · "+esc(a.note):""}</div></div><div class='ag-room'>${esc(a.room||"")}</div></div>`;
+      let marks="";
+      if(markEnabled){
+        const key=attKey(c, sec, fmtDate(dateForCell(di)), slot);
+        const st=ATT.data[key]||"";
+        marks=`<span class='ag-marks' data-key='${key}'>`+
+          `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
+          `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
+      }
+      return `<div class='ag-item'><div class='ag-time'>${D.slots[slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${esc(clsLabel(c,sec))} · <span style='color:var(--good)'>Extra</span></div><div class='s'>${esc(cm.name)}${a.note?" · "+esc(a.note):""}</div></div><div class='ag-room'>${esc(a.room||"")}</div>${marks}</div>`;
     }).join("");
     const total=items.length+added.length;
     const body = total ? html : "<div class='day-empty'>No classes 🎉</div>";
@@ -827,6 +844,16 @@ function renderAttendanceBody(body){
       (secs[key]||[]).forEach(m=>{
         sessionDates(m.day).forEach(dt=> sessions.push({date:dt, ds:fmtDate(dt), slot:m.slot, day:m.day, details:m.details, section:en.section}));
       });
+    });
+    // include any extra / rescheduled classes the student marked from the grid
+    const regKeys=new Set(sessions.map(se=>attKey(c.course,se.section,se.ds,se.slot)));
+    const mySecs=new Set(enroll.map(en=>en.section||""));
+    Object.keys(ATT.data).forEach(k=>{
+      const [kc,ks,kd,ksl]=k.split("|");
+      if(kc===c.course && mySecs.has(ks) && !regKeys.has(k)){
+        const [y,mm,dd]=kd.split("-");
+        sessions.push({date:new Date(+y,+mm-1,+dd), ds:kd, slot:+ksl, day:"", details:"Extra class", section:ks||null});
+      }
     });
     sessions.sort((a,b)=> a.date-b.date || a.slot-b.slot);
     let p=0,a=0;
