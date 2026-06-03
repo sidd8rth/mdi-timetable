@@ -100,12 +100,14 @@ function selectStudent(roll){
 }
 
 function renderGrid(ms){
-  $("thead").innerHTML = "<tr><th class='timecol'>Time</th>"+D.days.map(d=>`<th>${d}</th>`).join("")+"</tr>";
+  // transposed: days down the rows, time slots across the columns
+  $("thead").innerHTML = "<tr><th class='daycol'>Day</th>"+
+    D.slots.map((slot,i)=>`<th><span class='slotnum'>Slot ${i+1}</span>${slot}</th>`).join("")+"</tr>";
   const idx={}; ms.forEach(m=>{(idx[m.day+"|"+m.slot] ??= []).push(m);});
   let rows="";
-  D.slots.forEach((slot,si)=>{
-    rows+=`<tr><td class='timecol'><span class='slotnum'>${si+1}</span>${slot}</td>`;
-    D.days.forEach(day=>{
+  D.days.forEach(day=>{
+    rows+=`<tr><td class='daycol'>${day}</td>`;
+    D.slots.forEach((slot,si)=>{
       const here=idx[day+"|"+si];
       rows += here
         ? "<td class='cell'>"+here.map(m=>{const col=colorFor(m.course);
@@ -202,11 +204,12 @@ function renderCompare(){
     `<span class="pk" style="--c:${personColor(p.roll)}"><span class="pdot"></span>${esc(p.name.split(" ")[0])}${p.you?" (you)":""}</span>`
   ).join("");
 
-  let head = "<tr><th class='timecol'>Time</th>"+D.days.map(d=>`<th>${d}</th>`).join("")+"</tr>";
+  let head = "<tr><th class='daycol'>Day</th>"+
+    D.slots.map((slot,i)=>`<th><span class='slotnum'>Slot ${i+1}</span>${slot}</th>`).join("")+"</tr>";
   let rows="";
-  D.slots.forEach((slot,si)=>{
-    rows+=`<tr><td class='timecol'><span class='slotnum'>${si+1}</span>${slot}</td>`;
-    D.days.forEach(day=>{
+  D.days.forEach(day=>{
+    rows+=`<tr><td class='daycol'>${day}</td>`;
+    D.slots.forEach((slot,si)=>{
       const busy=[];
       people.forEach((p,pi)=>{ const m=maps[pi][day+"|"+si]; if(m) busy.push({p,m}); });
       if(busy.length===0){
@@ -244,7 +247,7 @@ function sessionDates(dayName){
 const ALLOWED_EMAIL_DOMAIN = "@mdi.ac.in";   // only institute emails may sign up / in
 
 const ATT = {
-  cloud:false, user:null, meRoll:null, data:{},
+  cloud:false, user:null, meRoll:null, data:{}, role:null,
   db:null, userRef:null, fb:null, pendingRoll:null,
 };
 
@@ -291,12 +294,12 @@ async function initFirebase(){
         ATT.user=null; ATT.userRef=null; ATT.authNotice=`Only ${ALLOWED_EMAIL_DOMAIN} accounts are allowed.`;
         renderAttendance(); return;
       }
-      ATT.user = u; ATT.meRoll=null; ATT.data={};
+      ATT.user = u; ATT.meRoll=null; ATT.data={}; ATT.role=null;
       if(u){
         ATT.userRef = fs.doc(ATT.db, "users", u.uid);
         try{
           const snap = await withTimeout(fs.getDoc(ATT.userRef));
-          if(snap.exists()){ const d=snap.data(); ATT.meRoll=d.roll||null; ATT.data=d.attendance||{}; }
+          if(snap.exists()){ const d=snap.data(); ATT.meRoll=d.roll||null; ATT.data=d.attendance||{}; ATT.role=d.role||null; }
           // bind the roll chosen at signup, if the doc didn't have one yet
           if(!ATT.meRoll && ATT.pendingRoll){
             ATT.meRoll = ATT.pendingRoll;
@@ -329,6 +332,8 @@ function renderAttendance(){
   if(ATT.cloudError){
     banner.innerHTML = `<div class="banner">⚠️ Signed in, but couldn't reach the database: ${esc(ATT.cloudError)}</div>`;
   }
+  // admin office: all-students dashboard
+  if(ATT.role === "admin"){ renderAdmin(authEl, body); return; }
   renderMePicker(authEl, true);
   if(ATT.meRoll) renderAttendanceBody(body);
   else body.innerHTML = `<p class="hint">Pick your name above to start tracking attendance.</p>`;
@@ -451,7 +456,9 @@ function renderAttendanceBody(body){
   const s = D.students[ATT.meRoll]; if(!s){ body.innerHTML=""; return; }
   // group sessions by course
   const seen=new Set(); const courses=s.courses.filter(c=>!seen.has(c.course)&&seen.add(c.course));
-  let html = `<p class="section-h" style="margin-top:22px">Attendance — present ÷ (present + absent), excluding cancelled</p>`;
+  let html = `<div class="row" style="justify-content:space-between;margin-top:22px;align-items:center">
+      <p class="section-h" style="margin:0">Attendance — present ÷ (present + absent), excl. cancelled</p>
+      <button class="btn btn-ghost btn-sm" id="dlPdf">⬇︎ Download PDF</button></div>`;
   courses.forEach(c=>{
     const cm=D.courses[c.course]||{}, col=colorFor(c.course);
     const enroll=s.courses.filter(x=>x.course===c.course);
@@ -486,6 +493,7 @@ function renderAttendanceBody(body){
       }).join("")}</div></div>`;
   });
   body.innerHTML = html;
+  if($("dlPdf")) $("dlPdf").onclick = () => downloadStudentPDF(ATT.meRoll);
 
   body.querySelectorAll(".att-head").forEach(h=> h.onclick = () =>
     h.parentElement.querySelector(".att-sessions").classList.toggle("open"));
@@ -499,6 +507,193 @@ function renderAttendanceBody(body){
     updateCourseSummary(marks.closest(".att-course"));
     await saveAttendance();
   });
+}
+
+// ===========================================================================
+//  STATS + EXPORTS (PDF / CSV)
+// ===========================================================================
+const PCT_COLORS = pct => pct==null ? [148,156,176] : pct>=75 ? [22,163,74] : pct>=60 ? [217,119,6] : [225,29,72];
+
+// derive present/absent/cancelled totals + per-course breakdown from an attendance map
+function statsFromAttendance(att){
+  const by={}; let P=0,A=0,C=0;
+  for(const [k,v] of Object.entries(att||{})){
+    const course=k.split("|")[0];
+    (by[course] ??= {p:0,a:0,c:0});
+    if(v==="p"){by[course].p++;P++;}
+    else if(v==="a"){by[course].a++;A++;}
+    else if(v==="c"){by[course].c++;C++;}
+  }
+  for(const c in by){ const t=by[c].p+by[c].a; by[c].pct = t? Math.round(by[c].p/t*100) : null; }
+  const T=P+A;
+  return {P,A,C, pct: T? Math.round(P/T*100):null, byCourse:by};
+}
+
+function newPDF(){
+  const J = window.jspdf && window.jspdf.jsPDF;
+  if(!J){ alert("PDF library still loading — try again in a second."); return null; }
+  return new J({ unit:"pt", format:"a4" });
+}
+
+function downloadStudentPDF(roll){
+  const s=D.students[roll]; if(!s) return;
+  const doc=newPDF(); if(!doc) return;
+  const st=statsFromAttendance(ATT.data);
+  doc.setFont("helvetica","bold"); doc.setFontSize(16);
+  doc.text("Attendance Report — Term IV", 40, 48);
+  doc.setFontSize(11); doc.setFont("helvetica","normal");
+  doc.text(`${s.name}  (${roll})`, 40, 68);
+  doc.setTextColor(120); doc.text(`MDI Gurgaon · PGDM 2025-27 · generated ${new Date().toLocaleDateString("en-GB")}`, 40, 84);
+  doc.setTextColor(0);
+  const seen=new Set(); const courses=s.courses.filter(c=>!seen.has(c.course)&&seen.add(c.course));
+  const rows=courses.map(c=>{
+    const b=st.byCourse[c.course]||{p:0,a:0,c:0,pct:null};
+    return [c.course, (D.courses[c.course]||{}).name||"", String(b.p), String(b.a), String(b.c||0), b.pct==null?"—":b.pct+"%"];
+  });
+  doc.autoTable({
+    startY:104, head:[["Course","Title","Present","Absent","Cancelled","%"]], body:rows,
+    styles:{font:"helvetica",fontSize:9,cellPadding:5},
+    headStyles:{fillColor:[79,110,247],textColor:255},
+    columnStyles:{1:{cellWidth:200}},
+    didParseCell:d=>{ if(d.section==="body"&&d.column.index===5){ const v=rows[d.row.index][5]; const p=v==="—"?null:parseInt(v); d.cell.styles.textColor=PCT_COLORS(p); d.cell.styles.fontStyle="bold"; } }
+  });
+  const y=doc.lastAutoTable.finalY+24;
+  doc.setFont("helvetica","bold"); doc.setFontSize(12);
+  doc.text(`Overall: ${st.pct==null?"—":st.pct+"%"}   (${st.P} present, ${st.A} absent)`, 40, y);
+  doc.save(`attendance_${roll}.pdf`);
+}
+
+// ===========================================================================
+//  ADMIN DASHBOARD (role:"admin")
+// ===========================================================================
+let adminRows=[], adminSort={key:"pct",dir:1}, adminBelowOnly=false;
+
+async function renderAdmin(authEl, body){
+  authEl.innerHTML = `<div class="panel"><div class="row" style="align-items:center">
+      <div class="avatar">🛡️</div>
+      <div><div class="student-name" style="font-size:1.05rem">Admin dashboard</div>
+           <div class="student-meta">${esc(ATT.user.email)} · all students</div></div>
+      <div class="row" style="margin-left:auto"><button class="btn btn-ghost btn-sm" id="signOutBtn">Sign out</button></div>
+    </div></div>`;
+  $("signOutBtn").onclick = () => ATT.fb.signOut(ATT.auth);
+
+  body.innerHTML = `<p class="hint" style="margin-top:20px">Loading all student records…</p>`;
+  let docs;
+  try{
+    const snap = await withTimeout(ATT.fb.getDocs(ATT.fb.collection(ATT.db,"users")), 15000);
+    docs = snap.docs.map(d=>d.data());
+  }catch(e){
+    body.innerHTML = `<div class="banner">Couldn't load records: ${esc(e.message)}<br>Make sure the admin read rule is published (see README).</div>`;
+    return;
+  }
+
+  adminRows = docs.filter(d=>d.roll && (D.students[d.roll])).map(d=>{
+    const st=statsFromAttendance(d.attendance);
+    return { roll:d.roll, name:(D.students[d.roll]||{}).name||d.roll, ...st, marked:st.P+st.A+st.C };
+  });
+
+  renderAdminBody(body);
+}
+
+function renderAdminBody(body){
+  const tracking = adminRows.filter(r=>r.marked>0);
+  const withPct = tracking.filter(r=>r.pct!=null);
+  const avg = withPct.length ? Math.round(withPct.reduce((a,r)=>a+r.pct,0)/withPct.length) : 0;
+  const below = withPct.filter(r=>r.pct<75).length;
+
+  let rows=[...adminRows];
+  if(adminBelowOnly) rows=rows.filter(r=>r.pct!=null && r.pct<75);
+  const term=(($("admSearch")||{}).value||"").trim().toLowerCase();
+  if(term) rows=rows.filter(r=>r.name.toLowerCase().includes(term)||r.roll.toLowerCase().includes(term));
+  const {key,dir}=adminSort;
+  rows.sort((a,b)=>{
+    let va=a[key], vb=b[key];
+    if(key==="name"||key==="roll"){ return dir*String(va).localeCompare(String(vb)); }
+    va=va==null?-1:va; vb=vb==null?-1:vb; return dir*(va-vb);
+  });
+
+  body.innerHTML = `
+    <div class="stat-grid">
+      <div class="stat"><div class="v">${adminRows.length}</div><div class="l">Accounts with a roll</div></div>
+      <div class="stat"><div class="v">${tracking.length}</div><div class="l">Started tracking</div></div>
+      <div class="stat"><div class="v" style="color:${pctVar(avg)}">${avg}%</div><div class="l">Avg attendance</div></div>
+      <div class="stat"><div class="v" style="color:var(--bad)">${below}</div><div class="l">Below 75%</div></div>
+    </div>
+    <div class="adm-tools">
+      <input id="admSearch" type="text" placeholder="Search name or roll…" value="${esc(term)}">
+      <button class="btn btn-ghost btn-sm" id="admBelow">${adminBelowOnly?"Show all":"Only < 75%"}</button>
+      <button class="btn btn-ghost btn-sm" id="admCsv">⬇︎ CSV</button>
+      <button class="btn btn-ghost btn-sm" id="admPdf">⬇︎ PDF</button>
+    </div>
+    <div class="gridwrap" style="padding:4px 14px 8px">
+      <table class="adm">
+        <thead><tr>
+          <th data-k="name">Name</th><th data-k="roll">Roll</th>
+          <th data-k="marked">Marked</th><th data-k="P">Present</th>
+          <th data-k="A">Absent</th><th data-k="pct">Attendance %</th>
+        </tr></thead>
+        <tbody>${rows.map(r=>{
+          const col=`rgb(${PCT_COLORS(r.pct).join(",")})`;
+          return `<tr data-roll="${r.roll}">
+            <td>${esc(r.name)}</td><td>${esc(r.roll)}</td>
+            <td>${r.marked}</td><td>${r.P}</td><td>${r.A}</td>
+            <td><span class="pctbadge" style="background:${col}22;color:${col}">${r.pct==null?"—":r.pct+"%"}</span></td>
+          </tr>`;
+        }).join("")||`<tr><td colspan="6" style="color:var(--muted);padding:18px">No matching students.</td></tr>`}</tbody>
+      </table>
+    </div>`;
+
+  // wire controls
+  $("admSearch").oninput = () => { const v=$("admSearch").value; renderAdminBody(body); const el=$("admSearch"); el.focus(); el.value=v; el.setSelectionRange(v.length,v.length); };
+  $("admBelow").onclick = () => { adminBelowOnly=!adminBelowOnly; renderAdminBody(body); };
+  $("admCsv").onclick = exportAdminCSV;
+  $("admPdf").onclick = exportAdminPDF;
+  body.querySelectorAll("th[data-k]").forEach(th=> th.onclick = () => {
+    const k=th.dataset.k; adminSort = {key:k, dir: adminSort.key===k ? -adminSort.dir : (k==="pct"?1:1)}; renderAdminBody(body);
+  });
+  body.querySelectorAll("tbody tr[data-roll]").forEach(tr=> tr.onclick = () => toggleAdminDetail(tr));
+}
+function pctVar(p){ return `rgb(${PCT_COLORS(p).join(",")})`; }
+
+function toggleAdminDetail(tr){
+  const next=tr.nextElementSibling;
+  if(next && next.classList.contains("adm-detail")){ next.remove(); return; }
+  const r=adminRows.find(x=>x.roll===tr.dataset.roll); if(!r) return;
+  const det=document.createElement("tr"); det.className="adm-detail";
+  const cells=Object.entries(r.byCourse).map(([c,b])=>{
+    const col=`rgb(${PCT_COLORS(b.pct).join(",")})`;
+    return `<span class="cc"><b>${esc(c)}</b> <span style="color:${col}">${b.pct==null?"—":b.pct+"%"}</span> <span style="color:var(--muted)">(${b.p}/${b.p+b.a})</span></span>`;
+  }).join("") || "no classes marked yet";
+  det.innerHTML = `<td colspan="6">${cells}</td>`;
+  tr.after(det);
+}
+
+function exportAdminCSV(){
+  const head=["Roll","Name","Marked","Present","Absent","Cancelled","Overall%"];
+  const lines=[head.join(",")];
+  adminRows.forEach(r=> lines.push([r.roll,`"${r.name}"`,r.marked,r.P,r.A,r.C,r.pct==null?"":r.pct].join(",")));
+  const blob=new Blob([lines.join("\n")],{type:"text/csv"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download=`attendance_all_${new Date().toISOString().slice(0,10)}.csv`; a.click();
+}
+
+function exportAdminPDF(){
+  const doc=newPDF(); if(!doc) return;
+  doc.setFont("helvetica","bold"); doc.setFontSize(16);
+  doc.text("Attendance Roster — Term IV", 40, 48);
+  doc.setFontSize(10); doc.setFont("helvetica","normal"); doc.setTextColor(120);
+  doc.text(`MDI Gurgaon · PGDM 2025-27 · generated ${new Date().toLocaleString("en-GB")}`, 40, 66);
+  doc.setTextColor(0);
+  const rows=[...adminRows].sort((a,b)=>(a.pct??-1)-(b.pct??-1))
+    .map(r=>[r.roll, r.name, String(r.P), String(r.A), r.pct==null?"—":r.pct+"%", (r.pct!=null&&r.pct<75)?"LOW":""]);
+  doc.autoTable({
+    startY:84, head:[["Roll","Name","Present","Absent","%","Flag"]], body:rows,
+    styles:{font:"helvetica",fontSize:8,cellPadding:3},
+    headStyles:{fillColor:[79,110,247],textColor:255},
+    didParseCell:d=>{ if(d.section==="body"&&d.column.index===4){ const v=rows[d.row.index][4]; const p=v==="—"?null:parseInt(v); d.cell.styles.textColor=PCT_COLORS(p); d.cell.styles.fontStyle="bold"; }
+      if(d.section==="body"&&d.column.index===5&&d.cell.raw==="LOW"){ d.cell.styles.textColor=[225,29,72]; d.cell.styles.fontStyle="bold"; } }
+  });
+  doc.save(`attendance_roster_${new Date().toISOString().slice(0,10)}.pdf`);
 }
 
 // ===========================================================================

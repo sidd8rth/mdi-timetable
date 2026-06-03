@@ -17,7 +17,12 @@ time table and the course-wise student lists.
 - **✅ Attendance** — create an account with your **@mdi.ac.in email + password** and your
   **roll number** (only institute emails allowed). You then see only *your own* courses, and
   mark each dated class Present / Absent / Cancelled across the term. Live attendance % per
-  course (green ≥75 %, amber ≥60 %, red below), synced to the cloud across devices.
+  course (green ≥75 %, amber ≥60 %, red below), synced to the cloud across devices, with a
+  **Download PDF** report.
+- **🛡️ Admin dashboard** — an account flagged `role:"admin"` (see setup below) sees an
+  all-students view: summary stats, a searchable / sortable table of every student's
+  attendance %, "below 75 %" filter, per-student course breakdown, and **CSV / PDF** export
+  for the office.
 - **🌙 Light / dark theme** toggle (top-right), remembered between visits.
 
 > Until Firebase is configured, the attendance tracker still works — it just saves locally on
@@ -66,15 +71,34 @@ Spark plan, which is plenty for a class. One-time setup (~10 min):
    rules_version = '2';
    service cloud.firestore {
      match /databases/{database}/documents {
+       function emailOk() {
+         return request.auth.token.email.lower().matches('.*@mdi[.]ac[.]in');
+       }
+       function isAdmin() {
+         return request.auth != null
+           && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+       }
        match /users/{uid} {
-         allow read, write: if request.auth != null
-           && request.auth.uid == uid
-           && request.auth.token.email.lower().matches('.*@mdi[.]ac[.]in');
+         // a student reads only their own doc; an admin can read any
+         allow get:  if request.auth != null && (request.auth.uid == uid || isAdmin());
+         // only admins can list the whole collection (for the dashboard)
+         allow list: if isAdmin();
+         // you may write only your own doc, with an @mdi.ac.in email, and you
+         // CANNOT grant yourself a role (role is set by the office in the console)
+         allow create: if request.auth != null && request.auth.uid == uid && emailOk()
+           && request.resource.data.get('role', '') == '';
+         allow update: if request.auth != null && request.auth.uid == uid && emailOk()
+           && request.resource.data.get('role', '') == resource.data.get('role', '');
        }
      }
    }
    ```
    Click **Publish**.
+
+   **To make someone an admin (office account):** have them create an account normally
+   (any roll), then in Firebase Console → Firestore → Data → `users` → their document →
+   **Add field** `role` = `admin` (string). Next time they open the Attendance tab they'll
+   see the all-students dashboard instead of a personal tracker.
 5. **Authorize your domain**: Authentication → Settings → *Authorized domains* → add your
    Pages domain, e.g. `yourname.github.io`. (`localhost` is already allowed for testing.)
 
