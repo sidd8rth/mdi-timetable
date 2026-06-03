@@ -165,7 +165,7 @@ function renderMarkBar(){
   if(!ATT.cloud || !currentRoll){ el.innerHTML=""; return; }
   if(!ATT.user){
     el.innerHTML=`<div class="markbar signin"><span>🔐 Sign in to mark attendance right from your timetable.</span><button class="btn btn-primary btn-sm" id="ttSignin">Sign in</button></div>`;
-    $("ttSignin").onclick=()=>showTab("attendance");
+    $("ttSignin").onclick=openAuthModal;
     return;
   }
   if(ATT.role==="admin"){ el.innerHTML=`<div class="markbar"><span class="mhint">Admin account — open the Attendance tab for the dashboard.</span></div>`; return; }
@@ -379,6 +379,7 @@ async function initFirebase(){
           ATT.pendingRoll=null;
         }catch(e){ ATT.cloudError = e.message; console.error("[firestore] read failed:", e.code||"", e.message); }
       } else { ATT.userRef=null; }
+      if(ATT.user) closeAuthModal();
       renderAttendance();
       // reflect login on the timetable grid (marking controls / own schedule)
       if(u && ATT.meRoll && !currentRoll) selectStudent(ATT.meRoll);
@@ -401,8 +402,15 @@ function renderAttendance(){
     return;
   }
 
-  // Cloud mode — need login
-  if(!ATT.user){ renderAuth(authEl); return; }
+  // Cloud mode — need login (sign-in happens in a popup)
+  if(!ATT.user){
+    authEl.innerHTML=`<div class="panel auth-box">
+      <p class="section-h" style="margin:0">Track your attendance</p>
+      <p class="hint" style="margin:0">Sign in with your <b>${esc(ALLOWED_EMAIL_DOMAIN)}</b> account to mark and sync attendance across devices.</p>
+      <button class="btn btn-primary" id="attSignin">Sign in / Create account</button></div>`;
+    $("attSignin").onclick=openAuthModal;
+    return;
+  }
   if(ATT.cloudError){
     banner.innerHTML = `<div class="banner">⚠️ Signed in, but couldn't reach the database: ${esc(ATT.cloudError)}</div>`;
   }
@@ -415,6 +423,9 @@ function renderAttendance(){
 
 let authMode = "signin";        // or "signup"
 let signupRoll = null;          // roll chosen during create-account
+
+function openAuthModal(){ renderAuth($("modalAuth")); $("authModal").classList.remove("hidden"); }
+function closeAuthModal(){ $("authModal").classList.add("hidden"); $("modalAuth").innerHTML=""; }
 
 function renderAuth(el){
   const notice = ATT.authNotice ? `<div class="banner">${esc(ATT.authNotice)}</div>` : "";
@@ -817,6 +828,11 @@ function applyTheme(t){
 }
 $("themeBtn").onclick = () => applyTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
 applyTheme(localStorage.getItem("tt_theme") || "light");
+
+// sign-in modal close controls
+$("authModalX").onclick = closeAuthModal;
+$("authModal").onclick = e => { if(e.target.id==="authModal") closeAuthModal(); };
+document.addEventListener("keydown", e => { if(e.key==="Escape" && !$("authModal").classList.contains("hidden")) closeAuthModal(); });
 
 // boot
 updateFriendBadge();
