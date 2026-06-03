@@ -132,18 +132,18 @@ function renderGrid(ms){
   $("tbody").innerHTML = rows;
 
   if(markEnabled){
-    $("tbody").querySelectorAll(".mkmini").forEach(btn => btn.onclick = async e => {
-      e.stopPropagation();
-      const row=btn.parentElement, key=row.dataset.key, v=btn.dataset.v;
-      ATT.data[key] = (ATT.data[key]===v) ? undefined : v;
-      if(ATT.data[key]===undefined) delete ATT.data[key];
-      row.querySelectorAll(".mkmini").forEach(b=>b.classList.toggle("on", b.dataset.v===ATT.data[key]));
-      const cls=btn.closest(".cls");
-      cls.classList.toggle("marked-p", ATT.data[key]==="p");
-      cls.classList.toggle("marked-a", ATT.data[key]==="a");
-      await saveAttendance();
+    $("tbody").querySelectorAll(".mkmini").forEach(btn => btn.onclick = e => {
+      e.stopPropagation(); toggleMark(btn.parentElement.dataset.key, btn.dataset.v);
     });
   }
+}
+
+// toggle one attendance mark and keep grid + agenda views in sync
+async function toggleMark(key, v){
+  ATT.data[key] = (ATT.data[key]===v) ? undefined : v;
+  if(ATT.data[key]===undefined) delete ATT.data[key];
+  if(currentRoll){ const ms=meetingsFor(currentRoll); renderGrid(ms); renderAgenda(ms); }
+  await saveAttendance();
 }
 
 // ---- in-grid attendance marking helpers ----
@@ -157,7 +157,7 @@ function initMarkWeeks(){
   markWeekIdx = i>=0 ? i : 0;
 }
 function dateForCell(dayIdx){ const d=new Date(markWeeks[markWeekIdx]); d.setDate(d.getDate()+dayIdx); return d; }
-function refreshTimetable(){ if(currentRoll){ renderMarkBar(); renderGrid(meetingsFor(currentRoll)); } }
+function refreshTimetable(){ if(currentRoll){ const ms=meetingsFor(currentRoll); renderMarkBar(); renderGrid(ms); renderAgenda(ms); } }
 
 function renderMarkBar(){
   const el=$("ttMarkBar"); if(!el) return;
@@ -193,14 +193,29 @@ function renderMarkBar(){
 
 function renderAgenda(ms){
   const byDay={}; ms.forEach(m=>{(byDay[m.day] ??= []).push(m);});
-  $("agendaView").innerHTML = D.days.map(day=>{
+  $("agendaView").innerHTML = D.days.map((day,di)=>{
     const items=(byDay[day]||[]).sort((a,b)=>a.slot-b.slot);
     const body = items.length ? items.map(m=>{
       const col=colorFor(m.course), cm=D.courses[m.course]||{};
-      return `<div class='ag-item'><div class='ag-time'>${D.slots[m.slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${clsLabel(m.course,m.section)}</div><div class='s'>${esc(cm.name)}</div></div><div class='ag-room'>${esc(m.details)}</div></div>`;
+      let stCls="", marks="";
+      if(markEnabled){
+        const key=attKey(m.course,m.section,fmtDate(dateForCell(di)),m.slot);
+        const st=ATT.data[key]||"";
+        stCls = st==="p"?" ag-p":st==="a"?" ag-a":"";
+        marks=`<span class='ag-marks' data-key='${key}'>`+
+          `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
+          `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
+      }
+      return `<div class='ag-item${stCls}'><div class='ag-time'>${D.slots[m.slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${clsLabel(m.course,m.section)}</div><div class='s'>${esc(cm.name)}</div></div><div class='ag-room'>${esc(m.details)}</div>${marks}</div>`;
     }).join("") : "<div class='day-empty'>No classes 🎉</div>";
     return `<div class='day-block'><div class='day-head'>${day}<span class='n'>${items.length} class${items.length===1?"":"es"}</span></div>${body}</div>`;
   }).join("");
+
+  if(markEnabled){
+    $("agendaView").querySelectorAll(".ag-marks .mkmini").forEach(btn => btn.onclick = e => {
+      e.stopPropagation(); toggleMark(btn.parentElement.dataset.key, btn.dataset.v);
+    });
+  }
 }
 
 function renderLegend(courses){
