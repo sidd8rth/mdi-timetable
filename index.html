@@ -233,9 +233,12 @@
       </div>
       <div class="count-pill" id="countPill"></div>
     </div>
-    <div id="viewToggle" class="toggle" style="display:none">
-      <button data-v="grid" class="on">Weekly grid</button>
-      <button data-v="agenda">Day by day</button>
+    <div class="row" id="ttActions" style="display:none;justify-content:space-between;align-items:center;margin:14px 0">
+      <div id="viewToggle" class="toggle" style="margin:0">
+        <button data-v="grid" class="on">Weekly grid</button>
+        <button data-v="agenda">Day by day</button>
+      </div>
+      <button class="btn btn-ghost btn-sm" id="dlTT">⬇︎ Download PDF</button>
     </div>
     <div id="gridView" class="gridwrap" style="display:none">
       <table class="tt"><thead id="thead"></thead><tbody id="tbody"></tbody></table>

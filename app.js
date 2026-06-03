@@ -88,8 +88,9 @@ function selectStudent(roll){
   const ms = meetingsFor(roll);
   $("placeholder").style.display="none";
   $("studentBar").classList.add("show");
-  $("viewToggle").style.display="inline-flex";
+  $("ttActions").style.display="flex";
   $("legend").style.display="block";
+  $("dlTT").onclick = () => downloadTimetablePDF(roll);
   $("avatar").textContent = (s.name.trim()[0]||"?").toUpperCase();
   $("sName").textContent = s.name;
   $("sMeta").textContent = "Roll " + roll;
@@ -529,10 +530,37 @@ function statsFromAttendance(att){
   return {P,A,C, pct: T? Math.round(P/T*100):null, byCourse:by};
 }
 
-function newPDF(){
+function newPDF(orientation){
   const J = window.jspdf && window.jspdf.jsPDF;
   if(!J){ alert("PDF library still loading — try again in a second."); return null; }
-  return new J({ unit:"pt", format:"a4" });
+  return new J({ unit:"pt", format:"a4", orientation: orientation || "portrait" });
+}
+
+function downloadTimetablePDF(roll){
+  const s=D.students[roll]; if(!s) return;
+  const doc=newPDF("landscape"); if(!doc) return;
+  doc.setFont("helvetica","bold"); doc.setFontSize(16);
+  doc.text("Weekly Timetable — Term IV", 40, 42);
+  doc.setFontSize(11); doc.setFont("helvetica","normal");
+  doc.text(`${s.name}  (${roll})`, 40, 60);
+  doc.setTextColor(120); doc.setFontSize(9);
+  doc.text(`MDI Gurgaon · PGDM 2025-27 · Jun 15 – Sep 6, 2026`, 40, 74);
+  doc.setTextColor(0);
+
+  const idx={};
+  meetingsFor(roll).forEach(m=>{
+    (idx[m.day+"|"+m.slot] ??= []).push(`${clsLabel(m.course,m.section)}${m.details?"  "+m.details:""}`);
+  });
+  const head=[["Day", ...D.slots.map((sl,i)=>`Slot ${i+1}\n${sl}`)]];
+  const body=D.days.map(day=>[day, ...D.slots.map((sl,i)=>(idx[day+"|"+i]||[]).join("\n"))]);
+  doc.autoTable({
+    startY:90, head, body,
+    styles:{font:"helvetica",fontSize:8,cellPadding:5,valign:"middle",minCellHeight:34,lineColor:[225,229,238],lineWidth:.5},
+    headStyles:{fillColor:[37,99,235],textColor:255,halign:"center",fontSize:8},
+    columnStyles:{0:{fontStyle:"bold",fillColor:[241,244,248],cellWidth:64,valign:"middle"}},
+    didParseCell:d=>{ if(d.section==="body"&&d.column.index>0&&!d.cell.raw){ d.cell.styles.fillColor=[250,251,253]; } }
+  });
+  doc.save(`timetable_${roll}.pdf`);
 }
 
 function downloadStudentPDF(roll){
