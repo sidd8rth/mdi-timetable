@@ -106,26 +106,35 @@ function renderGrid(ms){
   $("thead").innerHTML = "<tr><th class='daycol'>Day</th>"+
     D.slots.map((slot,i)=>`<th><span class='slotnum'>Slot ${i+1}</span>${slot}</th>`).join("")+"</tr>";
   const idx={}; ms.forEach(m=>{(idx[m.day+"|"+m.slot] ??= []).push(m);});
+  const ov = markEnabled ? computeWeekOverlay() : {cancelled:new Set(),adds:{}};
   let rows="";
   D.days.forEach((day,di)=>{
     rows+=`<tr><td class='daycol'>${day}</td>`;
     D.slots.forEach((slot,si)=>{
-      const here=idx[day+"|"+si];
-      rows += here
-        ? "<td class='cell'>"+here.map(m=>{
-            const col=colorFor(m.course);
-            let markCls="", controls="";
-            if(markEnabled){
-              const key=attKey(m.course,m.section,fmtDate(dateForCell(di)),m.slot);
-              const st=ATT.data[key]||"";
-              markCls = st==="p"?" marked-p":st==="a"?" marked-a":"";
-              controls=`<span class='mkrow' data-key='${key}'>`+
-                `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
-                `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
-            }
-            return `<div class='cls${markCls}' style='--c:${col};background:${col}1f'><span class='ab'>${clsLabel(m.course,m.section)}</span><span class='rm'>${esc(m.details)}</span>${controls}</div>`;
-          }).join("")+"</td>"
-        : "<td class='cell free'></td>";
+      const here=idx[day+"|"+si]||[];
+      const addsHere=ov.adds[di+"|"+si]||[];
+      if(!here.length && !addsHere.length){ rows+="<td class='cell free'></td>"; return; }
+      let cell="<td class='cell'>";
+      here.forEach(m=>{
+        const col=colorFor(m.course);
+        const ckey=m.course+"|"+(m.section||"");
+        const canc = markEnabled && ov.cancelled.has(di+"|"+si+"|"+ckey);
+        let markCls="", controls="";
+        if(markEnabled){
+          const key=attKey(m.course,m.section,fmtDate(dateForCell(di)),m.slot);
+          const st=ATT.data[key]||"";
+          markCls = st==="p"?" marked-p":st==="a"?" marked-a":"";
+          if(!canc) controls=`<span class='mkrow' data-key='${key}'>`+
+            `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
+            `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
+        }
+        cell += `<div class='cls${markCls}${canc?' cancelled':''}' style='--c:${col};background:${col}1f'><span class='ab'>${clsLabel(m.course,m.section)}</span><span class='rm'>${esc(m.details)}</span>${canc?"<span class='chgbadge' style='color:var(--bad)'>Cancelled</span>":""}${controls}</div>`;
+      });
+      addsHere.forEach(a=>{
+        const [c,sec]=a.ck.split("|"); const col=colorFor(c);
+        cell += `<div class='cls added' style='--c:${col};background:${col}1f'><span class='ab'>${esc(clsLabel(c,sec))}</span><span class='rm'>${esc(a.room||"")}</span><span class='chgbadge' style='color:var(--good)'>Extra${a.note?" · "+esc(a.note):""}</span></div>`;
+      });
+      cell+="</td>"; rows+=cell;
     });
     rows+="</tr>";
   });
@@ -193,22 +202,34 @@ function renderMarkBar(){
 
 function renderAgenda(ms){
   const byDay={}; ms.forEach(m=>{(byDay[m.day] ??= []).push(m);});
+  const ov = markEnabled ? computeWeekOverlay() : {cancelled:new Set(),adds:{}};
   $("agendaView").innerHTML = D.days.map((day,di)=>{
-    const items=(byDay[day]||[]).sort((a,b)=>a.slot-b.slot);
-    const body = items.length ? items.map(m=>{
+    const items=(byDay[day]||[]).slice().sort((a,b)=>a.slot-b.slot);
+    const added=[];
+    Object.keys(ov.adds).forEach(k=>{ const [d,s]=k.split("|"); if(+d===di) ov.adds[k].forEach(a=>added.push({slot:+s,a})); });
+    let html = items.map(m=>{
       const col=colorFor(m.course), cm=D.courses[m.course]||{};
+      const ckey=m.course+"|"+(m.section||"");
+      const canc = markEnabled && ov.cancelled.has(di+"|"+m.slot+"|"+ckey);
       let stCls="", marks="";
       if(markEnabled){
         const key=attKey(m.course,m.section,fmtDate(dateForCell(di)),m.slot);
         const st=ATT.data[key]||"";
         stCls = st==="p"?" ag-p":st==="a"?" ag-a":"";
-        marks=`<span class='ag-marks' data-key='${key}'>`+
+        if(!canc) marks=`<span class='ag-marks' data-key='${key}'>`+
           `<button class='mkmini p ${st==="p"?"on":""}' data-v='p'>✓</button>`+
           `<button class='mkmini a ${st==="a"?"on":""}' data-v='a'>✗</button></span>`;
       }
-      return `<div class='ag-item${stCls}'><div class='ag-time'>${D.slots[m.slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${clsLabel(m.course,m.section)}</div><div class='s'>${esc(cm.name)}</div></div><div class='ag-room'>${esc(m.details)}</div>${marks}</div>`;
-    }).join("") : "<div class='day-empty'>No classes 🎉</div>";
-    return `<div class='day-block'><div class='day-head'>${day}<span class='n'>${items.length} class${items.length===1?"":"es"}</span></div>${body}</div>`;
+      if(canc) stCls=" ag-cancel";
+      return `<div class='ag-item${stCls}'><div class='ag-time'>${D.slots[m.slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${clsLabel(m.course,m.section)}${canc?" · <span style='color:var(--bad)'>Cancelled</span>":""}</div><div class='s'>${esc(cm.name)}</div></div><div class='ag-room'>${esc(m.details)}</div>${marks}</div>`;
+    }).join("");
+    html += added.sort((x,y)=>x.slot-y.slot).map(({slot,a})=>{
+      const [c,sec]=a.ck.split("|"); const col=colorFor(c), cm=D.courses[c]||{};
+      return `<div class='ag-item'><div class='ag-time'>${D.slots[slot]}</div><div class='ag-bar' style='--c:${col}'></div><div class='ag-main'><div class='t'>${esc(clsLabel(c,sec))} · <span style='color:var(--good)'>Extra</span></div><div class='s'>${esc(cm.name)}${a.note?" · "+esc(a.note):""}</div></div><div class='ag-room'>${esc(a.room||"")}</div></div>`;
+    }).join("");
+    const total=items.length+added.length;
+    const body = total ? html : "<div class='day-empty'>No classes 🎉</div>";
+    return `<div class='day-block'><div class='day-head'>${day}<span class='n'>${total} class${total===1?"":"es"}</span></div>${body}</div>`;
   }).join("");
 
   if(markEnabled){
@@ -564,13 +585,16 @@ async function initFirebase(){
         ATT.userRef = fs.doc(ATT.db, "users", u.uid);
         try{
           const snap = await withTimeout(fs.getDoc(ATT.userRef));
-          if(snap.exists()){ const d=snap.data(); ATT.meRoll=d.roll||null; ATT.data=d.attendance||{}; ATT.role=d.role||null; }
+          if(snap.exists()){ const d=snap.data(); ATT.meRoll=d.roll||null; ATT.data=d.attendance||{}; ATT.role=d.role||null; lastSeenChanges=d.lastSeenChanges||0; }
           // bind the roll chosen at signup, if the doc didn't have one yet
           if(!ATT.meRoll && ATT.pendingRoll){
             ATT.meRoll = ATT.pendingRoll;
             await withTimeout(fs.setDoc(ATT.userRef, { roll:ATT.meRoll }, { merge:true }));
           }
           ATT.pendingRoll=null;
+          // keep the user's enrolled (course|section) list in their doc — needed by the
+          // security rules so only section members can post class updates
+          if(ATT.meRoll){ try{ await withTimeout(fs.setDoc(ATT.userRef,{enrolled:ckeysFor(ATT.meRoll)},{merge:true})); }catch(e){} }
         }catch(e){ ATT.cloudError = e.message; console.error("[firestore] read failed:", e.code||"", e.message); }
       } else { ATT.userRef=null; }
       if(ATT.user) closeAuthModal();
@@ -580,6 +604,8 @@ async function initFirebase(){
       // reflect login on the timetable grid (marking controls / own schedule)
       if(u && ATT.meRoll && !currentRoll) selectStudent(ATT.meRoll);
       else refreshTimetable();
+      // class updates: load, refresh tab + timetable overlay, and pop unseen ones
+      fetchChanges().then(()=>{ renderUpdates(); if(currentRoll) refreshTimetable(); maybeShowChangesPopup(); });
     });
   }catch(err){ console.error("Firebase init failed:",err); ATT.cloud=false; renderAttendance(); }
 }
@@ -1022,12 +1048,162 @@ function exportAdminPDF(){
 }
 
 // ===========================================================================
+//  CLASS UPDATES (section-wide cancellations / additions / reschedules)
+// ===========================================================================
+let changes=[], changesErr=null, lastSeenChanges=0, updType="cancel";
+
+function ckeysFor(roll){
+  const s=D.students[roll]; if(!s) return [];
+  return [...new Set(s.courses.map(c=>c.course+"|"+(c.section||"")))];
+}
+const ckeyLabel = k => { const [c,s]=k.split("|"); return c+(s?` (${s})`:""); };
+function diForDateInWeek(ds){
+  if(!markWeeks.length) return -1;
+  const mon=markWeeks[markWeekIdx];
+  for(let i=0;i<5;i++){ const d=new Date(mon); d.setDate(d.getDate()+i); if(fmtDate(d)===ds) return i; }
+  return -1;
+}
+const chMs = c => (c && c.createdAt && c.createdAt.seconds) ? c.createdAt.seconds*1000 : 0;
+
+async function fetchChanges(){
+  changesErr=null; changes=[];
+  if(!(ATT.cloud && ATT.user && ATT.meRoll)){ updateUpdCount(); return; }
+  const ck=ckeysFor(ATT.meRoll); if(!ck.length){ updateUpdCount(); return; }
+  try{
+    const {collection,query,where,getDocs}=ATT.fb;
+    const snap=await withTimeout(getDocs(query(collection(ATT.db,"changes"), where("ckey","in",ck.slice(0,30)))),12000);
+    changes=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>chMs(b)-chMs(a));
+  }catch(e){ changesErr=e.message; console.error("[changes] fetch",e.code||"",e.message); }
+  updateUpdCount();
+}
+function unseenChanges(){ return changes.filter(c=>chMs(c)>lastSeenChanges && c.byUid!==(ATT.user&&ATT.user.uid)); }
+function updateUpdCount(){
+  const el=$("updCount"); if(!el) return;
+  const n=unseenChanges().length;
+  el.textContent=n; el.classList.toggle("hidden", n===0);
+}
+
+async function createChange(obj){
+  const {addDoc,collection,serverTimestamp}=ATT.fb;
+  await withTimeout(addDoc(collection(ATT.db,"changes"), {
+    ...obj, byUid:ATT.user.uid, byRoll:ATT.meRoll, byName:(D.students[ATT.meRoll]||{}).name||ATT.meRoll, createdAt:serverTimestamp()
+  }));
+  await fetchChanges(); renderUpdates(); if(currentRoll) refreshTimetable();
+}
+async function deleteChange(id){
+  try{ const {doc,deleteDoc}=ATT.fb; await withTimeout(deleteDoc(doc(ATT.db,"changes",id))); await fetchChanges(); renderUpdates(); if(currentRoll) refreshTimetable(); }
+  catch(e){ console.error("[changes] delete",e.code,e.message); alert("Couldn't delete: "+e.message); }
+}
+
+// overlay for the currently selected week (used by the timetable grid/agenda)
+function computeWeekOverlay(){
+  const cancelled=new Set(), adds={};
+  if(!markEnabled) return {cancelled,adds};
+  changes.forEach(ch=>{
+    const ck=ch.ckey;
+    const cancOcc=(ds,slot)=>{ const di=diForDateInWeek(ds); if(di>=0) cancelled.add(di+"|"+slot+"|"+ck); };
+    const addOcc=(ds,slot,room,note)=>{ const di=diForDateInWeek(ds); if(di>=0)(adds[di+"|"+slot] ??= []).push({ck,room,note,by:ch.byName}); };
+    if(ch.type==="cancel") cancOcc(ch.date,ch.slot);
+    else if(ch.type==="add") addOcc(ch.date,ch.slot,ch.room,ch.note);
+    else if(ch.type==="move"){ cancOcc(ch.fromDate,ch.fromSlot); addOcc(ch.toDate,ch.toSlot,ch.room,ch.note); }
+  });
+  return {cancelled,adds};
+}
+
+function chgSummary(ch){
+  const lbl=ckeyLabel(ch.ckey);
+  const dt=ds=>{ const [y,m,d]=ds.split("-"); return new Date(+y,+m-1,+d).toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"}); };
+  const sl=i=>"slot "+(i+1);
+  if(ch.type==="cancel") return {title:`${lbl} cancelled`, sub:`${dt(ch.date)} · ${sl(ch.slot)}${ch.note?" · "+ch.note:""}`};
+  if(ch.type==="add")    return {title:`${lbl} extra class`, sub:`${dt(ch.date)} · ${sl(ch.slot)}${ch.room?" · "+ch.room:""}${ch.note?" · "+ch.note:""}`};
+  return {title:`${lbl} rescheduled`, sub:`${dt(ch.fromDate)} ${sl(ch.fromSlot)} → ${dt(ch.toDate)} ${sl(ch.toSlot)}${ch.room?" · "+ch.room:""}${ch.note?" · "+ch.note:""}`};
+}
+
+function renderUpdates(){
+  const body=$("upd-body"); if(!body) return;
+  if(!ATT.cloud){ body.innerHTML=`<div class="banner">Cloud sync isn't set up, so class updates are unavailable. (See README.)</div>`; return; }
+  if(!ATT.user){
+    body.innerHTML=`<div class="panel auth-box"><p class="section-h" style="margin:0">Class updates</p><p class="hint" style="margin:0">Sign in to see and report cancelled / rescheduled / extra classes for your sections.</p><button class="btn btn-primary" id="updSignin">Sign in</button></div>`;
+    $("updSignin").onclick=openAuthModal; return;
+  }
+  const ck=ckeysFor(ATT.meRoll);
+  const opts=ck.map(k=>`<option value="${k}">${esc(ckeyLabel(k))}</option>`).join("");
+  const slotOpts=D.slots.map((s,i)=>`<option value="${i}">Slot ${i+1} · ${s}</option>`).join("");
+  const t=updType;
+  const f = (lbl,inner)=>`<div class="fg"><label>${lbl}</label>${inner}</div>`;
+  let form;
+  if(t==="cancel"){
+    form = f("Course",`<select id="uCourse">${opts}</select>`)+f("Date",`<input id="uDate" type="date">`)+f("Slot",`<select id="uSlot">${slotOpts}</select>`)+f("Note (optional)",`<input id="uNote" type="text" placeholder="reason">`);
+  } else if(t==="add"){
+    form = f("Course",`<select id="uCourse">${opts}</select>`)+f("Date",`<input id="uDate" type="date">`)+f("Slot",`<select id="uSlot">${slotOpts}</select>`)+f("Room",`<input id="uRoom" type="text" placeholder="e.g. G-11">`)+f("Note",`<input id="uNote" type="text" placeholder="makeup class">`);
+  } else {
+    form = f("Course",`<select id="uCourse">${opts}</select>`)+f("From date",`<input id="uFromDate" type="date">`)+f("From slot",`<select id="uFromSlot">${slotOpts}</select>`)+f("To date",`<input id="uToDate" type="date">`)+f("To slot",`<select id="uToSlot">${slotOpts}</select>`)+f("Room",`<input id="uRoom" type="text" placeholder="optional">`)+f("Note",`<input id="uNote" type="text" placeholder="optional">`);
+  }
+  const feed = changes.length ? changes.map(ch=>{
+    const {title,sub}=chgSummary(ch);
+    const mine = ch.byUid===ATT.user.uid;
+    return `<div class="chg"><span class="tag ${ch.type}">${ch.type==="move"?"moved":ch.type}</span>
+      <div><div class="ct">${esc(title)}</div><div class="cs">${esc(sub)}</div><div class="cby">by ${esc(ch.byName||ch.byRoll||"someone")}</div></div>
+      ${mine?`<button class="cdel" data-id="${ch.id}" title="Remove">🗑</button>`:""}</div>`;
+  }).join("") : `<p class="hint">No class updates for your sections yet.</p>`;
+
+  body.innerHTML=`
+    <div class="panel">
+      <p class="section-h" style="margin:0 0 12px">Report a change (only for your sections)</p>
+      <div class="toggle" id="updTypeToggle" style="margin:0 0 14px">
+        <button data-t="cancel" class="${t==="cancel"?"on":""}">Cancel</button>
+        <button data-t="add" class="${t==="add"?"on":""}">Add class</button>
+        <button data-t="move" class="${t==="move"?"on":""}">Reschedule</button>
+      </div>
+      <div class="selrow">${form}</div>
+      <div class="row" style="margin-top:14px"><button class="btn btn-primary btn-sm" id="uSubmit">Post update</button><span class="hint" id="uMsg" style="margin:0"></span></div>
+    </div>
+    <p class="section-h" style="margin:22px 0 12px">Recent updates for your classes</p>
+    ${changesErr?`<div class="banner">Couldn't load updates: ${esc(changesErr)} — publish the updates rules (README).</div>`:""}
+    ${feed}`;
+
+  document.querySelectorAll("#updTypeToggle button").forEach(b=>b.onclick=()=>{ updType=b.dataset.t; renderUpdates(); });
+  $("uSubmit").onclick=submitUpdate;
+  body.querySelectorAll(".chg .cdel").forEach(b=>b.onclick=()=>{ if(confirm("Remove this update?")) deleteChange(b.dataset.id); });
+
+  lastSeenChanges=Math.max(lastSeenChanges, ...changes.map(chMs), 0);
+  persistLastSeen(); updateUpdCount();
+}
+
+async function submitUpdate(){
+  const msg=t=>{ const m=$("uMsg"); if(m) m.textContent=t; };
+  const ckey=$("uCourse").value; const [course,section]=ckey.split("|");
+  const base={ckey, course, section:section||null};
+  let obj;
+  if(updType==="cancel"){ if(!$("uDate").value) return msg("Pick a date."); obj={...base,type:"cancel",date:$("uDate").value,slot:+$("uSlot").value,note:$("uNote").value.trim()||null}; }
+  else if(updType==="add"){ if(!$("uDate").value) return msg("Pick a date."); obj={...base,type:"add",date:$("uDate").value,slot:+$("uSlot").value,room:$("uRoom").value.trim()||null,note:$("uNote").value.trim()||null}; }
+  else { if(!$("uFromDate").value||!$("uToDate").value) return msg("Pick both dates."); obj={...base,type:"move",fromDate:$("uFromDate").value,fromSlot:+$("uFromSlot").value,toDate:$("uToDate").value,toSlot:+$("uToSlot").value,room:$("uRoom").value.trim()||null,note:$("uNote").value.trim()||null}; }
+  try{ msg("Posting…"); await createChange(obj); msg("Posted ✓"); }
+  catch(e){ console.error("[changes] create",e.code,e.message); msg("Failed: "+e.message+" (publish updates rules — see README)."); }
+}
+
+function maybeShowChangesPopup(){
+  const un=unseenChanges();
+  if(!un.length) return;
+  const list=un.slice(0,8).map(ch=>{ const {title,sub}=chgSummary(ch); return `<div class="chg"><span class="tag ${ch.type}">${ch.type==="move"?"moved":ch.type}</span><div><div class="ct">${esc(title)}</div><div class="cs">${esc(sub)}</div></div></div>`; }).join("");
+  $("changesModalBody").innerHTML=`<p class="section-h" style="margin:0 0 12px">🔔 ${un.length} class update${un.length===1?"":"s"} for you</p>${list}<div class="row" style="margin-top:12px"><button class="btn btn-primary btn-sm" id="chgSeen">Got it</button><button class="btn btn-ghost btn-sm" id="chgOpen">Open Updates</button></div>`;
+  $("changesModal").classList.remove("hidden");
+  const close=()=>{ lastSeenChanges=Math.max(lastSeenChanges,...changes.map(chMs),Date.now()); persistLastSeen(); updateUpdCount(); $("changesModal").classList.add("hidden"); };
+  $("chgSeen").onclick=close;
+  $("chgOpen").onclick=()=>{ close(); showTab("updates"); };
+}
+async function persistLastSeen(){
+  if(ATT.cloud && ATT.userRef){ try{ await ATT.fb.setDoc(ATT.userRef,{lastSeenChanges},{merge:true}); }catch(e){} }
+}
+
+// ===========================================================================
 //  TABS + THEME + BOOT
 // ===========================================================================
 function showTab(name){
   document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===name));
-  ["timetable","friends","attendance"].forEach(t=> $("tab-"+t).classList.toggle("hidden", t!==name));
+  ["timetable","friends","attendance","updates"].forEach(t=> $("tab-"+t).classList.toggle("hidden", t!==name));
   if(name==="timetable" && currentRoll) refreshTimetable();
+  if(name==="updates") renderUpdates();
   if(name==="friends"){ renderFriends(); if(ATT.cloud && ATT.user) fetchCloudSquads().then(renderSquads); }
   if(name==="attendance") renderAttendance();
 }
@@ -1041,6 +1217,10 @@ function applyTheme(t){
 }
 $("themeBtn").onclick = () => applyTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
 applyTheme(localStorage.getItem("tt_theme") || "light");
+
+// changes popup close
+$("changesModalX").onclick = () => { lastSeenChanges=Math.max(lastSeenChanges,...changes.map(chMs),Date.now()); persistLastSeen(); updateUpdCount(); $("changesModal").classList.add("hidden"); };
+$("changesModal").onclick = e => { if(e.target.id==="changesModal") $("changesModalX").onclick(); };
 
 // sign-in modal close controls
 $("authModalX").onclick = closeAuthModal;
