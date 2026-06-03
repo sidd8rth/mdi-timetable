@@ -9,26 +9,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#eef1f8; --bg2:#e6ebf5;
-    --panel:rgba(255,255,255,.78); --panel-solid:#ffffff; --panel2:#eef1f7;
-    --line:rgba(20,30,60,.10); --line2:rgba(20,30,60,.06);
-    --txt:#161a26; --muted:#697089;
-    --accent:#4f6ef7; --accent2:#8b5cf6; --accent3:#ec4899;
+    --bg:#f7f8fa; --bg2:#eef1f6;
+    --panel:#ffffff; --panel-solid:#ffffff; --panel2:#f1f4f8;
+    --line:#e3e7ee; --line2:#eef1f5;
+    --txt:#1a1d24; --muted:#6b7280;
+    --accent:#2563eb; --accent2:#2563eb; --accent3:#2563eb;
     --good:#16a34a; --bad:#e11d48; --warn:#d97706;
-    --grad:linear-gradient(120deg,var(--accent),var(--accent2) 60%,var(--accent3));
-    --radius:18px; --radius-sm:12px;
-    --shadow:0 10px 30px -12px rgba(40,55,110,.28);
-    --shadow-lg:0 24px 60px -20px rgba(40,55,110,.4);
-    --blur:saturate(150%) blur(14px);
+    --grad:linear-gradient(135deg,#3b74f0,#2563eb);
+    --radius:16px; --radius-sm:12px;
+    --shadow:0 6px 20px -10px rgba(30,41,59,.16);
+    --shadow-lg:0 18px 44px -18px rgba(30,41,59,.26);
+    --blur:saturate(105%) blur(6px);
   }
   [data-theme="dark"]{
-    --bg:#0b0d13; --bg2:#0f1320;
-    --panel:rgba(26,30,42,.66); --panel-solid:#161a24; --panel2:#1c2130;
-    --line:rgba(255,255,255,.10); --line2:rgba(255,255,255,.05);
-    --txt:#eaedf5; --muted:#99a1b5;
-    --accent:#6e8bff; --accent2:#a78bfa; --accent3:#f472b6;
-    --shadow:0 12px 36px -14px rgba(0,0,0,.6);
-    --shadow-lg:0 26px 70px -24px rgba(0,0,0,.75);
+    --bg:#0e1116; --bg2:#141821;
+    --panel:#171b22; --panel-solid:#1a1f29; --panel2:#1e242f;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.05);
+    --txt:#e8ebf2; --muted:#9aa3b2;
+    --accent:#4b8bf7; --accent2:#4b8bf7; --accent3:#4b8bf7;
+    --grad:linear-gradient(135deg,#5b95f8,#3b82f6);
+    --shadow:0 10px 30px -14px rgba(0,0,0,.55);
+    --shadow-lg:0 22px 60px -22px rgba(0,0,0,.7);
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
@@ -37,12 +38,6 @@
     color:var(--txt); min-height:100vh; line-height:1.5;
     background:var(--bg); position:relative; overflow-x:hidden;
   }
-  /* animated aurora background */
-  body::before,body::after{content:"";position:fixed;border-radius:50%;filter:blur(90px);opacity:.5;z-index:-1;pointer-events:none}
-  body::before{width:46vw;height:46vw;background:radial-gradient(circle,var(--accent),transparent 70%);top:-12vw;right:-8vw;animation:float1 18s ease-in-out infinite}
-  body::after{width:40vw;height:40vw;background:radial-gradient(circle,var(--accent3),transparent 70%);bottom:-14vw;left:-10vw;opacity:.35;animation:float2 22s ease-in-out infinite}
-  @keyframes float1{50%{transform:translate(-4vw,6vh) scale(1.1)}}
-  @keyframes float2{50%{transform:translate(5vw,-5vh) scale(1.15)}}
   h1,h2,h3,.brand{font-family:"Plus Jakarta Sans","Inter",sans-serif}
   a{color:var(--accent)}
 

@@ -4,8 +4,8 @@
 import { FIREBASE_CONFIG } from "./firebase-config.js";
 
 const D = window.TT_DATA;
-const COURSE_PALETTE = ["#3b6fe0","#7c4dff","#db2777","#0d9488","#d97706","#e11d48","#0891b2","#7c3aed","#16a34a","#ca8a04","#2563eb","#c026d3"];
-const PERSON_PALETTE = ["#3b6fe0","#e11d48","#16a34a","#d97706","#7c4dff","#0891b2"];
+const COURSE_PALETTE = ["#2563eb","#0891b2","#16a34a","#d97706","#dc2626","#0ea5e9","#0d9488","#ca8a04","#db2777","#4f46e5","#65a30d","#e11d48"];
+const PERSON_PALETTE = ["#2563eb","#dc2626","#16a34a","#d97706","#0891b2","#7c3aed"];
 
 const colorFor = (() => { const m={}; let i=0; return ab => (m[ab] ??= COURSE_PALETTE[i++%COURSE_PALETTE.length]); })();
 
