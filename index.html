@@ -247,8 +247,10 @@
   .selrow select,.selrow input{padding:11px 13px;border-radius:11px;border:1px solid var(--line);background:var(--panel-solid);color:var(--txt);font-size:.92rem;font-family:inherit}
   .selrow .fg{display:flex;flex-direction:column;gap:5px}
   .selrow .fg label{font-size:.72rem;color:var(--muted);font-weight:600}
-  .cls.cancelled{opacity:.6}
-  .cls.cancelled .ab{text-decoration:line-through}
+  .cls.cancelled{opacity:.85;background:color-mix(in srgb,var(--bad) 12%,transparent) !important;border-left-color:var(--bad) !important}
+  .cls.cancelled .ab{text-decoration:line-through;text-decoration-color:var(--bad);text-decoration-thickness:2px;color:var(--bad)}
+  .who-cancel span:first-child{text-decoration:line-through;text-decoration-color:var(--bad);color:var(--bad) !important}
+  .who-extra span:first-child{color:var(--good) !important}
   .cls.added{border-left-style:dashed;border-left-width:4px}
   .cls .chgbadge{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;margin-top:3px}
   .ag-item.ag-cancel{opacity:.65}
