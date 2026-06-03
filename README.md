@@ -110,6 +110,15 @@ Spark plan, which is plenty for a class. One-time setup (~10 min):
                   && request.resource.data.status.diff(resource.data.status).affectedKeys().hasOnly([myRoll()]) )
          );
        }
+       // class updates (cancel / add / reschedule) — visible to all signed-in users,
+       // but you can only POST a change for a section you're actually enrolled in
+       match /changes/{id} {
+         allow read:   if request.auth != null;
+         allow create: if request.auth != null
+           && request.resource.data.byUid == request.auth.uid
+           && request.resource.data.ckey in get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('enrolled', []);
+         allow delete: if request.auth != null && resource.data.byUid == request.auth.uid;
+       }
      }
    }
    ```
