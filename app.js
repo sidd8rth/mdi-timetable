@@ -276,7 +276,7 @@ function renderFriends(){
 }
 
 // ---- squads (shared & DB-backed when signed in; device-local otherwise) ----
-let cloudSquads=[], cloudSquadErr=null;
+let cloudSquads=[], cloudSquadErr=null, selectedSquadId=null;
 const squadHint = t => { const h=$("squadHint"); if(h) h.textContent=t||""; };
 function saveSquads(){ localStorage.setItem("tt_squads", JSON.stringify(squads)); }
 
@@ -293,24 +293,30 @@ async function fetchCloudSquads(){
 function renderSquads(){
   const el=$("squadChips"); if(!el) return;
   const lbl=$("squadPanel").querySelector("label.fld");
+  const createRow=$("squadCreateRow");
+  // hide the "create / save squad" row while editing a selected cloud squad
+  const editing = ATT.cloud && ATT.user && ATT.meRoll && selectedSquadId && cloudSquads.some(s=>s.id===selectedSquadId && s.status && s.status[ATT.meRoll]==="member");
+  if(createRow) createRow.style.display = editing ? "none" : "flex";
 
   // ----- signed-in: shared squads -----
   if(ATT.cloud && ATT.user && ATT.meRoll){
     lbl.textContent="Squads — shared groups; invite classmates and they'll see it once they accept";
     const mine=cloudSquads.filter(s=>s.status && s.status[ATT.meRoll]==="member");
     const invites=cloudSquads.filter(s=>s.status && s.status[ATT.meRoll]==="invited");
+    if(selectedSquadId && !mine.some(s=>s.id===selectedSquadId)) selectedSquadId=null;
     let html="";
     if(cloudSquadErr) html+=`<div class="err" style="margin-bottom:8px">Couldn't load squads: ${esc(cloudSquadErr)} — publish the squad rules (README).</div>`;
     if(mine.length){
       html+=`<div class="row" style="margin-bottom:8px">
         <select id="squadSelect" class="squadsel"><option value="">Load a squad…</option>
-        ${mine.map(s=>`<option value="${s.id}">${esc(s.name)} · ${s.participants.length} people</option>`).join("")}</select>
-        <button class="btn btn-ghost btn-sm" id="squadLeave">Leave / Delete</button></div>`;
+        ${mine.map(s=>`<option value="${s.id}" ${s.id===selectedSquadId?"selected":""}>${esc(s.name)} · ${s.participants.length} people</option>`).join("")}</select></div>`;
     } else if(!cloudSquadErr){
       html+=`<div class="hint" style="margin:0 0 8px">No squads yet. Add friends above, name it, then “Save squad” to invite them.</div>`;
     }
+    const sel = selectedSquadId && cloudSquads.find(s=>s.id===selectedSquadId);
+    if(sel) html += renderSquadDetail(sel);
     if(invites.length){
-      html+=`<div class="section-h" style="margin:10px 0 8px">Pending invites</div>`+
+      html+=`<div class="section-h" style="margin:12px 0 8px">Pending invites</div>`+
         invites.map(s=>`<div class="row" style="margin-bottom:6px;justify-content:space-between">
           <span>👥 <b>${esc(s.name)}</b> · from ${esc((D.students[s.ownerRoll]||{}).name||s.ownerRoll)} · ${s.participants.length} people</span>
           <span class="row"><button class="btn btn-primary btn-sm sq-accept" data-id="${s.id}">Accept</button>
@@ -318,8 +324,12 @@ function renderSquads(){
     }
     el.innerHTML=html;
     squadHint(mine.length?"Pick a squad to load everyone into the compare view below.":"");
-    if($("squadSelect")) $("squadSelect").onchange=()=>{ const s=cloudSquads.find(x=>x.id===$("squadSelect").value); if(s) loadSquadMembers(s); };
-    if($("squadLeave")) $("squadLeave").onclick=()=>{ const sel=$("squadSelect"); const s=sel&&cloudSquads.find(x=>x.id===sel.value); if(!s){squadHint("Pick a squad first.");return;} (s.ownerUid===ATT.user.uid?deleteCloudSquad(s.id):leaveCloudSquad(s.id)); };
+    if($("squadSelect")) $("squadSelect").onchange=()=>{
+      selectedSquadId=$("squadSelect").value||null;
+      const s=cloudSquads.find(x=>x.id===selectedSquadId);
+      if(s) loadSquadMembers(s); else renderSquads();
+    };
+    wireSquadDetail(sel);
     el.querySelectorAll(".sq-accept").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"member"));
     el.querySelectorAll(".sq-decline").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"declined"));
     return;
@@ -336,8 +346,70 @@ function renderSquads(){
 }
 
 function loadSquadMembers(s){
+  selectedSquadId=s.id;
   friends = s.participants.filter(r=>r!==ATT.meRoll).slice(0,5).map(r=>({roll:r,name:(D.students[r]||{}).name||r}));
   saveFriends(); renderFriends();
+}
+
+function renderSquadDetail(s){
+  const owner = s.ownerUid===ATT.user.uid;
+  const stColor = st => st==="member"?"var(--good)":st==="invited"?"var(--warn)":"var(--muted)";
+  const memberRows = s.participants.map(r=>{
+    const st = r===s.ownerRoll ? "owner" : (s.status?.[r]||"");
+    const nm = (D.students[r]||{}).name || r;
+    const rm = owner && r!==s.ownerRoll ? ` <button class="sq-rm" data-r="${r}" title="Remove">×</button>` : "";
+    return `<span class="chip"><span class="pdot" style="background:${stColor(s.status?.[r])}"></span>${esc(nm)} <span style="color:var(--muted);font-size:.74rem">${st}</span>${rm}</span>`;
+  }).join("");
+  const head = owner
+    ? `${esc(s.name)} <span style="color:var(--muted);font-weight:600;font-size:.8rem">· you own this</span>`
+    : `${esc(s.name)} <span style="color:var(--muted);font-weight:600;font-size:.8rem">· invited by ${esc((D.students[s.ownerRoll]||{}).name||s.ownerRoll)}</span>`;
+  let edit;
+  if(owner){
+    edit=`<div class="row" style="margin-top:12px">
+        <input id="sqRename" type="text" value="${esc(s.name)}" style="flex:1;min-width:160px">
+        <button class="btn btn-ghost btn-sm" id="sqRenameBtn">Rename</button></div>
+      <div class="search-box" style="margin-top:8px"><input id="sqAdd" type="text" autocomplete="off" placeholder="Invite someone (name or roll)…"><div id="sqAddRes" class="results"></div></div>
+      <div class="row" style="margin-top:12px"><button class="btn btn-ghost btn-sm" id="sqDelete" style="color:var(--bad)">Delete squad</button></div>`;
+  } else {
+    edit=`<div class="row" style="margin-top:12px"><button class="btn btn-ghost btn-sm" id="sqLeave">Leave squad</button></div>`;
+  }
+  return `<div class="panel" style="margin-top:10px;box-shadow:none;border-style:dashed">
+     <div style="font-weight:800;font-family:'Plus Jakarta Sans';margin-bottom:10px">${head}</div>
+     <div class="chips">${memberRows}</div>${edit}</div>`;
+}
+
+function wireSquadDetail(s){
+  if(!s) return;
+  const owner = s.ownerUid===ATT.user.uid;
+  if(owner){
+    if($("sqRenameBtn")) $("sqRenameBtn").onclick=()=>renameSquad(s.id, $("sqRename").value.trim());
+    if($("sqDelete")) $("sqDelete").onclick=()=>deleteCloudSquad(s.id);
+    document.querySelectorAll("#squadChips .sq-rm").forEach(b=>b.onclick=()=>removeMember(s.id,b.dataset.r));
+    if($("sqAdd")) makeSearch($("sqAdd"),$("sqAddRes"), roll=>addMember(s.id,roll), roll=>s.participants.includes(roll));
+  } else {
+    if($("sqLeave")) $("sqLeave").onclick=()=>leaveCloudSquad(s.id);
+  }
+}
+
+async function renameSquad(id,name){
+  if(!name){ squadHint("Enter a new name."); return; }
+  try{ const {doc,updateDoc}=ATT.fb; await withTimeout(updateDoc(doc(ATT.db,"squads",id),{name})); await fetchCloudSquads(); renderSquads(); squadHint("Renamed."); }
+  catch(e){ console.error("[squads] rename",e.code,e.message); squadHint("Rename failed: "+e.message); }
+}
+async function addMember(id,roll){
+  try{ const {doc,updateDoc,arrayUnion}=ATT.fb;
+    await withTimeout(updateDoc(doc(ATT.db,"squads",id),{participants:arrayUnion(roll),["status."+roll]:"invited"}));
+    await fetchCloudSquads(); const s=cloudSquads.find(x=>x.id===id);
+    if(s) loadSquadMembers(s); else renderSquads();
+    squadHint("Invited "+((D.students[roll]||{}).name||roll)+".");
+  }catch(e){ console.error("[squads] add",e.code,e.message); squadHint("Invite failed: "+e.message); }
+}
+async function removeMember(id,roll){
+  try{ const {doc,updateDoc,arrayRemove,deleteField}=ATT.fb;
+    await withTimeout(updateDoc(doc(ATT.db,"squads",id),{participants:arrayRemove(roll),["status."+roll]:deleteField()}));
+    await fetchCloudSquads(); const s=cloudSquads.find(x=>x.id===id);
+    if(s) loadSquadMembers(s); else renderSquads();
+  }catch(e){ console.error("[squads] remove",e.code,e.message); squadHint("Remove failed: "+e.message); }
 }
 
 async function saveSquad(){
