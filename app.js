@@ -240,6 +240,7 @@ document.querySelectorAll("#viewToggle button").forEach(b=>b.addEventListener("c
 //  FRIENDS TAB
 // ===========================================================================
 let friends = JSON.parse(localStorage.getItem("tt_friends")||"[]");
+let squads = JSON.parse(localStorage.getItem("tt_squads")||"[]");
 let compareInited=false;
 const personColor = roll => {
   const all=[currentRoll,...friends.map(f=>f.roll)].filter(Boolean);
@@ -270,8 +271,38 @@ function renderFriends(){
     ? `${friends.length}/5 friends added. ${currentRoll? "Comparing with your schedule below." : "Pick yourself on the Timetable tab to compare."}`
     : "No friends yet. Add classmates to see when everyone is free.";
   $("friendChips").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>removeFriend(b.dataset.roll)));
+  renderSquads();
   renderCompare();
 }
+
+// ---- squads: save / load named friend groups ----
+function saveSquads(){ localStorage.setItem("tt_squads", JSON.stringify(squads)); }
+function renderSquads(){
+  const el=$("squadChips"); if(!el) return;
+  el.innerHTML = squads.map((s,i)=>
+    `<span class="chip"><button class="sq-load" data-i="${i}" style="background:none;border:none;cursor:pointer;font:inherit;font-weight:700;color:inherit;display:inline-flex;align-items:center;gap:6px">👥 ${esc(s.name)} · ${s.members.length}</button><button class="sq-del" data-i="${i}" title="Delete squad">×</button></span>`
+  ).join("");
+  $("squadHint").textContent = squads.length
+    ? "Tap a squad to load it into your friends list."
+    : "No saved squads yet. Add friends above, then save them as a squad.";
+  el.querySelectorAll(".sq-load").forEach(b=>b.onclick=()=>loadSquad(+b.dataset.i));
+  el.querySelectorAll(".sq-del").forEach(b=>b.onclick=()=>deleteSquad(+b.dataset.i));
+}
+function saveSquad(){
+  const name=$("squadName").value.trim();
+  if(!name){ $("squadHint").textContent="Enter a squad name first."; return; }
+  if(!friends.length){ $("squadHint").textContent="Add at least one friend before saving a squad."; return; }
+  const squad={ name, members:friends.map(f=>({roll:f.roll,name:f.name})) };
+  const i=squads.findIndex(s=>s.name.toLowerCase()===name.toLowerCase());
+  if(i>=0) squads[i]=squad; else squads.push(squad);
+  saveSquads(); $("squadName").value=""; renderSquads();
+}
+function loadSquad(i){
+  const s=squads[i]; if(!s) return;
+  friends = s.members.slice(0,5).map(m=>({roll:m.roll,name:m.name}));
+  saveFriends(); renderFriends();
+}
+function deleteSquad(i){ squads.splice(i,1); saveSquads(); renderSquads(); }
 
 function renderCompare(){
   const wrap=$("compareWrap");
@@ -372,6 +403,7 @@ async function initFirebase(){
     ATT.db = fs.getFirestore(app);
     ATT.fb = { ...auth, ...fs };
     ATT.cloud = true;
+    renderAcct();
     auth.onAuthStateChanged(ATT.auth, async u => {
       console.log("[auth] state changed:", u ? u.email||u.uid : "signed out");
       // hard guard: only @mdi.ac.in accounts are allowed in
@@ -395,6 +427,7 @@ async function initFirebase(){
         }catch(e){ ATT.cloudError = e.message; console.error("[firestore] read failed:", e.code||"", e.message); }
       } else { ATT.userRef=null; }
       if(ATT.user) closeAuthModal();
+      renderAcct();
       renderAttendance();
       // reflect login on the timetable grid (marking controls / own schedule)
       if(u && ATT.meRoll && !currentRoll) selectStudent(ATT.meRoll);
@@ -441,6 +474,23 @@ let signupRoll = null;          // roll chosen during create-account
 
 function openAuthModal(){ renderAuth($("modalAuth")); $("authModal").classList.remove("hidden"); }
 function closeAuthModal(){ $("authModal").classList.add("hidden"); $("modalAuth").innerHTML=""; }
+
+// header account chip + sign in/out, visible on every tab
+function renderAcct(){
+  const el=$("acct"); if(!el) return;
+  if(!ATT.cloud){ el.innerHTML=""; return; }
+  if(ATT.user){
+    const nm = ATT.role==="admin" ? "Admin"
+      : (ATT.meRoll && D.students[ATT.meRoll]) ? D.students[ATT.meRoll].name.split(" ")[0]
+      : (ATT.user.email||"Account").split("@")[0];
+    const ini=(nm[0]||"?").toUpperCase();
+    el.innerHTML=`<span class="who2"><span class="ai">${esc(ini)}</span>${esc(nm)}</span><button class="signout" id="hdrSignout">Sign out</button>`;
+    $("hdrSignout").onclick=()=>ATT.fb.signOut(ATT.auth);
+  } else {
+    el.innerHTML=`<button class="signin" id="hdrSignin">Sign in</button>`;
+    $("hdrSignin").onclick=openAuthModal;
+  }
+}
 
 function renderAuth(el){
   const notice = ATT.authNotice ? `<div class="banner">${esc(ATT.authNotice)}</div>` : "";
@@ -848,6 +898,10 @@ applyTheme(localStorage.getItem("tt_theme") || "light");
 $("authModalX").onclick = closeAuthModal;
 $("authModal").onclick = e => { if(e.target.id==="authModal") closeAuthModal(); };
 document.addEventListener("keydown", e => { if(e.key==="Escape" && !$("authModal").classList.contains("hidden")) closeAuthModal(); });
+
+// squad controls
+$("saveSquad").onclick = saveSquad;
+$("squadName").addEventListener("keydown", e => { if(e.key==="Enter") saveSquad(); });
 
 // boot
 updateFriendBadge();
