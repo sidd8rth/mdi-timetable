@@ -276,7 +276,7 @@ function renderFriends(){
 }
 
 // ---- squads (shared & DB-backed when signed in; device-local otherwise) ----
-let cloudSquads=[], cloudSquadErr=null, selectedSquadId=null;
+let cloudSquads=[], cloudSquadErr=null, selectedSquadId=null, squadDetailOpen=false;
 const squadHint = t => { const h=$("squadHint"); if(h) h.textContent=t||""; };
 function saveSquads(){ localStorage.setItem("tt_squads", JSON.stringify(squads)); }
 
@@ -294,8 +294,8 @@ function renderSquads(){
   const el=$("squadChips"); if(!el) return;
   const lbl=$("squadPanel").querySelector("label.fld");
   const createRow=$("squadCreateRow");
-  // hide the "create / save squad" row while editing a selected cloud squad
-  const editing = ATT.cloud && ATT.user && ATT.meRoll && selectedSquadId && cloudSquads.some(s=>s.id===selectedSquadId && s.status && s.status[ATT.meRoll]==="member");
+  // hide the "create / save squad" row only while the edit panel is open (avoids a duplicate name field)
+  const editing = ATT.cloud && ATT.user && ATT.meRoll && squadDetailOpen && selectedSquadId && cloudSquads.some(s=>s.id===selectedSquadId && s.status && s.status[ATT.meRoll]==="member");
   if(createRow) createRow.style.display = editing ? "none" : "flex";
 
   // ----- signed-in: shared squads -----
@@ -306,15 +306,16 @@ function renderSquads(){
     if(selectedSquadId && !mine.some(s=>s.id===selectedSquadId)) selectedSquadId=null;
     let html="";
     if(cloudSquadErr) html+=`<div class="err" style="margin-bottom:8px">Couldn't load squads: ${esc(cloudSquadErr)} — publish the squad rules (README).</div>`;
+    const sel = selectedSquadId && cloudSquads.find(s=>s.id===selectedSquadId);
     if(mine.length){
       html+=`<div class="row" style="margin-bottom:8px">
         <select id="squadSelect" class="squadsel"><option value="">Load a squad…</option>
-        ${mine.map(s=>`<option value="${s.id}" ${s.id===selectedSquadId?"selected":""}>${esc(s.name)} · ${s.participants.length} people</option>`).join("")}</select></div>`;
+        ${mine.map(s=>`<option value="${s.id}" ${s.id===selectedSquadId?"selected":""}>${esc(s.name)} · ${s.participants.length} people</option>`).join("")}</select>
+        ${sel?`<button class="btn btn-ghost btn-sm" id="squadToggle">${squadDetailOpen?"Hide ▲":"Manage ▾"}</button>`:""}</div>`;
     } else if(!cloudSquadErr){
       html+=`<div class="hint" style="margin:0 0 8px">No squads yet. Add friends above, name it, then “Save squad” to invite them.</div>`;
     }
-    const sel = selectedSquadId && cloudSquads.find(s=>s.id===selectedSquadId);
-    if(sel) html += renderSquadDetail(sel);
+    if(sel && squadDetailOpen) html += renderSquadDetail(sel);
     if(invites.length){
       html+=`<div class="section-h" style="margin:12px 0 8px">Pending invites</div>`+
         invites.map(s=>`<div class="row" style="margin-bottom:6px;justify-content:space-between">
@@ -329,6 +330,7 @@ function renderSquads(){
       const s=cloudSquads.find(x=>x.id===selectedSquadId);
       if(s) loadSquadMembers(s); else renderSquads();
     };
+    if($("squadToggle")) $("squadToggle").onclick=()=>{ squadDetailOpen=!squadDetailOpen; renderSquads(); };
     wireSquadDetail(sel);
     el.querySelectorAll(".sq-accept").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"member"));
     el.querySelectorAll(".sq-decline").forEach(b=>b.onclick=()=>setMyStatus(b.dataset.id,"declined"));
