@@ -294,6 +294,8 @@ function renderFriends(){
   $("friendChips").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>removeFriend(b.dataset.roll)));
   renderSquads();
   renderCompare();
+  // pull cancellations/reschedules for everyone shown, then re-render the overlay
+  if(ATT.cloud && ATT.user) fetchCompareChanges().then(renderCompare);
 }
 
 // ---- squads (shared & DB-backed when signed in; device-local otherwise) ----
@@ -489,27 +491,38 @@ function renderCompare(){
     `<span class="pk" style="--c:${personColor(p.roll)}"><span class="pdot"></span>${esc(p.name.split(" ")[0])}${p.you?" (you)":""}</span>`
   ).join("");
 
+  // overlay cancelled / rescheduled / added classes onto THIS week
+  const ov = overlayFromChanges(currentWeekMon(), compareChanges);
+  const first = nm => esc(nm.split(" ")[0]);
+
   let head = "<tr><th class='daycol'>Day</th>"+
     D.slots.map((slot,i)=>`<th><span class='slotnum'>Slot ${i+1}</span>${slot}</th>`).join("")+"</tr>";
   let rows="";
-  D.days.forEach(day=>{
+  D.days.forEach((day,di)=>{
     rows+=`<tr><td class='daycol'>${day}</td>`;
     D.slots.forEach((slot,si)=>{
-      const busy=[];
-      people.forEach((p,pi)=>{ const m=maps[pi][day+"|"+si]; if(m) busy.push({p,m}); });
-      if(busy.length===0){
-        rows+="<td class='cell free'><div class='allfree'>✓ all free</div></td>";
-      } else {
-        rows+="<td class='cell'>"+busy.map(({p,m})=>
-          `<div class='who' style='--c:${personColor(p.roll)}'><span>${esc(p.name.split(" ")[0])}${p.you?" (you)":""} · ${esc(clsLabel(m.course,m.section))}</span><span class='rm2'>${esc(m.details)}</span></div>`
-        ).join("")+"</td>";
-      }
+      const entries=[];
+      people.forEach((p,pi)=>{
+        const m=maps[pi][day+"|"+si]; if(!m) return;
+        const ck=m.course+"|"+(m.section||"");
+        const canc=ov.cancelled.has(di+"|"+si+"|"+ck);
+        entries.push(`<div class='who ${canc?'who-cancel':''}' style='--c:${personColor(p.roll)}'><span>${first(p.name)}${p.you?" (you)":""} · ${esc(clsLabel(m.course,m.section))}${canc?" ✕":""}</span><span class='rm2'>${canc?"Cancelled":esc(m.details)}</span></div>`);
+      });
+      // extra/rescheduled-in classes for this slot, shown per person enrolled in that section
+      (ov.adds[di+"|"+si]||[]).forEach(a=>{
+        const [c,sec]=a.ck.split("|");
+        people.forEach(p=>{ if(personHasCkey(p.roll,a.ck))
+          entries.push(`<div class='who who-extra' style='--c:${personColor(p.roll)}'><span>${first(p.name)}${p.you?" (you)":""} · ${esc(clsLabel(c,sec))} (Extra)</span><span class='rm2'>${esc(a.room||a.note||"added")}</span></div>`);
+        });
+      });
+      rows += entries.length ? "<td class='cell'>"+entries.join("")+"</td>"
+                             : "<td class='cell free'><div class='allfree'>✓ all free</div></td>";
     });
     rows+="</tr>";
   });
 
   wrap.innerHTML = `<div class="people-key">${key}</div>
-    <p class="section-h">Weekly overlap — green “all free” slots are good to meet</p>
+    <p class="section-h">Weekly overlap (this week) — green “all free” slots are good to meet</p>
     <div class="gridwrap"><table class="tt"><thead>${head}</thead><tbody>${rows}</tbody></table></div>`;
 }
 
@@ -1116,19 +1129,41 @@ async function deleteChange(id){
 }
 
 // overlay for the currently selected week (used by the timetable grid/agenda)
-function computeWeekOverlay(){
+// Monday of the real current week
+function currentWeekMon(){ const d=new Date(); const day=d.getDay(); d.setDate(d.getDate()+(day===0?-6:1-day)); d.setHours(0,0,0,0); return d; }
+// build cancel/add overlay from a change list for a given week start
+function overlayFromChanges(weekMon, list){
   const cancelled=new Set(), adds={};
-  if(!markEnabled) return {cancelled,adds};
-  changes.forEach(ch=>{
+  const di=ds=>{ for(let i=0;i<5;i++){ const x=new Date(weekMon); x.setDate(x.getDate()+i); if(fmtDate(x)===ds) return i; } return -1; };
+  (list||[]).forEach(ch=>{
     const ck=ch.ckey;
-    const cancOcc=(ds,slot)=>{ const di=diForDateInWeek(ds); if(di>=0) cancelled.add(di+"|"+slot+"|"+ck); };
-    const addOcc=(ds,slot,room,note)=>{ const di=diForDateInWeek(ds); if(di>=0)(adds[di+"|"+slot] ??= []).push({ck,room,note,by:ch.byName}); };
-    if(ch.type==="cancel") cancOcc(ch.date,ch.slot);
-    else if(ch.type==="add") addOcc(ch.date,ch.slot,ch.room,ch.note);
-    else if(ch.type==="move"){ cancOcc(ch.fromDate,ch.fromSlot); addOcc(ch.toDate,ch.toSlot,ch.room,ch.note); }
+    const canc=(ds,slot)=>{ const d=di(ds); if(d>=0) cancelled.add(d+"|"+slot+"|"+ck); };
+    const add =(ds,slot,room,note)=>{ const d=di(ds); if(d>=0)(adds[d+"|"+slot] ??= []).push({ck,room,note,by:ch.byName}); };
+    if(ch.type==="cancel") canc(ch.date,ch.slot);
+    else if(ch.type==="add") add(ch.date,ch.slot,ch.room,ch.note);
+    else if(ch.type==="move"){ canc(ch.fromDate,ch.fromSlot); add(ch.toDate,ch.toSlot,ch.room,ch.note); }
   });
   return {cancelled,adds};
 }
+function computeWeekOverlay(){
+  if(!markEnabled) return {cancelled:new Set(),adds:{}};
+  return overlayFromChanges(markWeeks[markWeekIdx], changes);
+}
+
+// changes for everyone shown in the compare (you + friends), for current-week overlay
+let compareChanges=[];
+async function fetchCompareChanges(){
+  compareChanges=[];
+  if(!(ATT.cloud && ATT.user)) return;
+  const people=[currentRoll,...friends.map(f=>f.roll)].filter(Boolean);
+  const ck=[...new Set(people.flatMap(r=>ckeysFor(r)))].slice(0,30);
+  if(!ck.length) return;
+  try{ const {collection,query,where,getDocs}=ATT.fb;
+    const snap=await withTimeout(getDocs(query(collection(ATT.db,"changes"), where("ckey","in",ck))),12000);
+    compareChanges=snap.docs.map(d=>d.data());
+  }catch(e){ console.error("[compareChanges]",e.code||"",e.message); }
+}
+const personHasCkey=(roll,ck)=>ckeysFor(roll).includes(ck);
 
 function chgSummary(ch){
   const lbl=ckeyLabel(ch.ckey);
