@@ -15,8 +15,8 @@ window.TT_DATA = {
   "Friday"
  ],
  "courses": {
-  "SM-II": {
-   "name": "Strategic Management-II",
+  "CSI": {
+   "name": "Corporate Strategy and Implementation",
    "faculty": [
     "Ankur Roy",
     "Meeta Dasgupta",
@@ -48,8 +48,10 @@ window.TT_DATA = {
    ]
   },
   "RTM": {
-   "name": "RTM",
-   "faculty": []
+   "name": "Route to Market Strategy: Accessing Diverse Consumers",
+   "faculty": [
+    "Jaydeep Mukherjee"
+   ]
   },
   "FMIB": {
    "name": "Financial Modelling for Investment Banking",
@@ -143,17 +145,17 @@ window.TT_DATA = {
   }
  },
  "meetings": {
-  "SM-II": {
+  "CSI": {
    "D": [
     {
      "day": "Monday",
      "slot": 0,
-     "details": "G-12(MDG)"
+     "details": "G-12 (MDG)"
     },
     {
      "day": "Wednesday",
      "slot": 0,
-     "details": "G-12(MDG)"
+     "details": "G-12 (MDG)"
     }
    ],
    "A": [
@@ -201,7 +203,7 @@ window.TT_DATA = {
     {
      "day": "Friday",
      "slot": 2,
-     "details": "L-6 SHG"
+     "details": "L-6SHG"
     }
    ],
    "F": [
@@ -477,8 +479,8 @@ window.TT_DATA = {
      "details": "G-11 (AD)"
     },
     {
-     "day": "Thursday",
-     "slot": 3,
+     "day": "Friday",
+     "slot": 5,
      "details": "(AD) G-11"
     }
    ]
@@ -547,7 +549,7 @@ window.TT_DATA = {
     {
      "day": "Friday",
      "slot": 1,
-     "details": "CC KKG"
+     "details": "14 KKG"
     }
    ],
    "C": [
@@ -559,7 +561,7 @@ window.TT_DATA = {
     {
      "day": "Friday",
      "slot": 2,
-     "details": "CC KKG"
+     "details": "G-11 KKG"
     }
    ],
    "B": [
@@ -679,7 +681,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -708,7 +710,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -737,7 +739,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -766,7 +768,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -795,7 +797,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -820,7 +822,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -849,7 +851,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -878,7 +880,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -907,7 +909,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -936,7 +938,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -965,7 +967,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -994,7 +996,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -1023,7 +1025,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -1052,7 +1054,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -1081,7 +1083,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -1110,7 +1112,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -1139,7 +1141,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -1168,7 +1170,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -1197,7 +1199,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -1226,7 +1228,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -1255,7 +1257,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1284,7 +1286,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1313,7 +1315,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1342,7 +1344,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1371,7 +1373,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1400,7 +1402,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -1429,7 +1431,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1454,7 +1456,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1483,7 +1485,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -1508,7 +1510,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1537,7 +1539,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1566,7 +1568,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1595,7 +1597,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1624,7 +1626,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1653,7 +1655,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1682,7 +1684,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -1711,7 +1713,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -1740,7 +1742,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -1769,7 +1771,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -1798,7 +1800,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1827,7 +1829,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1856,7 +1858,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1885,7 +1887,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1914,7 +1916,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1939,7 +1941,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1968,7 +1970,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -1997,7 +1999,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -2026,7 +2028,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -2055,7 +2057,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -2084,7 +2086,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -2113,7 +2115,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2138,7 +2140,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2167,7 +2169,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2192,7 +2194,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2221,7 +2223,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2250,7 +2252,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2279,7 +2281,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2308,7 +2310,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -2337,7 +2339,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -2366,7 +2368,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -2395,7 +2397,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -2420,7 +2422,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -2449,7 +2451,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -2478,7 +2480,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -2507,7 +2509,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -2536,7 +2538,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2565,7 +2567,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2590,7 +2592,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -2619,7 +2621,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -2648,7 +2650,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2677,7 +2679,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -2706,7 +2708,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -2735,7 +2737,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -2764,7 +2766,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -2793,7 +2795,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -2822,7 +2824,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -2851,7 +2853,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -2876,7 +2878,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -2905,7 +2907,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -2930,7 +2932,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -2959,7 +2961,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -2988,7 +2990,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -3017,7 +3019,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -3046,7 +3048,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3075,7 +3077,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3104,7 +3106,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3133,7 +3135,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -3162,7 +3164,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3191,7 +3193,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3216,7 +3218,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3245,7 +3247,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3274,7 +3276,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3303,7 +3305,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3332,7 +3334,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3361,7 +3363,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3390,7 +3392,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3419,7 +3421,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3444,7 +3446,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3473,7 +3475,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -3502,7 +3504,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -3531,7 +3533,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3560,7 +3562,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -3589,7 +3591,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -3618,7 +3620,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3647,7 +3649,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3676,7 +3678,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3705,7 +3707,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3734,7 +3736,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3763,7 +3765,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3792,7 +3794,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -3821,7 +3823,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -3850,7 +3852,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -3875,7 +3877,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -3904,7 +3906,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -3933,7 +3935,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -3962,7 +3964,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -3991,7 +3993,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4024,7 +4026,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -4053,7 +4055,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4082,7 +4084,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -4111,7 +4113,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4140,7 +4142,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4169,7 +4171,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -4198,7 +4200,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -4227,7 +4229,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4252,7 +4254,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -4281,7 +4283,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -4310,7 +4312,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -4335,7 +4337,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -4360,7 +4362,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -4389,7 +4391,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -4414,7 +4416,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4439,7 +4441,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -4468,7 +4470,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -4497,7 +4499,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -4526,7 +4528,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -4555,7 +4557,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -4584,7 +4586,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -4613,7 +4615,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -4642,7 +4644,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -4671,7 +4673,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -4700,7 +4702,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4729,7 +4731,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -4758,7 +4760,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4787,7 +4789,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -4816,7 +4818,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -4845,7 +4847,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -4874,7 +4876,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -4903,7 +4905,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -4932,7 +4934,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -4961,7 +4963,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -4990,7 +4992,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5019,7 +5021,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5048,7 +5050,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5077,7 +5079,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5102,7 +5104,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5131,7 +5133,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -5156,7 +5158,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -5185,7 +5187,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5214,7 +5216,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -5243,7 +5245,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5272,7 +5274,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -5297,7 +5299,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -5326,7 +5328,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -5355,7 +5357,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -5384,7 +5386,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -5409,7 +5411,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -5434,7 +5436,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -5459,7 +5461,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -5484,7 +5486,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -5513,7 +5515,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -5542,7 +5544,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5571,7 +5573,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5596,7 +5598,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5625,7 +5627,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5654,7 +5656,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5683,7 +5685,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5712,7 +5714,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -5741,7 +5743,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5770,7 +5772,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5795,7 +5797,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5824,7 +5826,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5853,7 +5855,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -5882,7 +5884,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -5911,7 +5913,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -5940,7 +5942,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -5969,7 +5971,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -5998,7 +6000,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -6027,7 +6029,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6056,7 +6058,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6085,7 +6087,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6114,7 +6116,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6143,7 +6145,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -6168,7 +6170,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6197,7 +6199,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6226,7 +6228,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -6255,7 +6257,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -6284,7 +6286,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -6313,7 +6315,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -6342,7 +6344,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -6371,7 +6373,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -6400,7 +6402,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -6429,7 +6431,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -6458,7 +6460,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -6487,7 +6489,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -6516,7 +6518,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6545,7 +6547,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6574,7 +6576,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -6603,7 +6605,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -6632,7 +6634,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -6661,7 +6663,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -6690,7 +6692,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -6719,7 +6721,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -6748,7 +6750,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -6777,7 +6779,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -6802,7 +6804,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -6827,7 +6829,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -6852,7 +6854,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -6881,7 +6883,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -6910,7 +6912,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -6939,7 +6941,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -6968,7 +6970,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -6997,7 +6999,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7022,7 +7024,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -7051,7 +7053,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7080,7 +7082,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -7109,7 +7111,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -7138,7 +7140,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -7167,7 +7169,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -7196,7 +7198,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7221,7 +7223,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7246,7 +7248,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7275,7 +7277,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -7304,7 +7306,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7333,7 +7335,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7362,7 +7364,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -7391,7 +7393,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -7420,7 +7422,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -7449,7 +7451,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7478,7 +7480,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7507,7 +7509,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7536,7 +7538,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7565,7 +7567,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -7590,7 +7592,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -7615,7 +7617,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -7644,7 +7646,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -7673,7 +7675,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -7698,7 +7700,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -7727,7 +7729,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -7756,7 +7758,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7781,7 +7783,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7810,7 +7812,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7835,7 +7837,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7864,7 +7866,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7893,7 +7895,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -7918,7 +7920,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -7947,7 +7949,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -7976,7 +7978,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -8005,7 +8007,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -8030,7 +8032,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -8059,7 +8061,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -8084,7 +8086,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -8113,7 +8115,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -8138,7 +8140,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -8167,7 +8169,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -8196,7 +8198,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -8225,7 +8227,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -8254,7 +8256,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8283,7 +8285,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -8312,7 +8314,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -8341,7 +8343,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8366,7 +8368,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -8391,7 +8393,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -8420,7 +8422,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -8449,7 +8451,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -8478,7 +8480,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -8507,7 +8509,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -8536,7 +8538,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8565,7 +8567,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -8590,7 +8592,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8615,7 +8617,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8644,7 +8646,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8665,7 +8667,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8694,7 +8696,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -8723,7 +8725,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -8752,7 +8754,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8781,7 +8783,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -8810,7 +8812,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -8835,7 +8837,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -8860,7 +8862,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -8889,7 +8891,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -8918,7 +8920,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -8947,7 +8949,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -8976,7 +8978,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -9005,7 +9007,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -9034,7 +9036,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -9063,7 +9065,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -9092,7 +9094,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -9121,7 +9123,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -9146,7 +9148,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9171,7 +9173,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9200,7 +9202,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -9229,7 +9231,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9254,7 +9256,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -9283,7 +9285,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -9312,7 +9314,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -9341,7 +9343,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9370,7 +9372,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -9395,7 +9397,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -9424,7 +9426,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -9449,7 +9451,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -9478,7 +9480,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -9503,7 +9505,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -9532,7 +9534,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -9561,7 +9563,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9590,7 +9592,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -9619,7 +9621,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -9648,7 +9650,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -9673,7 +9675,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -9702,7 +9704,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -9731,7 +9733,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9756,7 +9758,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9785,7 +9787,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9814,7 +9816,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -9843,7 +9845,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -9872,7 +9874,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -9901,7 +9903,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -9930,7 +9932,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -9959,7 +9961,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -9988,7 +9990,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10017,7 +10019,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10046,7 +10048,7 @@ window.TT_DATA = {
      "section": "B"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -10075,7 +10077,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]
@@ -10104,7 +10106,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10133,7 +10135,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10162,7 +10164,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10191,7 +10193,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10216,7 +10218,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -10245,7 +10247,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -10274,7 +10276,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -10303,7 +10305,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10332,7 +10334,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10361,7 +10363,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10390,7 +10392,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10419,7 +10421,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10448,7 +10450,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10477,7 +10479,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10506,7 +10508,7 @@ window.TT_DATA = {
      "section": "C"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -10535,7 +10537,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10564,7 +10566,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10589,7 +10591,7 @@ window.TT_DATA = {
      "section": "D"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "F"
     }
    ]
@@ -10614,7 +10616,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10643,7 +10645,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10672,7 +10674,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -10701,7 +10703,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10730,7 +10732,7 @@ window.TT_DATA = {
      "section": "A"
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -10755,7 +10757,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "B"
     }
    ]
@@ -10784,7 +10786,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10813,7 +10815,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "A"
     }
    ]
@@ -10842,7 +10844,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -10871,7 +10873,7 @@ window.TT_DATA = {
      "section": null
     },
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "D"
     }
    ]
@@ -10880,7 +10882,7 @@ window.TT_DATA = {
    "name": "Vidhi Garg",
    "courses": [
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "C"
     }
    ]
@@ -10889,7 +10891,7 @@ window.TT_DATA = {
    "name": "Sebi A Joseph",
    "courses": [
     {
-     "course": "SM-II",
+     "course": "CSI",
      "section": "E"
     }
    ]

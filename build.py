@@ -11,8 +11,15 @@ import openpyxl, docx, glob, os, re, json
 
 DOWNLOADS = "/Users/siporwal/Downloads"
 XLSX_DIR = os.path.join(DOWNLOADS, "All Course wise student list attendance term 4 2025-26")
-DOCX = "/tmp/Time Table-T4, PGDM, 2025-27.docx"
+DOCX = "/tmp/Time Table-T4, PGDM, 2025-27 (1).docx"
 OUT = os.path.join(os.path.dirname(__file__), "data.js")
+
+# Course was renamed "Strategic Management-II" (SM-II) -> "Corporate Strategy and
+# Implementation" (CSI). The grid mostly uses CSI but the elective table + one
+# leftover cell still say SM-II, and the student file is SM-II.xlsx. Normalise all
+# of these to a single canonical key.
+CANON = {"SM-II": "CSI"}
+def canon(a): return CANON.get(a, a)
 
 # ---- 1. Course metadata from the elective list table -----------------------
 COURSE_NAME = {}      # abbr -> full course name
@@ -21,12 +28,23 @@ COURSE_FACULTY = {}   # abbr -> set of faculty full names
 d = docx.Document(DOCX)
 grid_table, elective_table = d.tables[0], d.tables[1]
 
+# locate columns by header (layout changed between timetable versions)
+hdr = [x.text.strip().lower() for x in elective_table.rows[0].cells]
+def colidx(*needles):
+    for i, h in enumerate(hdr):
+        if any(n in h for n in needles): return i
+    return -1
+CI_NAME = colidx("elective")
+CI_ABBR = colidx("abb")
+CI_FAC  = colidx("faculty (", "dr.")
+
 for row in elective_table.rows[1:]:
     c = [x.text.strip() for x in row.cells]
-    name, abbr, fac = c[1], c[3], c[6]
+    abbr = canon(c[CI_ABBR]) if 0 <= CI_ABBR < len(c) else ""
+    name = c[CI_NAME] if 0 <= CI_NAME < len(c) else ""
+    fac  = c[CI_FAC]  if 0 <= CI_FAC  < len(c) else ""
     if not abbr:
         continue
-    # strip "(Section A/B)" suffixes from SM-II names
     name = re.sub(r"\s*\(Section[^)]*\)", "", name).strip()
     COURSE_NAME.setdefault(abbr, name)
     COURSE_FACULTY.setdefault(abbr, set())
@@ -44,7 +62,7 @@ DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 ABBRS = sorted(
     ["SM-II", "FMIB", "DIAA", "ETTA", "AGTB", "CRBV", "ENVC", "MBFI",
      "NMS", "PrM", "RTM", "MOQ", "SCM", "M&A", "CB", "FM", "IM", "DV",
-     "PD", "IB", "LM"],
+     "PD", "IB", "LM", "CSI"],
     key=len, reverse=True,
 )
 
@@ -88,7 +106,7 @@ def parse_cell(text):
         # repair unbalanced "(" left by a missing line break in the source
         if details.count("(") > details.count(")"):
             details += ")"
-        entries.append({"course": abbr, "section": sec, "details": details})
+        entries.append({"course": canon(abbr), "section": sec, "details": details})
     return entries
 
 # meetings[course][section or ""] = list of {day, slot, details}
@@ -104,7 +122,7 @@ for ri, row in enumerate(grid_table.rows[1:]):  # skip header
 
 # ---- 3. Parse student lists -------------------------------------------------
 # Filename (without ext) -> grid abbreviation. Mostly identical.
-FILE_TO_ABBR = {"PRM": "PrM"}  # everything else maps to itself
+FILE_TO_ABBR = {"PRM": "PrM", "SM-II": "CSI"}  # everything else maps to itself
 
 students = {}  # roll -> {name, courses: [{course, section}]}
 
