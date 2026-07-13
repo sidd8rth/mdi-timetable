@@ -81,6 +81,9 @@
   .results{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--panel-solid);
     border:1px solid var(--line);border-radius:13px;max-height:330px;overflow:auto;box-shadow:var(--shadow-lg);display:none;z-index:40}
   .results.open{display:block}
+  /* while a dropdown is open, lift its panel above later panels/bars so the
+     backdrop-filter stacking context of a following sibling can't cover it */
+  .panel.search-lift{position:relative;z-index:60}
   .result{padding:12px 16px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line2)}
   .result:last-child{border-bottom:none}
   .result:hover,.result.active{background:color-mix(in srgb,var(--accent) 12%,transparent)}

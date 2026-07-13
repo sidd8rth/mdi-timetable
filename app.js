@@ -35,6 +35,13 @@ function meetingsFor(roll){
 // ---- reusable autocomplete -------------------------------------------------
 function makeSearch(input, resultsEl, onPick, exclude=()=>false){
   let current=[], active=-1;
+  // Panels use backdrop-filter, which traps the dropdown's z-index inside its
+  // own stacking context — so a later sibling panel/bar would paint over it.
+  // Lift the containing panel above its siblings while the dropdown is open.
+  const setOpen = on => {
+    resultsEl.classList.toggle("open", on);
+    const p = input.closest(".panel"); if(p) p.classList.toggle("search-lift", on);
+  };
   const run = () => {
     const term = input.value.trim().toLowerCase();
     current = term ? STUDENTS.filter(s =>
@@ -51,12 +58,12 @@ function makeSearch(input, resultsEl, onPick, exclude=()=>false){
     const term = input.value.trim();
     if(!current.length){
       resultsEl.innerHTML = term ? '<div class="empty-res">No matching student found.</div>' : '';
-      resultsEl.classList.toggle("open", !!term); return;
+      setOpen(!!term); return;
     }
     resultsEl.innerHTML = current.map((s,i)=>
       `<div class="result ${i===active?'active':''}" data-roll="${s.roll}"><span>${hilite(s.name,term)}</span><span class="roll">${s.roll}</span></div>`
     ).join("");
-    resultsEl.classList.add("open");
+    setOpen(true);
   };
   input.addEventListener("input", run);
   input.addEventListener("focus", () => { if(input.value.trim()) run(); });
@@ -65,11 +72,11 @@ function makeSearch(input, resultsEl, onPick, exclude=()=>false){
     if(e.key==="ArrowDown"){active=Math.min(active+1,current.length-1);render();e.preventDefault();}
     else if(e.key==="ArrowUp"){active=Math.max(active-1,0);render();e.preventDefault();}
     else if(e.key==="Enter"&&active>=0){pick(current[active].roll);e.preventDefault();}
-    else if(e.key==="Escape"){resultsEl.classList.remove("open");}
+    else if(e.key==="Escape"){setOpen(false);}
   });
   resultsEl.addEventListener("mousedown", e => { const r=e.target.closest(".result"); if(r) pick(r.dataset.roll); });
-  document.addEventListener("click", e => { if(!e.target.closest(".search-box")) resultsEl.classList.remove("open"); });
-  function pick(roll){ resultsEl.classList.remove("open"); onPick(roll); }
+  document.addEventListener("click", e => { if(!e.target.closest(".search-box")) setOpen(false); });
+  function pick(roll){ setOpen(false); onPick(roll); }
   return { clear:()=>{input.value="";current=[];render();} };
 }
 
