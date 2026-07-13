@@ -54,9 +54,12 @@ for row in elective_table.rows[1:]:
 # ---- 2. Parse the weekly grid ----------------------------------------------
 SLOTS = [
     "8:30-10:00 AM", "10:15-11:45 AM", "12:00-1:30 PM",
-    "2:15-3:45 PM", "4:00-5:30 PM", "5:45-7:15 PM",
+    "2:15-3:45 PM", "4:00-5:30 PM", "5:45-7:15 PM", "7:30-9:00 PM",
 ]
-DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+# Saturday/Sunday carry no scheduled classes in the grid; they exist so students
+# can report extra/makeup classes on weekends via the updates flow.
+DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+        "Saturday", "Sunday"]
 
 # Known course abbreviations, longest first so e.g. FMIB wins over FM.
 ABBRS = sorted(
@@ -113,7 +116,7 @@ def parse_cell(text):
 meetings = {}
 for ri, row in enumerate(grid_table.rows[1:]):  # skip header
     day = DAYS[ri] if ri < len(DAYS) else row.cells[0].text.strip()
-    for ci in range(1, 7):
+    for ci in range(1, min(len(SLOTS) + 1, len(row.cells))):
         cell = row.cells[ci].text
         for e in parse_cell(cell):
             meetings.setdefault(e["course"], {}).setdefault(

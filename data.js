@@ -5,14 +5,17 @@ window.TT_DATA = {
   "12:00-1:30 PM",
   "2:15-3:45 PM",
   "4:00-5:30 PM",
-  "5:45-7:15 PM"
+  "5:45-7:15 PM",
+  "7:30-9:00 PM"
  ],
  "days": [
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
-  "Friday"
+  "Friday",
+  "Saturday",
+  "Sunday"
  ],
  "courses": {
   "CSI": {
