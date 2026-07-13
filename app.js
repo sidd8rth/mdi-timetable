@@ -195,7 +195,7 @@ function renderMarkBar(){
   }
   // marking enabled for own timetable
   initMarkWeeks(); markEnabled=true;
-  const m=markWeeks[markWeekIdx], end=new Date(m); end.setDate(end.getDate()+4);
+  const m=markWeeks[markWeekIdx], end=new Date(m); end.setDate(end.getDate()+(D.days.length-1));
   const fmt=d=>d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
   el.innerHTML=`<div class="markbar">
     <div class="wknav">
@@ -548,7 +548,7 @@ function renderCompare(){
 // ===========================================================================
 const TERM_START = new Date(2026,5,15);   // 15 Jun 2026 (month is 0-based)
 const TERM_END   = new Date(2026,8,6);    // 6 Sep 2026
-const DAY_INDEX  = { Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5 };
+const DAY_INDEX  = { Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5, Saturday:6, Sunday:0 };
 const fmtDate = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 const prettyDate = d => d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
 
@@ -1120,7 +1120,7 @@ const ckeyLabel = k => { const [c,s]=k.split("|"); return c+(s?` (${s})`:""); };
 function diForDateInWeek(ds){
   if(!markWeeks.length) return -1;
   const mon=markWeeks[markWeekIdx];
-  for(let i=0;i<5;i++){ const d=new Date(mon); d.setDate(d.getDate()+i); if(fmtDate(d)===ds) return i; }
+  for(let i=0;i<D.days.length;i++){ const d=new Date(mon); d.setDate(d.getDate()+i); if(fmtDate(d)===ds) return i; }
   return -1;
 }
 const chMs = c => (c && c.createdAt && c.createdAt.seconds) ? c.createdAt.seconds*1000 : 0;
@@ -1161,7 +1161,7 @@ function currentWeekMon(){ const d=new Date(); const day=d.getDay(); d.setDate(d
 // build cancel/add overlay from a change list for a given week start
 function overlayFromChanges(weekMon, list){
   const cancelled=new Set(), adds={};
-  const di=ds=>{ for(let i=0;i<5;i++){ const x=new Date(weekMon); x.setDate(x.getDate()+i); if(fmtDate(x)===ds) return i; } return -1; };
+  const di=ds=>{ for(let i=0;i<D.days.length;i++){ const x=new Date(weekMon); x.setDate(x.getDate()+i); if(fmtDate(x)===ds) return i; } return -1; };
   (list||[]).forEach(ch=>{
     const ck=ch.ckey;
     const canc=(ds,slot)=>{ const d=di(ds); if(d>=0) cancelled.add(d+"|"+slot+"|"+ck); };
