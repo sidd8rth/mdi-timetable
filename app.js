@@ -3,12 +3,12 @@
 // ===========================================================================
 import { FIREBASE_CONFIG } from "./firebase-config.js";
 
-let D = window.TT_DATA;
 let currentTerm = localStorage.getItem("tt_term") || "t4";
 const TERM_META = {
-  t4: { data: window.TT_DATA, title: "My Timetable — Term IV", sub: "Jun 15 – Sep 6, 2026 · schedule, friends & attendance" },
-  t5: { data: window.TT_DATA_T5, title: "My Timetable — Term V", sub: "Sep 21 – Dec 20, 2026 · schedule, friends & attendance" }
+  t4: { get data(){ return window.TT_DATA; }, title: "My Timetable — Term IV", sub: "Jun 15 – Sep 6, 2026 · schedule, friends & attendance" },
+  t5: { get data(){ return window.TT_DATA_T5; }, title: "My Timetable — Term V", sub: "Sep 21 – Dec 20, 2026 · schedule, friends & attendance" }
 };
+let D = TERM_META[currentTerm].data;
 const COURSE_PALETTE = ["#2563eb","#0891b2","#16a34a","#d97706","#dc2626","#0ea5e9","#0d9488","#ca8a04","#db2777","#4f46e5","#65a30d","#e11d48"];
 const PERSON_PALETTE = ["#2563eb","#dc2626","#16a34a","#d97706","#0891b2","#7c3aed"];
 
@@ -1363,9 +1363,8 @@ function switchTerm(term){
 }
 document.querySelectorAll("#termToggle button").forEach(b => b.addEventListener("click", () => switchTerm(b.dataset.term)));
 
-// boot
-if(currentTerm !== "t4") switchTerm(currentTerm);
-else {
+// boot — always sync UI to whichever term was persisted
+{
   const meta = TERM_META[currentTerm];
   $("pageTitle").textContent = meta.title;
   $("pageSub").textContent = meta.sub;
