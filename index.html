@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MDI PGDM Term-IV · My Timetable</title>
+<title>MDI PGDM · My Timetable</title>
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="%232563eb"/><path d="M6 12.5l3.8 3.8L18 8" stroke="white" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -278,12 +278,17 @@
     <div class="logo"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M8.5 14.5l2.4 2.4 4.6-4.6"/></svg></div>
     <div class="htext">
       <span class="kicker">MDI Gurgaon · PGDM 2025-27</span>
-      <h1>My Timetable — Term IV</h1>
-      <span class="sub">Jun 15 – Sep 6, 2026 · schedule, friends &amp; attendance</span>
+      <h1 id="pageTitle">My Timetable — Term IV</h1>
+      <span class="sub" id="pageSub">Jun 15 – Sep 6, 2026 · schedule, friends &amp; attendance</span>
     </div>
     <div id="acct" class="acct"></div>
     <button class="theme-btn" id="themeBtn" title="Toggle light/dark">🌙</button>
   </header>
+
+  <div class="toggle" id="termToggle" style="margin-bottom:14px">
+    <button data-term="t4" class="on">Term IV</button>
+    <button data-term="t5">Term V</button>
+  </div>
 
   <nav class="nav" id="nav">
     <button data-tab="timetable" class="on">📅 Timetable</button>
@@ -367,7 +372,7 @@
   </section>
 
   <footer>
-    Built from the official Term-IV time table &amp; course-wise student lists.<br>
+    Built from official time tables &amp; course-wise student lists.<br>
     Sections, rooms &amp; faculty shown as scheduled · always verify against official notices.<br>
     <span class="madeby">Made with
       <svg class="heart" width="13" height="13" viewBox="0 0 24 24" fill="#e11d48" aria-label="love"><path d="M12 21s-6.7-4.3-9.3-8.1C.9 10.3 1.7 6.6 4.7 5.3c2-0.9 4.1-.2 5.3 1.4l2 2.6 2-2.6c1.2-1.6 3.3-2.3 5.3-1.4 3 1.3 3.8 5 2 7.6C18.7 16.7 12 21 12 21z"/></svg>
@@ -403,6 +408,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 <script src="data.js"></script>
+<script src="data-t5.js"></script>
 <script type="module" src="app.js"></script>
 </body>
 </html>

@@ -3,17 +3,22 @@
 // ===========================================================================
 import { FIREBASE_CONFIG } from "./firebase-config.js";
 
-const D = window.TT_DATA;
+let D = window.TT_DATA;
+let currentTerm = localStorage.getItem("tt_term") || "t4";
+const TERM_META = {
+  t4: { data: window.TT_DATA, title: "My Timetable — Term IV", sub: "Jun 15 – Sep 6, 2026 · schedule, friends & attendance" },
+  t5: { data: window.TT_DATA_T5, title: "My Timetable — Term V", sub: "Sep 21 – Dec 20, 2026 · schedule, friends & attendance" }
+};
 const COURSE_PALETTE = ["#2563eb","#0891b2","#16a34a","#d97706","#dc2626","#0ea5e9","#0d9488","#ca8a04","#db2777","#4f46e5","#65a30d","#e11d48"];
 const PERSON_PALETTE = ["#2563eb","#dc2626","#16a34a","#d97706","#0891b2","#7c3aed"];
 
-const colorFor = (() => { const m={}; let i=0; return ab => (m[ab] ??= COURSE_PALETTE[i++%COURSE_PALETTE.length]); })();
+let colorFor = (() => { const m={}; let i=0; return ab => (m[ab] ??= COURSE_PALETTE[i++%COURSE_PALETTE.length]); })();
 
 // ---- helpers ---------------------------------------------------------------
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-const STUDENTS = Object.entries(D.students)
+let STUDENTS = Object.entries(D.students)
   .map(([roll, s]) => ({ roll, name: s.name }))
   .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -1330,7 +1335,42 @@ window.addEventListener("beforeunload", e => {
   if(attDirty){ saveAttendance(); e.preventDefault(); e.returnValue=""; }
 });
 
+// ---- term switching ---
+function switchTerm(term){
+  if(term === currentTerm) return;
+  currentTerm = term;
+  localStorage.setItem("tt_term", term);
+  const meta = TERM_META[term];
+  D = meta.data;
+  STUDENTS = Object.entries(D.students).map(([roll, s]) => ({ roll, name: s.name })).sort((a, b) => a.name.localeCompare(b.name));
+  colorFor = (() => { const m={}; let i=0; return ab => (m[ab] ??= COURSE_PALETTE[i++%COURSE_PALETTE.length]); })();
+  $("pageTitle").textContent = meta.title;
+  $("pageSub").textContent = meta.sub;
+  document.querySelectorAll("#termToggle button").forEach(b => b.classList.toggle("on", b.dataset.term === term));
+  // reset UI
+  currentRoll = null;
+  $("q").value = "";
+  $("studentBar").classList.remove("show");
+  $("ttActions").style.display = "none";
+  $("legend").style.display = "none";
+  $("gridView").style.display = "none";
+  $("agendaView").style.display = "none";
+  $("placeholder").style.display = "";
+  compareInited = false;
+  // try re-selecting the last student if they exist in this term
+  const last = localStorage.getItem("tt_lastRoll");
+  if(last && D.students[last]) selectStudent(last);
+}
+document.querySelectorAll("#termToggle button").forEach(b => b.addEventListener("click", () => switchTerm(b.dataset.term)));
+
 // boot
+if(currentTerm !== "t4") switchTerm(currentTerm);
+else {
+  const meta = TERM_META[currentTerm];
+  $("pageTitle").textContent = meta.title;
+  $("pageSub").textContent = meta.sub;
+  document.querySelectorAll("#termToggle button").forEach(b => b.classList.toggle("on", b.dataset.term === currentTerm));
+}
 updateFriendBadge();
 const last = localStorage.getItem("tt_lastRoll");
 if(last && D.students[last]) selectStudent(last);

@@ -5,3 +5,11 @@
 # python
 __pycache__/
 *.pyc
+
+# source data (xlsx/doc) used to generate data-*.js
+TERM-5 COURSE/
+T5 - Time Table.doc
+
+# bot secrets
+bot/.env
+bot/serviceAccountKey.json
