@@ -558,8 +558,12 @@ function renderCompare(){
 // ===========================================================================
 //  ATTENDANCE TAB  (Firebase login + sync, with local fallback)
 // ===========================================================================
-const TERM_START = new Date(2026,5,15);   // 15 Jun 2026 (month is 0-based)
-const TERM_END   = new Date(2026,8,6);    // 6 Sep 2026
+const TERM_DATES = {
+  t4: { start: new Date(2026,5,15), end: new Date(2026,8,6) },    // 15 Jun – 6 Sep 2026
+  t5: { start: new Date(2026,8,21), end: new Date(2026,11,20) }   // 21 Sep – 20 Dec 2026
+};
+let TERM_START = TERM_DATES[currentTerm].start;
+let TERM_END   = TERM_DATES[currentTerm].end;
 const DAY_INDEX  = { Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5, Saturday:6, Sunday:0 };
 const fmtDate = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 const prettyDate = d => d.toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short"});
@@ -1340,6 +1344,9 @@ function switchTerm(term){
   if(term === currentTerm) return;
   currentTerm = term;
   localStorage.setItem("tt_term", term);
+  TERM_START = TERM_DATES[term].start;
+  TERM_END   = TERM_DATES[term].end;
+  markWeeks = []; markWeekIdx = 0;
   const meta = TERM_META[term];
   D = meta.data;
   STUDENTS = Object.entries(D.students).map(([roll, s]) => ({ roll, name: s.name })).sort((a, b) => a.name.localeCompare(b.name));
