@@ -1162,10 +1162,6 @@ window.TT_DATA_T5 = {
      "section": null
     },
     {
-     "course": "GEES",
-     "section": null
-    },
-    {
      "course": "PFP",
      "section": null
     },
@@ -4840,10 +4836,6 @@ window.TT_DATA_T5 = {
      "section": "B"
     },
     {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
      "course": "BS",
      "section": "C"
     },
@@ -5271,10 +5263,6 @@ window.TT_DATA_T5 = {
     {
      "course": "CRM",
      "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
     },
     {
      "course": "IN",

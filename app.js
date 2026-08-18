@@ -27,8 +27,11 @@ function clsLabel(course, section){ return course + (section && isSectioned(cour
 
 function meetingsFor(roll){
   const s = D.students[roll]; if(!s) return [];
-  const out = [];
+  const out = [], seen = new Set();
   s.courses.forEach(c => {
+    const ck = c.course+"|"+(c.section||"");
+    if(seen.has(ck)) return;
+    seen.add(ck);
     const secs = D.meetings[c.course]; if(!secs) return;
     let key = c.section || "";
     if(!(key in secs)){ const ks=Object.keys(secs); key = ks.includes("")?"":(ks.length===1?ks[0]:key); }
@@ -104,6 +107,7 @@ function selectStudent(roll){
   $("ttActions").style.display="flex";
   $("legend").style.display="block";
   $("dlTT").onclick = () => downloadTimetablePDF(roll);
+  $("dlCal").onclick = () => downloadCalendarICS(roll);
   $("avatar").textContent = (s.name.trim()[0]||"?").toUpperCase();
   $("sName").textContent = s.name;
   $("sMeta").textContent = "Roll " + roll;
@@ -851,8 +855,7 @@ function renderAttendanceBody(body){
       <button class="btn btn-ghost btn-sm" id="dlPdf">⬇︎ Download PDF</button></div>`;
   courses.forEach(c=>{
     const cm=D.courses[c.course]||{}, col=colorFor(c.course);
-    const enroll=s.courses.filter(x=>x.course===c.course);
-    // collect all dated sessions for this course across its sections the student is in
+    const enrollSeen=new Set(); const enroll=s.courses.filter(x=>{ if(x.course!==c.course) return false; const ek=x.course+"|"+(x.section||""); if(enrollSeen.has(ek)) return false; enrollSeen.add(ek); return true; });
     let sessions=[];
     enroll.forEach(en=>{
       const secs=D.meetings[c.course]||{}; let key=en.section||"";
@@ -935,15 +938,81 @@ function newPDF(orientation){
   return new J({ unit:"pt", format:"a4", orientation: orientation || "portrait" });
 }
 
+function downloadCalendarICS(roll){
+  const s=D.students[roll]; if(!s) return;
+  const ms = meetingsFor(roll);
+  const termLabel = currentTerm === "t5" ? "Term V" : "Term IV";
+  const tz = "Asia/Kolkata";
+
+  function parseSlotTime(slotStr, dateObj){
+    const [startStr] = slotStr.split("-");
+    const match = startStr.trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if(!match) return dateObj;
+    let [,h,m,ap] = match; h = +h; m = +m;
+    if(ap.toUpperCase()==="PM" && h!==12) h += 12;
+    if(ap.toUpperCase()==="AM" && h===12) h = 0;
+    const d = new Date(dateObj); d.setHours(h, m, 0, 0); return d;
+  }
+  function parseSlotEnd(slotStr, dateObj){
+    const parts = slotStr.split("-");
+    if(parts.length<2) return new Date(dateObj.getTime()+90*60000);
+    const match = parts[1].trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+    if(!match) return new Date(dateObj.getTime()+90*60000);
+    let [,h,m,ap] = match; h = +h; m = +m;
+    if(ap.toUpperCase()==="PM" && h!==12) h += 12;
+    if(ap.toUpperCase()==="AM" && h===12) h = 0;
+    const d = new Date(dateObj); d.setHours(h, m, 0, 0); return d;
+  }
+  function icsDate(d){ return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+"T"+pad(d.getHours())+pad(d.getMinutes())+"00"; }
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function icsUntil(d){ return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+"T235900"; }
+
+  let cal = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//MDI Timetable//EN\r\nCALSCALE:GREGORIAN\r\nX-WR-CALNAME:"+s.name+" — "+termLabel+"\r\nX-WR-TIMEZONE:"+tz+"\r\n";
+
+  const dayAbbr = {Monday:"MO",Tuesday:"TU",Wednesday:"WE",Thursday:"TH",Friday:"FR",Saturday:"SA",Sunday:"SU"};
+
+  ms.forEach((m, idx) => {
+    const cm = D.courses[m.course]||{};
+    const label = clsLabel(m.course, m.section) + " — " + (cm.name||"");
+    const firstDate = sessionDates(m.day)[0];
+    if(!firstDate) return;
+    const dtStart = parseSlotTime(D.slots[m.slot], firstDate);
+    const dtEnd = parseSlotEnd(D.slots[m.slot], firstDate);
+    const until = icsUntil(TERM_END);
+    const byday = dayAbbr[m.day]||"MO";
+
+    cal += "BEGIN:VEVENT\r\n";
+    cal += "UID:mdi-tt-"+currentTerm+"-"+roll+"-"+idx+"@mdi.ac.in\r\n";
+    cal += "DTSTART;TZID="+tz+":"+icsDate(dtStart)+"\r\n";
+    cal += "DTEND;TZID="+tz+":"+icsDate(dtEnd)+"\r\n";
+    cal += "RRULE:FREQ=WEEKLY;BYDAY="+byday+";UNTIL="+until+"\r\n";
+    cal += "SUMMARY:"+label.replace(/[,;\\]/g," ")+"\r\n";
+    if(m.details) cal += "LOCATION:"+m.details.replace(/[,;\\]/g," ")+"\r\n";
+    if(cm.faculty && cm.faculty.length) cal += "DESCRIPTION:Faculty: "+cm.faculty.join(", ")+"\r\n";
+    cal += "END:VEVENT\r\n";
+  });
+
+  cal += "END:VCALENDAR\r\n";
+
+  const blob = new Blob([cal], {type:"text/calendar;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = s.name.replace(/\s+/g,"_") + "_" + termLabel.replace(" ","") + ".ics";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 function downloadTimetablePDF(roll){
   const s=D.students[roll]; if(!s) return;
   const doc=newPDF("landscape"); if(!doc) return;
+  const termLabel = currentTerm==="t5"?"Term V":"Term IV";
   doc.setFont("helvetica","bold"); doc.setFontSize(16);
-  doc.text("Weekly Timetable — Term IV", 40, 42);
+  doc.text(`Weekly Timetable — ${termLabel}`, 40, 42);
   doc.setFontSize(11); doc.setFont("helvetica","normal");
   doc.text(`${s.name}  (${roll})`, 40, 60);
   doc.setTextColor(120); doc.setFontSize(9);
-  doc.text(`MDI Gurgaon · PGDM 2025-27 · Jun 15 – Sep 6, 2026`, 40, 74);
+  doc.text(`MDI Gurgaon · PGDM 2025-27 · ${TERM_META[currentTerm].sub.split("·")[0].trim()}`, 40, 74);
   doc.setTextColor(0);
 
   const idx={};
@@ -966,8 +1035,9 @@ function downloadStudentPDF(roll){
   const s=D.students[roll]; if(!s) return;
   const doc=newPDF(); if(!doc) return;
   const st=statsFromAttendance(ATT.data);
+  const termLabel = currentTerm==="t5"?"Term V":"Term IV";
   doc.setFont("helvetica","bold"); doc.setFontSize(16);
-  doc.text("Attendance Report — Term IV", 40, 48);
+  doc.text(`Attendance Report — ${termLabel}`, 40, 48);
   doc.setFontSize(11); doc.setFont("helvetica","normal");
   doc.text(`${s.name}  (${roll})`, 40, 68);
   doc.setTextColor(120); doc.text(`MDI Gurgaon · PGDM 2025-27 · generated ${new Date().toLocaleDateString("en-GB")}`, 40, 84);
@@ -1106,8 +1176,9 @@ function exportAdminCSV(){
 
 function exportAdminPDF(){
   const doc=newPDF(); if(!doc) return;
+  const termLabel = currentTerm==="t5"?"Term V":"Term IV";
   doc.setFont("helvetica","bold"); doc.setFontSize(16);
-  doc.text("Attendance Roster — Term IV", 40, 48);
+  doc.text(`Attendance Roster — ${termLabel}`, 40, 48);
   doc.setFontSize(10); doc.setFont("helvetica","normal"); doc.setTextColor(120);
   doc.text(`MDI Gurgaon · PGDM 2025-27 · generated ${new Date().toLocaleString("en-GB")}`, 40, 66);
   doc.setTextColor(0);
