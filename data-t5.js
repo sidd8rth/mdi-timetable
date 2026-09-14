@@ -33,8 +33,8 @@ window.TT_DATA_T5 = {
   "CRM": {
    "name": "Customer Relationship Management",
    "faculty": [
-    "Neelu Bhullar",
-    "Anjali Kaushik"
+    "Anjali Kaushik",
+    "Neelu Bhullar"
    ]
   },
   "BS": {
@@ -50,7 +50,7 @@ window.TT_DATA_T5 = {
    ]
   },
   "IN": {
-   "name": "Innovation",
+   "name": "Innovation Strategy",
    "faculty": [
     "Meeta Dasgupta"
    ]
@@ -170,36 +170,36 @@ window.TT_DATA_T5 = {
     {
      "day": "Monday",
      "slot": 0,
-     "details": "(SB)"
+     "details": "LB (SB)"
     },
     {
      "day": "Friday",
      "slot": 0,
-     "details": "(SB)"
+     "details": "LB (SB)"
     }
    ],
    "B": [
     {
      "day": "Monday",
      "slot": 1,
-     "details": "(SB)"
+     "details": "LB (SB)"
     },
     {
      "day": "Friday",
      "slot": 1,
-     "details": "(SB)"
+     "details": "LB (SB)"
     }
    ],
    "C": [
     {
      "day": "Monday",
      "slot": 2,
-     "details": "(SB)"
+     "details": "LB (SB)"
     },
     {
      "day": "Friday",
      "slot": 2,
-     "details": "(SB)"
+     "details": "LB (SB)"
     }
    ]
   },
@@ -208,12 +208,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Monday",
      "slot": 1,
-     "details": "(PSK)"
+     "details": "G-11 (PSK)"
     },
     {
      "day": "Wednesday",
      "slot": 1,
-     "details": "(PSK)"
+     "details": "G-11 (PSK)"
     }
    ]
   },
@@ -222,12 +222,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Monday",
      "slot": 2,
-     "details": "G-12 (ANK/NB)"
+     "details": "G-12 (AK/NB)"
     },
     {
      "day": "Wednesday",
      "slot": 2,
-     "details": "G-12 (ANK/NB)"
+     "details": "G-12 (AK/NB)"
     }
    ]
   },
@@ -236,12 +236,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Monday",
      "slot": 2,
-     "details": "(MA)"
+     "details": "G-11 (MA)"
     },
     {
      "day": "Wednesday",
      "slot": 2,
-     "details": "(MA)"
+     "details": "G-11 (MA)"
     }
    ]
   },
@@ -250,12 +250,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Monday",
      "slot": 3,
-     "details": "G-12 (JM)"
+     "details": "G-11 (JM)"
     },
     {
      "day": "Wednesday",
      "slot": 3,
-     "details": "G-12 (JM)"
+     "details": "G-11 (JM)"
     }
    ]
   },
@@ -264,12 +264,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Monday",
      "slot": 3,
-     "details": "(PCB)"
+     "details": "G-12 (PCB)"
     },
     {
      "day": "Wednesday",
      "slot": 3,
-     "details": "(PCB)"
+     "details": "G-12 (PCB)"
     }
    ]
   },
@@ -292,36 +292,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Monday",
      "slot": 4,
-     "details": "(SST/LAK)"
+     "details": "G-11 (SST/LAK)"
     },
     {
      "day": "Wednesday",
      "slot": 4,
-     "details": "(SST/LAK)"
-    }
-   ]
-  },
-  "NLPB": {
-   "": [
-    {
-     "day": "Tuesday",
-     "slot": 0,
-     "details": "(CSS) Post"
-    },
-    {
-     "day": "Thursday",
-     "slot": 0,
-     "details": "(CSS) Post"
-    },
-    {
-     "day": "Tuesday",
-     "slot": 5,
-     "details": "(PK) Pre"
-    },
-    {
-     "day": "Thursday",
-     "slot": 5,
-     "details": "(PK) Pre"
+     "details": "G-11 (SST/LAK)"
     }
    ]
   },
@@ -366,12 +342,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Tuesday",
      "slot": 4,
-     "details": "(AK)"
+     "details": "G-12 (AK)"
     },
     {
      "day": "Thursday",
      "slot": 4,
-     "details": "(AK)"
+     "details": "G-12 (AK)"
     }
    ]
   },
@@ -394,24 +370,24 @@ window.TT_DATA_T5 = {
     {
      "day": "Tuesday",
      "slot": 1,
-     "details": "L-3 (AP)"
+     "details": "LB (AP)"
     },
     {
      "day": "Thursday",
      "slot": 1,
-     "details": "L-3 (AP)"
+     "details": "LB (AP)"
     }
    ],
    "B": [
     {
      "day": "Tuesday",
      "slot": 2,
-     "details": "L-3 (AP)"
+     "details": "LB (AP)"
     },
     {
      "day": "Thursday",
      "slot": 2,
-     "details": "L-3 (AP)"
+     "details": "LB (AP)"
     }
    ]
   },
@@ -434,24 +410,24 @@ window.TT_DATA_T5 = {
     {
      "day": "Tuesday",
      "slot": 4,
-     "details": "G-14 (AT)"
+     "details": "L-B (AT)"
     },
     {
      "day": "Thursday",
      "slot": 4,
-     "details": "G-14 (AT)"
+     "details": "L-B (AT)"
     }
    ],
    "B": [
     {
      "day": "Tuesday",
      "slot": 3,
-     "details": "G-14 (AT)"
+     "details": "L-B (AT)"
     },
     {
      "day": "Thursday",
      "slot": 3,
-     "details": "G-14 (AT)"
+     "details": "L-B (AT)"
     }
    ]
   },
@@ -460,12 +436,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Tuesday",
      "slot": 3,
-     "details": "(DS)"
+     "details": "G-14 (DS)"
     },
     {
      "day": "Thursday",
      "slot": 3,
-     "details": "(DS)"
+     "details": "G-14 (DS)"
     }
    ]
   },
@@ -474,12 +450,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Tuesday",
      "slot": 4,
-     "details": "(SHG)"
+     "details": "G-14 (SHG)"
     },
     {
      "day": "Friday",
-     "slot": 2,
-     "details": "(SHG)"
+     "slot": 1,
+     "details": "G-11 (SHG)"
     }
    ]
   },
@@ -488,12 +464,12 @@ window.TT_DATA_T5 = {
     {
      "day": "Tuesday",
      "slot": 4,
-     "details": "G-14 (KS/CK)"
+     "details": "G-11 (KS/CK)"
     },
     {
      "day": "Thursday",
      "slot": 4,
-     "details": "G-14 (KS/CK)"
+     "details": "G-11 (KS/CK)"
     }
    ]
   },
@@ -502,12 +478,26 @@ window.TT_DATA_T5 = {
     {
      "day": "Wednesday",
      "slot": 1,
-     "details": "G-11 (MKS)"
+     "details": "G-14 (MKS)"
     },
     {
      "day": "Friday",
-     "slot": 1,
-     "details": "G-11 (MKS)"
+     "slot": 0,
+     "details": "G-14 (MKS)"
+    }
+   ]
+  },
+  "NLPB": {
+   "": [
+    {
+     "day": "Tuesday",
+     "slot": 5,
+     "details": "G-12 (PK)/(CSS) Pre/Post"
+    },
+    {
+     "day": "Thursday",
+     "slot": 5,
+     "details": "G-12 (PK)/(CSS) Pre/Post"
     }
    ]
   }
@@ -538,6 +528,410 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P003": {
+   "name": "Abhishek Kumar",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P005": {
+   "name": "Aditya Ved Narayan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P006": {
+   "name": "Akshad Bhandula",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
+  "25P007": {
+   "name": "Anand Pokharna",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P008": {
+   "name": "Anika Sah",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P009": {
+   "name": "Aryan Bardoh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    }
+   ]
+  },
+  "25P010": {
+   "name": "Ashish Tiwari",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
+  "25P011": {
+   "name": "Ayushi Goel",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P012": {
+   "name": "Balaji Radheshyamji Lahoti",
+   "courses": [
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P014": {
+   "name": "Chandan Jyoti Biswal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P015": {
+   "name": "Devansh Goenka",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P016": {
+   "name": "Diplav Singh",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P017": {
+   "name": "Divyansh Chaudhary",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P018": {
+   "name": "Divyanshu Bajaj",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P019": {
+   "name": "Elizabeth James",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P020": {
+   "name": "Hritam Kanjilal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
   "25P021": {
    "name": "Kanchi Gupta",
    "courses": [
@@ -560,6 +954,106 @@ window.TT_DATA_T5 = {
     {
      "course": "SO",
      "section": "A"
+    }
+   ]
+  },
+  "25P022": {
+   "name": "Karthic Sathyapalan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P023": {
+   "name": "Kartik Shrivastava",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P024": {
+   "name": "Kedareshwar Rao",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P025": {
+   "name": "Ayush Kumar Jha",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "RMBFI",
+     "section": null
     }
    ]
   },
@@ -604,8 +1098,195 @@ window.TT_DATA_T5 = {
      "section": "B"
     },
     {
+     "course": "PSF",
+     "section": null
+    },
+    {
      "course": "SDW",
      "section": null
+    }
+   ]
+  },
+  "25P029": {
+   "name": "Mathews Benny",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P030": {
+   "name": "Mayank Chaudhary",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P031": {
+   "name": "Mishika Bansal",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P032": {
+   "name": "Naman Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P033": {
+   "name": "Navya Purwar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P034": {
+   "name": "Nayan Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P035": {
+   "name": "Nija K Manomohan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
     }
    ]
   },
@@ -634,6 +1315,265 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P037": {
+   "name": "Nischay Vij",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P039": {
+   "name": "Parth Jain",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P040": {
+   "name": "Shivangi Pandey",
+   "courses": [
+    {
+     "course": "IN",
+     "section": "B"
+    }
+   ]
+  },
+  "25P041": {
+   "name": "Piyush Bhagat",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P042": {
+   "name": "Purushottam Jaiswal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P043": {
+   "name": "Rachit Singh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P044": {
+   "name": "Rohan Dayal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P045": {
+   "name": "Rushi Bhalerao",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P046": {
+   "name": "Animesh Pratap Kumawat",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P047": {
+   "name": "Sandipta Sundar Sahu",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P048": {
+   "name": "Sankalp Gupta",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
   "25P049": {
    "name": "Saptarshi Das",
    "courses": [
@@ -643,7 +1583,7 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "BRM",
-     "section": "A"
+     "section": "D"
     },
     {
      "course": "BS",
@@ -652,6 +1592,510 @@ window.TT_DATA_T5 = {
     {
      "course": "IN",
      "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P050": {
+   "name": "Saumya Somra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P051": {
+   "name": "Shubh Bhawnani",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P052": {
+   "name": "Shreya Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    }
+   ]
+  },
+  "25P053": {
+   "name": "Smiti Mehrotra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P054": {
+   "name": "Sohan S B",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P056": {
+   "name": "Taara Rakhi Dhawan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P057": {
+   "name": "Tarushee Agarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P058": {
+   "name": "Tirth Shah",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
+  "25P059": {
+   "name": "Vansh Arora",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P060": {
+   "name": "Yagyant Thacker",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P061": {
+   "name": "Yashika Balwani",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P062": {
+   "name": "Yuvraj Pradyumna",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P063": {
+   "name": "Abhinav Singh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P065": {
+   "name": "Aditya Kumar Jha",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P066": {
+   "name": "Adya Kuchhal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P067": {
+   "name": "Akshaj Grover",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P068": {
+   "name": "Akshit Mathur",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P069": {
+   "name": "Aman Raghav",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P070": {
+   "name": "Anmol Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P071": {
+   "name": "Anugun Raina",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
     },
     {
      "course": "OG",
@@ -672,7 +2116,7 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "BS",
-     "section": "A"
+     "section": "B"
     },
     {
      "course": "PSF",
@@ -681,6 +2125,81 @@ window.TT_DATA_T5 = {
     {
      "course": "SO",
      "section": "A"
+    }
+   ]
+  },
+  "25P073": {
+   "name": "Aviral Bishnoi",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P074": {
+   "name": "Balaji Vaasan V",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    }
+   ]
+  },
+  "25P075": {
+   "name": "Chaitanya Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
     }
    ]
   },
@@ -706,6 +2225,131 @@ window.TT_DATA_T5 = {
     {
      "course": "LMGB",
      "section": null
+    }
+   ]
+  },
+  "25P077": {
+   "name": "Debarati Pal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P078": {
+   "name": "Dushyant Tyagi",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P080": {
+   "name": "Divyam Dutta",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P081": {
+   "name": "Harsh Kanodia",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P082": {
+   "name": "Himanka Parashar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
     }
    ]
   },
@@ -759,16 +2403,12 @@ window.TT_DATA_T5 = {
     }
    ]
   },
-  "25P088": {
-   "name": "Meenal Chhabra",
+  "25P090": {
+   "name": "Nabh Gupta",
    "courses": [
     {
-     "course": "BFBV",
-     "section": null
-    },
-    {
      "course": "BRM",
-     "section": "C"
+     "section": "A"
     },
     {
      "course": "BS",
@@ -776,11 +2416,44 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
      "section": "B"
     },
     {
-     "course": "SO",
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P091": {
+   "name": "Nihanshu Mulkalwar",
+   "courses": [
+    {
+     "course": "BS",
      "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
     }
    ]
   },
@@ -838,6 +2511,56 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P096": {
+   "name": "Parinishtha Jindal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P097": {
+   "name": "Ravi Singh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
   "25P098": {
    "name": "Rishaab Dhar",
    "courses": [
@@ -859,6 +2582,431 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P099": {
+   "name": "Rishabh Bharadwaj",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P100": {
+   "name": "Ritika Lath",
+   "courses": [
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P101": {
+   "name": "Rohan Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P102": {
+   "name": "Sachdev Darshit Manishkumar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P103": {
+   "name": "Sahil Sagar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P104": {
+   "name": "Saketh Gudi",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P105": {
+   "name": "Sambhvya Pandey",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P107": {
+   "name": "Sharv Dumbre",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P108": {
+   "name": "Shaurya Jain",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P110": {
+   "name": "Shibasish Shaw",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
+  "25P111": {
+   "name": "Shishir Mishra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P112": {
+   "name": "Shivam Gera",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P113": {
+   "name": "Siddhansh Jain",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P115": {
+   "name": "Sparsh Singhal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P116": {
+   "name": "Tamanna Bansal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P117": {
+   "name": "Tanvi Koul",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P118": {
+   "name": "Tushar Gulati",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "MVW",
      "section": null
     }
    ]
@@ -888,6 +3036,156 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P120": {
+   "name": "Vaibhav Panwar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P122": {
+   "name": "Vidarbh Agarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P123": {
+   "name": "Yashika Kaushik",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P124": {
+   "name": "Yuvraj Mann",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P125": {
+   "name": "Binit Bisht",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
+  "25P126": {
+   "name": "Abhishek Singh",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
   "25P127": {
    "name": "Aditi Nitin Joshi",
    "courses": [
@@ -904,16 +3202,116 @@ window.TT_DATA_T5 = {
      "section": null
     },
     {
-     "course": "NLPB",
-     "section": null
-    },
-    {
      "course": "PFP",
      "section": null
     },
     {
      "course": "SDT",
      "section": null
+    }
+   ]
+  },
+  "25P128": {
+   "name": "Aditya Chopra",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P129": {
+   "name": "Akshat Bansal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P130": {
+   "name": "Akshay Malik",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P131": {
+   "name": "Amanjeet Pani",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
     }
    ]
   },
@@ -935,6 +3333,156 @@ window.TT_DATA_T5 = {
     {
      "course": "OG",
      "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
+  "25P133": {
+   "name": "Ammish Tandon",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    }
+   ]
+  },
+  "25P134": {
+   "name": "Anjali Singhal",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
+  "25P136": {
+   "name": "Arman Arora",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P137": {
+   "name": "Ayush Sindhi",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P138": {
+   "name": "Bibhankar Singh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P139": {
+   "name": "Chigullapalli Rakshith",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
     },
     {
      "course": "PSF",
@@ -996,6 +3544,324 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P144": {
+   "name": "Umang Kumar Singh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P145": {
+   "name": "Hemang Agarwal",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P146": {
+   "name": "Jaisuryank Purwar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P147": {
+   "name": "Jashan Sameer Khandwala",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P148": {
+   "name": "Jay Mehta",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P149": {
+   "name": "Khushi Rissam",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P150": {
+   "name": "Kirti Agarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P151": {
+   "name": "Koustav Pan",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    }
+   ]
+  },
+  "25P153": {
+   "name": "Kushagra Ranjan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P154": {
+   "name": "Lakshit",
+   "courses": [
+    {
+     "course": "IN",
+     "section": "B"
+    }
+   ]
+  },
+  "25P155": {
+   "name": "Naval Bansal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P158": {
+   "name": "Nikhil Umraskar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P159": {
+   "name": "Prajjwal Raj",
+   "courses": [
+    {
+     "course": "IN",
+     "section": "B"
+    }
+   ]
+  },
+  "25P160": {
+   "name": "Pranjal Kaushik",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
   "25P161": {
    "name": "Pratham Goyal",
    "courses": [
@@ -1014,6 +3880,443 @@ window.TT_DATA_T5 = {
     {
      "course": "OG",
      "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P164": {
+   "name": "Priyanshu Bharti",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P165": {
+   "name": "Radha Pankaj Khut",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P166": {
+   "name": "Radhavinod R Kamath",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P167": {
+   "name": "Raksha Lalwani",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P168": {
+   "name": "Rishika Sushil",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P172": {
+   "name": "Sahil Shah",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P173": {
+   "name": "Sayan Dey",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P174": {
+   "name": "Shankaranarayanan K",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P175": {
+   "name": "Shashank R Chandra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    }
+   ]
+  },
+  "25P176": {
+   "name": "Shreyas Goverdhan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P177": {
+   "name": "Shreyash Royzada",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P179": {
+   "name": "Tarun Pundalik Raikar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P180": {
+   "name": "Utkarsh Agarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P181": {
+   "name": "Utkarsh Jha",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
+  "25P182": {
+   "name": "Vinayak Varshney",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P185": {
+   "name": "Vivek Shukla",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P186": {
+   "name": "Yash Bohra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDT",
+     "section": null
     },
     {
      "course": "SO",
@@ -1071,6 +4374,31 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P189": {
+   "name": "Aditya Senapati",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
   "25P190": {
    "name": "Ajit Kundu",
    "courses": [
@@ -1092,6 +4420,81 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "RMBFI",
+     "section": null
+    }
+   ]
+  },
+  "25P191": {
+   "name": "Anuj Rohit Somani",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P192": {
+   "name": "Anurag Panda",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P193": {
+   "name": "Anushka Pal",
+   "courses": [
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "PFP",
      "section": null
     }
    ]
@@ -1121,6 +4524,31 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P196": {
+   "name": "Vaibhav Gupta",
+   "courses": [
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
   "25P197": {
    "name": "Arnav Jain",
    "courses": [
@@ -1143,6 +4571,31 @@ window.TT_DATA_T5 = {
     {
      "course": "RMBFI",
      "section": null
+    }
+   ]
+  },
+  "25P198": {
+   "name": "Ashish Chawla",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
     }
    ]
   },
@@ -1171,6 +4624,56 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P200": {
+   "name": "Ayush Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P201": {
+   "name": "Ayushi Singh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
   "25P202": {
    "name": "Bhavay Aggarwal",
    "courses": [
@@ -1192,6 +4695,131 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P203": {
+   "name": "Damini Sinha",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P204": {
+   "name": "Darshan Rao",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P205": {
+   "name": "Devansh Varshney",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P207": {
+   "name": "Eshani Agarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
+  "25P208": {
+   "name": "Geetika Yadav",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "RMBFI",
      "section": null
     }
    ]
@@ -1221,6 +4849,81 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P210": {
+   "name": "Juhi Magan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P211": {
+   "name": "Junaid Raza Khan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P212": {
+   "name": "Kunal Aggarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
   "25P213": {
    "name": "Kushal Saboo",
    "courses": [
@@ -1246,6 +4949,106 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P214": {
+   "name": "Manmeet Singh Rekhi",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P215": {
+   "name": "Manvendra Singh Shekhawat",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P216": {
+   "name": "Nihar Mehta",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P217": {
+   "name": "Paladugu Sai Krishna",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
   "25P218": {
    "name": "Parth Shethji",
    "courses": [
@@ -1268,6 +5071,206 @@ window.TT_DATA_T5 = {
     {
      "course": "SO",
      "section": "A"
+    }
+   ]
+  },
+  "25P219": {
+   "name": "Pranav Kakkar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P220": {
+   "name": "Pranav Shrotriy",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P221": {
+   "name": "Rahul Jadhav",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P223": {
+   "name": "Intekhab Alam",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P224": {
+   "name": "Rishabh Rathore",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P225": {
+   "name": "Rishav Srivastava",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P227": {
+   "name": "Samiksha Roongta",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P228": {
+   "name": "Sanjana Suresh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
     }
    ]
   },
@@ -1329,6 +5332,10 @@ window.TT_DATA_T5 = {
      "section": null
     },
     {
+     "course": "BS",
+     "section": "B"
+    },
+    {
      "course": "LMGB",
      "section": null
     },
@@ -1339,10 +5346,85 @@ window.TT_DATA_T5 = {
     {
      "course": "NLPB",
      "section": null
+    }
+   ]
+  },
+  "25P235": {
+   "name": "Siddharth Goyal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
     },
     {
      "course": "SDT",
      "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P237": {
+   "name": "Sidhdhesh Modi",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P238": {
+   "name": "Soumya Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
     }
    ]
   },
@@ -1396,6 +5478,81 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P242": {
+   "name": "Swastik Bagria",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P243": {
+   "name": "Tanishq Jhamb",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P244": {
+   "name": "Tanvi Kothari",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
   "25P245": {
    "name": "Uday Parakh",
    "courses": [
@@ -1418,6 +5575,160 @@ window.TT_DATA_T5 = {
     {
      "course": "SO",
      "section": "A"
+    }
+   ]
+  },
+  "25P246": {
+   "name": "Vaibhav Sareen",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P247": {
+   "name": "Vedant Maheshwari",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P250": {
+   "name": "Abhishek Mishra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P253": {
+   "name": "Aditya Beri",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P254": {
+   "name": "Anushka Arora",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P255": {
+   "name": "Aryan Tomar",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
     }
    ]
   },
@@ -1446,6 +5757,56 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P257": {
+   "name": "Bhavya Manoj Dube",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P258": {
+   "name": "Bhavya Verma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
   "25P259": {
    "name": "Bipasha Sarkar",
    "courses": [
@@ -1468,6 +5829,181 @@ window.TT_DATA_T5 = {
     {
      "course": "SDT",
      "section": null
+    }
+   ]
+  },
+  "25P260": {
+   "name": "Dasari Sai Sagar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P261": {
+   "name": "Dibyashekhar Bhattamishra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
+  "25P262": {
+   "name": "Disha Khandelwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P265": {
+   "name": "Ishita Saluja",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P266": {
+   "name": "Jatin Gupta",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P267": {
+   "name": "Jayant Mukhi",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P268": {
+   "name": "Kanishk Rao",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
     }
    ]
   },
@@ -1521,6 +6057,56 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P271": {
+   "name": "Lalit Krishna Samantray",
+   "courses": [
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P272": {
+   "name": "Mayank Kumar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
   "25P273": {
    "name": "Mihir Singh",
    "courses": [
@@ -1537,12 +6123,62 @@ window.TT_DATA_T5 = {
      "section": null
     },
     {
+     "course": "IN",
+     "section": "B"
+    },
+    {
      "course": "MDT",
+     "section": null
+    }
+   ]
+  },
+  "25P274": {
+   "name": "Naman Agarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SM",
      "section": null
     },
     {
-     "course": "SDW",
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P275": {
+   "name": "Nishant Boloor",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
      "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
     }
    ]
   },
@@ -1563,6 +6199,31 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "SDW",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P278": {
+   "name": "Pratham Goel",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
      "section": null
     },
     {
@@ -1621,162 +6282,12 @@ window.TT_DATA_T5 = {
     }
    ]
   },
-  "25P297": {
-   "name": "Sparsh Gupta",
+  "25P282": {
+   "name": "Rohan Singh",
    "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
     {
      "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P301": {
-   "name": "Tarun Sarkar",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P305": {
-   "name": "Vajra Bhagwat",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P309": {
-   "name": "Yashasvi Raina",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P315": {
-   "name": "Angad Singh Pental",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "IN",
      "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P322": {
-   "name": "Aryan Gupta",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P324": {
-   "name": "Bhiragatheesh Varun M V",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
     },
     {
      "course": "BS",
@@ -1787,57 +6298,7 @@ window.TT_DATA_T5 = {
      "section": "B"
     },
     {
-     "course": "PSF",
-     "section": null
-    },
-    {
      "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P326": {
-   "name": "Devanshu Agrawal",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P327": {
-   "name": "Divanshu Gaur",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SDT",
      "section": null
     },
     {
@@ -1846,174 +6307,16 @@ window.TT_DATA_T5 = {
     }
    ]
   },
-  "25P336": {
-   "name": "Manav Sehgal",
+  "25P283": {
+   "name": "Rohit",
    "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
     {
      "course": "BRM",
      "section": "C"
     },
     {
      "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IM",
-     "section": null
-    }
-   ]
-  },
-  "25P342": {
-   "name": "Pranjal Bansal",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "IN",
      "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P354": {
-   "name": "Shaurya Tibrewala",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P360": {
-   "name": "Sukumar Alias Sanit Joshi",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P361": {
-   "name": "Swadit Hiten Chandan",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P364": {
-   "name": "Tirtharaj Chakraborty",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P366": {
-   "name": "Vansh Fatehpuria",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
     },
     {
      "course": "OG",
@@ -2022,1418 +6325,10 @@ window.TT_DATA_T5 = {
     {
      "course": "PFP",
      "section": null
-    }
-   ]
-  },
-  "25P367": {
-   "name": "Vanshika Malhotra",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P368": {
-   "name": "Vasu Singla",
-   "courses": [
-    {
-     "course": "BFBV",
-     "section": null
-    },
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P005": {
-   "name": "Aditya Ved Narayan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P006": {
-   "name": "Akshad Bhandula",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P007": {
-   "name": "Anand Pokharna",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P009": {
-   "name": "Aryan Bardoh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    }
-   ]
-  },
-  "25P010": {
-   "name": "Ashish Tiwari",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P018": {
-   "name": "Divyanshu Bajaj",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P022": {
-   "name": "Karthic Sathyapalan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
     },
     {
      "course": "SO",
      "section": "B"
-    }
-   ]
-  },
-  "25P023": {
-   "name": "Kartik Shrivastava",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P024": {
-   "name": "Kedareshwar Rao",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P025": {
-   "name": "Ayush Kumar Jha",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    }
-   ]
-  },
-  "25P032": {
-   "name": "Naman Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P033": {
-   "name": "Navya Purwar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P035": {
-   "name": "Nija K Manomohan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P039": {
-   "name": "Parth Jain",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P044": {
-   "name": "Rohan Dayal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P048": {
-   "name": "Sankalp Gupta",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P052": {
-   "name": "Shreya Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    }
-   ]
-  },
-  "25P053": {
-   "name": "Smiti Mehrotra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P056": {
-   "name": "Taara Rakhi Dhawan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P063": {
-   "name": "Abhinav Singh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P066": {
-   "name": "Adya Kuchhal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P069": {
-   "name": "Aman Raghav",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P070": {
-   "name": "Anmol Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P074": {
-   "name": "Balaji Vaasan V",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    }
-   ]
-  },
-  "25P077": {
-   "name": "Debarati Pal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P090": {
-   "name": "Nabh Gupta",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P105": {
-   "name": "Sambhvya Pandey",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P110": {
-   "name": "Shibasish Shaw",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P115": {
-   "name": "Sparsh Singhal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P122": {
-   "name": "Vidarbh Agarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P125": {
-   "name": "Binit Bisht",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P130": {
-   "name": "Akshay Malik",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P133": {
-   "name": "Ammish Tandon",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    }
-   ]
-  },
-  "25P137": {
-   "name": "Ayush Sindhi",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P153": {
-   "name": "Kushagra Ranjan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P165": {
-   "name": "Radha Pankaj Khut",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P167": {
-   "name": "Raksha Lalwani",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P172": {
-   "name": "Sahil Shah",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P173": {
-   "name": "Sayan Dey",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P177": {
-   "name": "Shreyash Royzada",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P192": {
-   "name": "Anurag Panda",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P201": {
-   "name": "Ayushi Singh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P207": {
-   "name": "Eshani Agarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P211": {
-   "name": "Junaid Raza Khan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P212": {
-   "name": "Kunal Aggarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P215": {
-   "name": "Manvendra Singh Shekhawat",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P224": {
-   "name": "Rishabh Rathore",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P227": {
-   "name": "Samiksha Roongta",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P228": {
-   "name": "Sanjana Suresh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P246": {
-   "name": "Vaibhav Sareen",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P253": {
-   "name": "Aditya Beri",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P254": {
-   "name": "Anushka Arora",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P262": {
-   "name": "Disha Khandelwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P272": {
-   "name": "Mayank Kumar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
     }
    ]
   },
@@ -3459,6 +6354,110 @@ window.TT_DATA_T5 = {
     {
      "course": "OG",
      "section": "A"
+    }
+   ]
+  },
+  "25P285": {
+   "name": "Saksham Garg",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P287": {
+   "name": "Sarthak Moudgil",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P288": {
+   "name": "Saumya Mishra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "B"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P289": {
+   "name": "Sebi A Joseph",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
     }
    ]
   },
@@ -3537,6 +6536,31 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P293": {
+   "name": "Simarpreet Singh",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
   "25P294": {
    "name": "Simran Khatter",
    "courses": [
@@ -3559,1222 +6583,6 @@ window.TT_DATA_T5 = {
     {
      "course": "SM",
      "section": null
-    }
-   ]
-  },
-  "25P298": {
-   "name": "Subhojit Misra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P300": {
-   "name": "Susmita Basu",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P303": {
-   "name": "Tushar Pani",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    }
-   ]
-  },
-  "25P314": {
-   "name": "Akriti Arora",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    }
-   ]
-  },
-  "25P318": {
-   "name": "Arman Kapoor",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P320": {
-   "name": "Aryamaan Abhijit Phadnis",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P347": {
-   "name": "Sakshi Agarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P356": {
-   "name": "Shruti Jain",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P358": {
-   "name": "Soham Kar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P369": {
-   "name": "Vedashish Upadhyay",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P370": {
-   "name": "Vishakha Chauhan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "A"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P011": {
-   "name": "Ayushi Goel",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P015": {
-   "name": "Devansh Goenka",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P017": {
-   "name": "Divyansh Chaudhary",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P020": {
-   "name": "Hritam Kanjilal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P042": {
-   "name": "Purushottam Jaiswal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P057": {
-   "name": "Tarushee Agarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P061": {
-   "name": "Yashika Balwani",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P071": {
-   "name": "Anugun Raina",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P080": {
-   "name": "Divyam Dutta",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P096": {
-   "name": "Parinishtha Jindal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P097": {
-   "name": "Ravi Singh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P103": {
-   "name": "Sahil Sagar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P116": {
-   "name": "Tamanna Bansal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P148": {
-   "name": "Jay Mehta",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P180": {
-   "name": "Utkarsh Agarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P189": {
-   "name": "Aditya Senapati",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P191": {
-   "name": "Anuj Rohit Somani",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P198": {
-   "name": "Ashish Chawla",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P200": {
-   "name": "Ayush Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P205": {
-   "name": "Devansh Varshney",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P210": {
-   "name": "Juhi Magan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P217": {
-   "name": "Paladugu Sai Krishna",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P219": {
-   "name": "Pranav Kakkar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P220": {
-   "name": "Pranav Shrotriy",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P223": {
-   "name": "Intekhab Alam",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P225": {
-   "name": "Rishav Srivastava",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P235": {
-   "name": "Siddharth Goyal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P238": {
-   "name": "Soumya Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P247": {
-   "name": "Vedant Maheshwari",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P250": {
-   "name": "Abhishek Mishra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P260": {
-   "name": "Dasari Sai Sagar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P267": {
-   "name": "Jayant Mukhi",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P268": {
-   "name": "Kanishk Rao",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P274": {
-   "name": "Naman Agarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P275": {
-   "name": "Nishant Boloor",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P278": {
-   "name": "Pratham Goel",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P282": {
-   "name": "Rohan Singh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "B"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
     }
    ]
   },
@@ -4828,6 +6636,131 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P297": {
+   "name": "Sparsh Gupta",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
+  "25P298": {
+   "name": "Subhojit Misra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P299": {
+   "name": "Sujal Pruthi",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P300": {
+   "name": "Susmita Basu",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P301": {
+   "name": "Tarun Sarkar",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
   "25P302": {
    "name": "Tathagata Pal",
    "courses": [
@@ -4849,6 +6782,56 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P303": {
+   "name": "Tushar Pani",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    }
+   ]
+  },
+  "25P305": {
+   "name": "Vajra Bhagwat",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SM",
      "section": null
     }
    ]
@@ -4878,6 +6861,85 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P308": {
+   "name": "Vidhi Garg",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P309": {
+   "name": "Yashasvi Raina",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
+  "25P310": {
+   "name": "Rithima Kant",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
   "25P311": {
    "name": "Aakash Shinde",
    "courses": [
@@ -4890,16 +6952,16 @@ window.TT_DATA_T5 = {
      "section": "A"
     },
     {
-     "course": "PFP",
-     "section": null
-    },
-    {
      "course": "PSF",
      "section": null
     },
     {
      "course": "SDW",
      "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
     }
    ]
   },
@@ -4928,6 +6990,81 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P313": {
+   "name": "Akash Gupta",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SDT",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P314": {
+   "name": "Akriti Arora",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    }
+   ]
+  },
+  "25P315": {
+   "name": "Angad Singh Pental",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
   "25P316": {
    "name": "Anurag Sarkar",
    "courses": [
@@ -4953,6 +7090,106 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P317": {
+   "name": "Anurup De",
+   "courses": [
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
+    }
+   ]
+  },
+  "25P318": {
+   "name": "Arman Kapoor",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "IM",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P319": {
+   "name": "Arnima Sharma",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P320": {
+   "name": "Aryamaan Abhijit Phadnis",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
   "25P321": {
    "name": "Aryaman Dubey",
    "courses": [
@@ -4971,6 +7208,119 @@ window.TT_DATA_T5 = {
     {
      "course": "OG",
      "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P322": {
+   "name": "Aryan Gupta",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    }
+   ]
+  },
+  "25P323": {
+   "name": "Aryan Singh",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    }
+   ]
+  },
+  "25P324": {
+   "name": "Bhiragatheesh Varun M V",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P326": {
+   "name": "Devanshu Agrawal",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P327": {
+   "name": "Divanshu Gaur",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SDT",
+     "section": null
     },
     {
      "course": "SO",
@@ -5053,6 +7403,31 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P336": {
+   "name": "Manav Sehgal",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IM",
+     "section": null
+    }
+   ]
+  },
   "25P337": {
    "name": "Marmik",
    "courses": [
@@ -5078,6 +7453,31 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P339": {
+   "name": "Naman Dhingra",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
   "25P340": {
    "name": "Paridhi Porwal",
    "courses": [
@@ -5099,6 +7499,31 @@ window.TT_DATA_T5 = {
     },
     {
      "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P342": {
+   "name": "Pranjal Bansal",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "PSF",
      "section": null
     }
    ]
@@ -5128,6 +7553,56 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P346": {
+   "name": "Saijal Bhalla",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    }
+   ]
+  },
+  "25P347": {
+   "name": "Sakshi Agarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
   "25P348": {
    "name": "Saloni Singhal",
    "courses": [
@@ -5153,6 +7628,31 @@ window.TT_DATA_T5 = {
     }
    ]
   },
+  "25P349": {
+   "name": "Sanjeevni Khanna",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "MVW",
+     "section": null
+    }
+   ]
+  },
   "25P350": {
    "name": "Sarthak Gupta",
    "courses": [
@@ -5169,12 +7669,41 @@ window.TT_DATA_T5 = {
      "section": null
     },
     {
-     "course": "IM",
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "MVW",
      "section": null
+    }
+   ]
+  },
+  "25P351": {
+   "name": "Sarthak Sanjay Aggarwal",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "D"
+    },
+    {
+     "course": "BS",
+     "section": "C"
     },
     {
      "course": "IN",
-     "section": "A"
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    },
+    {
+     "course": "PFP",
+     "section": null
     }
    ]
   },
@@ -5192,6 +7721,181 @@ window.TT_DATA_T5 = {
     {
      "course": "CRM",
      "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P354": {
+   "name": "Shaurya Tibrewala",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P355": {
+   "name": "Shrasthi Gupta",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "NLPB",
+     "section": null
+    }
+   ]
+  },
+  "25P356": {
+   "name": "Shruti Jain",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
+    }
+   ]
+  },
+  "25P358": {
+   "name": "Soham Kar",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    }
+   ]
+  },
+  "25P359": {
+   "name": "Stuti Adlakha",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    },
+    {
+     "course": "SO",
+     "section": "B"
+    }
+   ]
+  },
+  "25P360": {
+   "name": "Sukumar Alias Sanit Joshi",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "SM",
+     "section": null
+    }
+   ]
+  },
+  "25P361": {
+   "name": "Swadit Hiten Chandan",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "B"
     },
     {
      "course": "OG",
@@ -5228,2376 +7932,6 @@ window.TT_DATA_T5 = {
     }
    ]
   },
-  "25P045": {
-   "name": "Rushi Bhalerao",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P051": {
-   "name": "Shubh Bhawnani",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P058": {
-   "name": "Tirth Shah",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P102": {
-   "name": "Sachdev Darshit Manishkumar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P108": {
-   "name": "Shaurya Jain",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P113": {
-   "name": "Siddhansh Jain",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P118": {
-   "name": "Tushar Gulati",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    }
-   ]
-  },
-  "25P129": {
-   "name": "Akshat Bansal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P146": {
-   "name": "Jaisuryank Purwar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P147": {
-   "name": "Jashan Sameer Khandwala",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P149": {
-   "name": "Khushi Rissam",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P158": {
-   "name": "Nikhil Umraskar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P174": {
-   "name": "Shankaranarayanan K",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P203": {
-   "name": "Damini Sinha",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P243": {
-   "name": "Tanishq Jhamb",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P244": {
-   "name": "Tanvi Kothari",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P261": {
-   "name": "Dibyashekhar Bhattamishra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P283": {
-   "name": "Rohit",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P299": {
-   "name": "Sujal Pruthi",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P310": {
-   "name": "Rithima Kant",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    }
-   ]
-  },
-  "25P319": {
-   "name": "Arnima Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P323": {
-   "name": "Aryan Singh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    }
-   ]
-  },
-  "25P339": {
-   "name": "Naman Dhingra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P346": {
-   "name": "Saijal Bhalla",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    }
-   ]
-  },
-  "25P349": {
-   "name": "Sanjeevni Khanna",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "C"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    }
-   ]
-  },
-  "25P008": {
-   "name": "Anika Sah",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P014": {
-   "name": "Chandan Jyoti Biswal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P019": {
-   "name": "Elizabeth James",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P030": {
-   "name": "Mayank Chaudhary",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P034": {
-   "name": "Nayan Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P041": {
-   "name": "Piyush Bhagat",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P043": {
-   "name": "Rachit Singh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P047": {
-   "name": "Sandipta Sundar Sahu",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P050": {
-   "name": "Saumya Somra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P054": {
-   "name": "Sohan S B",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P060": {
-   "name": "Yagyant Thacker",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P067": {
-   "name": "Akshaj Grover",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P068": {
-   "name": "Akshit Mathur",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P073": {
-   "name": "Aviral Bishnoi",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P078": {
-   "name": "Dushyant Tyagi",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P081": {
-   "name": "Harsh Kanodia",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P082": {
-   "name": "Himanka Parashar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P099": {
-   "name": "Rishabh Bharadwaj",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P101": {
-   "name": "Rohan Sharma",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P104": {
-   "name": "Saketh Gudi",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P107": {
-   "name": "Sharv Dumbre",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P111": {
-   "name": "Shishir Mishra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P120": {
-   "name": "Vaibhav Panwar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P123": {
-   "name": "Yashika Kaushik",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P124": {
-   "name": "Yuvraj Mann",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P131": {
-   "name": "Amanjeet Pani",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P136": {
-   "name": "Arman Arora",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P144": {
-   "name": "Umang Kumar Singh",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P150": {
-   "name": "Kirti Agarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P155": {
-   "name": "Naval Bansal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P160": {
-   "name": "Pranjal Kaushik",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P164": {
-   "name": "Priyanshu Bharti",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P166": {
-   "name": "Radhavinod R Kamath",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P168": {
-   "name": "Rishika Sushil",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P175": {
-   "name": "Shashank R Chandra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    }
-   ]
-  },
-  "25P176": {
-   "name": "Shreyas Goverdhan",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P179": {
-   "name": "Tarun Pundalik Raikar",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P182": {
-   "name": "Vinayak Varshney",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P185": {
-   "name": "Vivek Shukla",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P186": {
-   "name": "Yash Bohra",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P204": {
-   "name": "Darshan Rao",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P208": {
-   "name": "Geetika Yadav",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    }
-   ]
-  },
-  "25P265": {
-   "name": "Ishita Saluja",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P266": {
-   "name": "Jatin Gupta",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P308": {
-   "name": "Vidhi Garg",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P351": {
-   "name": "Sarthak Sanjay Aggarwal",
-   "courses": [
-    {
-     "course": "BRM",
-     "section": "D"
-    },
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P003": {
-   "name": "Abhishek Kumar",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P037": {
-   "name": "Nischay Vij",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P091": {
-   "name": "Nihanshu Mulkalwar",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P128": {
-   "name": "Aditya Chopra",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P139": {
-   "name": "Chigullapalli Rakshith",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    }
-   ]
-  },
-  "25P181": {
-   "name": "Utkarsh Jha",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P242": {
-   "name": "Swastik Bagria",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P313": {
-   "name": "Akash Gupta",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P355": {
-   "name": "Shrasthi Gupta",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P371": {
-   "name": "Vishwajeet Singh Shekhawat",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "A"
-    },
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    }
-   ]
-  },
-  "25P062": {
-   "name": "Yuvraj Pradyumna",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SDW",
-     "section": null
-    }
-   ]
-  },
-  "25P214": {
-   "name": "Manmeet Singh Rekhi",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "B"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PSF",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
-  "25P016": {
-   "name": "Diplav Singh",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P031": {
-   "name": "Mishika Bansal",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P065": {
-   "name": "Aditya Kumar Jha",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P112": {
-   "name": "Shivam Gera",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P134": {
-   "name": "Anjali Singhal",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    }
-   ]
-  },
-  "25P145": {
-   "name": "Hemang Agarwal",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P151": {
-   "name": "Koustav Pan",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "B"
-    }
-   ]
-  },
-  "25P221": {
-   "name": "Rahul Jadhav",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "GEES",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "RMBFI",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    }
-   ]
-  },
-  "25P237": {
-   "name": "Sidhdhesh Modi",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P255": {
-   "name": "Aryan Tomar",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P257": {
-   "name": "Bhavya Manoj Dube",
-   "courses": [
-    {
-     "course": "BS",
-     "section": "C"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "A"
-    }
-   ]
-  },
   "25P363": {
    "name": "Tanmay Taneja",
    "courses": [
@@ -7623,189 +7957,32 @@ window.TT_DATA_T5 = {
     }
    ]
   },
-  "25P193": {
-   "name": "Anushka Pal",
+  "25P364": {
+   "name": "Tirtharaj Chakraborty",
    "courses": [
     {
-     "course": "CRM",
+     "course": "BFBV",
      "section": null
     },
     {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    }
-   ]
-  },
-  "25P271": {
-   "name": "Lalit Krishna Samantray",
-   "courses": [
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "SM",
-     "section": null
-    }
-   ]
-  },
-  "25P285": {
-   "name": "Saksham Garg",
-   "courses": [
-    {
-     "course": "CRM",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "MVW",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
+     "course": "BS",
      "section": "A"
-    }
-   ]
-  },
-  "25P100": {
-   "name": "Ritika Lath",
-   "courses": [
-    {
-     "course": "IM",
-     "section": null
-    },
-    {
-     "course": "IN",
-     "section": "B"
-    },
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "NLPB",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P029": {
-   "name": "Mathews Benny",
-   "courses": [
-    {
-     "course": "IN",
-     "section": "B"
-    }
-   ]
-  },
-  "25P040": {
-   "name": "Shivangi Pandey",
-   "courses": [
-    {
-     "course": "IN",
-     "section": "B"
-    }
-   ]
-  },
-  "25P154": {
-   "name": "Lakshit",
-   "courses": [
-    {
-     "course": "IN",
-     "section": "B"
-    }
-   ]
-  },
-  "25P159": {
-   "name": "Prajjwal Raj",
-   "courses": [
-    {
-     "course": "IN",
-     "section": "B"
-    }
-   ]
-  },
-  "25P012": {
-   "name": "Balaji Radheshyamji Lahoti",
-   "courses": [
-    {
-     "course": "LMGB",
-     "section": null
-    },
-    {
-     "course": "MDT",
-     "section": null
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
-     "section": "B"
-    }
-   ]
-  },
-  "25P196": {
-   "name": "Vaibhav Gupta",
-   "courses": [
-    {
-     "course": "MDT",
-     "section": null
     },
     {
      "course": "OG",
-     "section": "A"
-    },
-    {
-     "course": "PFP",
-     "section": null
-    },
-    {
-     "course": "SDT",
-     "section": null
-    },
-    {
-     "course": "SO",
      "section": "B"
+    },
+    {
+     "course": "PSF",
+     "section": null
+    },
+    {
+     "course": "RMBFI",
+     "section": null
+    },
+    {
+     "course": "SDW",
+     "section": null
     }
    ]
   },
@@ -7834,12 +8011,153 @@ window.TT_DATA_T5 = {
     }
    ]
   },
-  "25P289": {
-   "name": "Sebi A Joseph",
+  "25P366": {
+   "name": "Vansh Fatehpuria",
    "courses": [
     {
-     "course": "PSF",
+     "course": "BFBV",
      "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "PFP",
+     "section": null
+    }
+   ]
+  },
+  "25P367": {
+   "name": "Vanshika Malhotra",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P368": {
+   "name": "Vasu Singla",
+   "courses": [
+    {
+     "course": "BFBV",
+     "section": null
+    },
+    {
+     "course": "BRM",
+     "section": "C"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    },
+    {
+     "course": "SO",
+     "section": "A"
+    }
+   ]
+  },
+  "25P369": {
+   "name": "Vedashish Upadhyay",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "C"
+    },
+    {
+     "course": "IN",
+     "section": "B"
+    },
+    {
+     "course": "LMGB",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P370": {
+   "name": "Vishakha Chauhan",
+   "courses": [
+    {
+     "course": "BRM",
+     "section": "A"
+    },
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "MVW",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
+    }
+   ]
+  },
+  "25P371": {
+   "name": "Vishwajeet Singh Shekhawat",
+   "courses": [
+    {
+     "course": "BS",
+     "section": "A"
+    },
+    {
+     "course": "CRM",
+     "section": null
+    },
+    {
+     "course": "GEES",
+     "section": null
+    },
+    {
+     "course": "MDT",
+     "section": null
+    },
+    {
+     "course": "OG",
+     "section": "A"
     }
    ]
   }
