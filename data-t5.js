@@ -454,7 +454,7 @@ window.TT_DATA_T5 = {
     },
     {
      "day": "Friday",
-     "slot": 1,
+     "slot": 2,
      "details": "G-11 (SHG)"
     }
    ]
@@ -482,7 +482,7 @@ window.TT_DATA_T5 = {
     },
     {
      "day": "Friday",
-     "slot": 0,
+     "slot": 1,
      "details": "G-14 (MKS)"
     }
    ]
